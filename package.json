@@ -4,7 +4,8 @@
   "description": "Team breadcakes tech skills app",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest",
+    "prepare": "husky install"
   },
   "repository": {
     "type": "git",
@@ -22,13 +23,15 @@
     "@typescript-eslint/parser": "^5.2.0",
     "eslint": "^7.32.0",
     "eslint-config-airbnb": "^18.2.1",
+    "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-import": "^2.25.2",
+    "eslint-plugin-jest": "^25.2.2",
     "eslint-plugin-jsx-a11y": "^6.4.1",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "^7.26.1",
     "eslint-plugin-react-hooks": "^4.2.0",
-    "prettier": "^2.4.1",
-    "eslint-config-prettier": "^8.3.0"
-  },
-  "dependencies": {}
+    "husky": "^7.0.4",
+    "jest": "^27.3.1",
+    "prettier": "^2.4.1"
+  }
 }
