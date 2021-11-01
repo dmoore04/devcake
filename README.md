@@ -1,2 +1,2 @@
-# proj-bread-app
+# DevCake 🍰
 Team breadcakes tech skills app
