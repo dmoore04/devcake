@@ -15,9 +15,9 @@
     "description": "returns a specific user document"
   },
   "GET /content": {
-    "description": "returns an array of content documents"
+    "description": "retur ns an array of content documents"
   },
-  "GET /content/:content_id" {
+  "GET /content/:content_id": {
     "description": "returns a specific piece of content"
   }
 }
