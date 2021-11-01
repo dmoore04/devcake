@@ -17,7 +17,7 @@
   "GET /content": {
     "description": "returns an array of content documents"
   },
-  "GET /content/:content_id" {
+  "GET /content/:content_id": {
     "description": "returns a specific piece of content"
   }
 }
