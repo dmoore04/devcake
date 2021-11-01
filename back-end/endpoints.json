@@ -1,5 +1,23 @@
 {
   "GET /api": {
     "description": "serves up a json representation of all the available endpoints of the api"
+  },
+  "POST /users": {
+    "description": "writes a new user into the database and returns the new user document"
+  },
+  "PATCH /users/:user_id": {
+    "description": "updates a user document and returns the updated version"
+  },
+  "GET /users": {
+    "description": "serves an array of all user documents"
+  },
+  "GET /users/:user_id": {
+    "description": "returns a specific user document"
+  },
+  "GET /content": {
+    "description": "returns an array of content documents"
+  },
+  "GET /content/:content_id" {
+    "description": "returns a specific piece of content"
   }
 }
