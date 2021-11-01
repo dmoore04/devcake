@@ -19,5 +19,11 @@
   },
   "GET /content/:content_id": {
     "description": "returns a specific piece of content"
+  },
+  "GET /topics": {
+    "description": "returns a list of all topic documents"
+  },
+  "GET /topics/:topic_id": {
+    "description": "returns a specific topic document"
   }
 }
