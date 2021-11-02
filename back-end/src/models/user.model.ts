@@ -1,6 +1,4 @@
 import { getModelForClass, prop, Ref } from '@typegoose/typegoose';
-import { Topic } from './topic.model';
-import { Media } from './media.model';
 import { Content } from './content.model';
 
 export class User {
@@ -16,11 +14,11 @@ export class User {
   @prop({ required: true })
   private password!: string;
 
-  @prop({ type: () => Topic, default: [] })
-  public topics?: Topic[];
+  @prop({ default: [] })
+  public topics?: string[];
 
-  @prop({ type: () => Media, default: [] })
-  public media?: Media[];
+  @prop({ default: [] })
+  public media?: string[];
 
   @prop({ ref: () => Content, default: [] })
   public saved?: Ref<Content>[];

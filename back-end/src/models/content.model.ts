@@ -1,7 +1,4 @@
 import { getModelForClass, prop } from '@typegoose/typegoose';
-import { Media } from './media.model';
-import { Provider } from './provider.model';
-import { Topic } from './topic.model';
 
 export class Content {
   @prop({ required: true })
@@ -10,14 +7,14 @@ export class Content {
   @prop({ required: true })
   url!: string;
 
-  @prop({ type: () => Provider, required: true })
-  provider!: Provider[];
+  @prop({ required: true })
+  provider!: string[];
 
-  @prop({ type: () => Media, required: true })
-  media!: Media[];
+  @prop({ required: true })
+  type!: string[];
 
-  @prop({ type: () => Topic, required: true })
-  topic!: Topic[];
+  @prop({ required: true })
+  topic!: string;
 
   @prop()
   desc?: string;
