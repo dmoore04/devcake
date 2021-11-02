@@ -6,7 +6,7 @@
   "scripts": {
     "test": "NODE_ENV=test jest",
     "prepare": "husky install",
-    "start:dev": "ts-node-dev --respawn --transpile-only src/app.ts"
+    "start:dev": "ts-node-dev --respawn --transpile-only src/listen.ts"
   },
   "repository": {
     "type": "git",
