@@ -4,8 +4,8 @@
     "email": "john@johnmail.john",
     "password": "johnpass",
     "passwordConfirmation": "johnpass",
-    "topics": ["JohnScript", "JohngoDB"],
-    "media": ["Johncasts"],
+    "topics": ["javascript", "mongodb"],
+    "media": ["podcasts"],
     "saved": ["617ffbea8bae4425133b1fe5"],
     "username": "j0hntr0n"
   },
