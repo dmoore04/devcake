@@ -40,5 +40,19 @@
     "imgUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Node.js_logo.svg/220px-Node.js_logo.svg.png",
     "slug": "nodejs",
     "popularity": 33.91
+  },
+  {
+    "name": "Typescript",
+    "desc": "TypeScript is a programming language developed and maintained by Microsoft. It is a strict syntactical superset of JavaScript and adds optional static typing to the language.",
+    "imgUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Typescript_logo_2020.svg/64px-Typescript_logo_2020.svg.png",
+    "slug": "typescript",
+    "popularity": 30.19
+  },
+  {
+    "name": "C#",
+    "desc": "C# is a multi-purpose computer programming language suitable for a wide variety of development needs.",
+    "imgUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/C_Sharp_wordmark.svg/100px-C_Sharp_wordmark.svg.png",
+    "slug": "c#",
+    "popularity": 27.86
   }
 ]
