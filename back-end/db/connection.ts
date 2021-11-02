@@ -2,7 +2,7 @@ import mongoose from 'mongoose';
 import config from 'config';
 import logger from '../src/utils/logger';
 
-async function connect() {
+export async function connect() {
   const dbUri = config.get<string>(`${process.env.NODE_ENV || 'dev'}Uri`);
   try {
     await mongoose.connect(dbUri);
@@ -13,4 +13,12 @@ async function connect() {
   }
 }
 
-export default connect;
+export async function disconnect() {
+  try {
+    await mongoose.disconnect();
+    logger.info(`Disconnected from MongoDB.`);
+  } catch (error) {
+    logger.error(error);
+    process.exit(1);
+  }
+}
