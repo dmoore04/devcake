@@ -4,5 +4,6 @@ require('dotenv').config({
 
 export default {
   port: 3000,
-  dbUri: process.env.DB_URI,
+  devUri: process.env.DB_URI,
+  testUri: process.env.TEST_DB_URI,
 };

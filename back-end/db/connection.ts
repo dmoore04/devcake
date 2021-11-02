@@ -3,10 +3,10 @@ import config from 'config';
 import logger from '../src/utils/logger';
 
 async function connect() {
-  const dbUri = config.get<string>('dbUri');
+  const dbUri = config.get<string>(`${process.env.NODE_ENV || 'dev'}Uri`);
   try {
     await mongoose.connect(dbUri);
-    logger.info('Connected to db');
+    logger.info(`Connected to db: ${mongoose.connection.name}`);
   } catch (error) {
     logger.error(error);
     process.exit(1);
