@@ -32,7 +32,7 @@
     "url": "https://www.coursera.org/learn/web-application-development",
     "imgUrl": "https://s3.amazonaws.com/coursera-course-photos/bf/d0c2f03cf211e5a922adc5eaf6c043/MOOC-4.png",
     "provider": ["Coursera"],
-    "type": ["MOOC"],
+    "type": ["mooc"],
     "topic": "javascript"
   },
   {
@@ -41,7 +41,7 @@
     "url": "https://www.edx.org/course/programming-web-javascript-pennx-sd4x",
     "imgUrl": "https://prod-discovery.edx-cdn.org/media/course/image/dc921dbd-434a-4994-acde-1430679bca2e-5897fb1383ad.small.jpg",
     "provider": ["edX"],
-    "type": ["MOOC"],
+    "type": ["mooc"],
     "topic": "javascript"
   },
   {
@@ -50,7 +50,7 @@
     "url": "https://www.futurelearn.com/courses/learn-to-code-for-the-web",
     "imgUrl": "https://ugc.futurelearn.com/uploads/images/a6/2a/thumbnail_a62a5fb9-e83a-43ee-9217-4b941c887150.jpg",
     "provider": ["FutureLearn"],
-    "type": ["MOOC"],
+    "type": ["mooc"],
     "topic": "coding"
   },
   {
@@ -59,7 +59,7 @@
     "url": "https://www.getsmarter.com/courses/za/uct-data-science-with-python-short-course",
     "imgUrl": "https://cdn.www.getsmarter.com/uploads/course/banner_image/180/UCT-DSS-website-image-1296x432-645e15677f3acc85c4f6bac88895d42c.jpg",
     "provider": ["Getsmarter"],
-    "type": ["Distance Learning"],
+    "type": ["distance learning"],
     "topic": "python"
   },
   {
@@ -67,8 +67,8 @@
     "desc": "LearnCpp.com is a free website devoted to teaching you how to program in C++. Whether you’ve had any prior programming experience or not, the tutorials on this site will walk you through all the steps to write, compile, and debug your C++ programs, all with plenty of examples.",
     "url": "https://www.learncpp.com/",
     "imgUrl": "https://picturelo.s3.eu-west-3.amazonaws.com/provider/linkedinlearning/3linkedinlearning.png",
-    "provider": ["linkedinlearning"],
-    "type": ["MOOC"],
+    "provider": ["LinkedIn Learning"],
+    "type": ["mooc"],
     "topic": "c++"
   },
   {
@@ -77,7 +77,7 @@
     "url": "\"https://medium.com/mozilla-tech/why-rust-is-the-most-loved-language-by-developers-666add782563",
     "imgUrl": "https://miro.medium.com/1*Hv_ATAMyCJbz4BRn58AX6g.png",
     "provider": ["Medium"],
-    "type": ["Article"],
+    "type": ["article"],
     "topic": "rust"
   },
   {
@@ -86,7 +86,7 @@
     "url": "https://openclassrooms.com/en/courses/5265446-build-your-first-web-pages-with-html-and-css",
     "imgUrl": "https://course.oc-static.com/courses/5265446/5265446_teaser_picture_1563195047.jpg%3Fr%3Dpad",
     "provider": ["OpenClassrooms"],
-    "type": ["MOOC"],
+    "type": ["mooc"],
     "topic": "html/css"
   },
   {
@@ -95,7 +95,7 @@
     "url": "https://www.opensesame.com/c/design-patterns-using-c-and-net-core-15530",
     "imgUrl": "https://www.opensesame.com/system/files/styles/course_details_main_image/s3/images/9781788625258.png",
     "provider": ["OpenSesame"],
-    "type": ["Distance Learning"],
+    "type": ["distance learning"],
     "topic": "c#"
   },
   {
@@ -103,8 +103,17 @@
     "desc": "This book is Part I of a two-part set that introduces the Java programming language. The text assumes the student will be using the BlueJ development environment and provides some introductory BlueJ material. Our experience has been that BlueJ is easy to learn and provides a good programming environ...",
     "url": "https://open.umn.edu/opentextbooks/textbooks/java-with-bluej\"",
     "imgUrl": "https://open.umn.edu/opentextbooks/storage/representations/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBbkVCIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--e297ccc27a275c80cb0c0e2a4b805c40a89ca0b4/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCam9MY21WemFYcGxTU0lMT1RoNE1qQXdCam9HUlZRPSIsImV4cCI6bnVsbCwicHVyIjoidmFyaWF0aW9uIn19--0d7d5444fd3cef07650424add2baed2238869e12/0000JavWitBlu.png",
-    "provider": ["opentextbooklibrary"],
+    "provider": ["Open Textbook Library"],
     "type": ["book"],
     "topic": "java"
+  },
+  {
+    "title": "How Code School Uses SQL",
+    "desc": "\"By Pluralsight | April 10, 2015, It may not be obvious to all new developers, but SQL is an extremely important language. Almost every application on the web uses a database in some fashion.",
+    "url": "https://www.pluralsight.com/blog/software-development/code-school-uses-sql",
+    "imgUrl": "https://www.pluralsight.com/content/dam/pluralsight2/general/brand-photos/environment-overhead-008-hero.jpg",
+    "privider": ["Pluralsight"],
+    "type": ["article"],
+    "topic": "sql"
   }
 ]
