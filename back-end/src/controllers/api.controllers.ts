@@ -1,9 +1,9 @@
 import { Response, NextFunction, Request } from 'express';
-import fetchEndpoints from '../models/api.models';
+
+const endpoints: string = require('../endpoints.json');
 
 const sendEndpoints = async (req: Request, res: Response, next: NextFunction) => {
   try {
-    const endpoints: string = await fetchEndpoints();
     res.status(200).send({ endpoints });
   } catch (err) {
     next(err);
