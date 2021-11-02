@@ -5,7 +5,7 @@ export class Media {
   type!: string;
 
   @prop()
-  desc?: string;
+  description?: string;
 }
 
 export const MediaModel = getModelForClass(Media);
