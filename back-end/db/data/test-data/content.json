@@ -61,5 +61,50 @@
     "provider": ["Getsmarter"],
     "type": ["Distance Learning"],
     "topic": "python"
+  },
+  {
+    "title": "Learn C++ – Skill up with our free tutorials",
+    "desc": "LearnCpp.com is a free website devoted to teaching you how to program in C++. Whether you’ve had any prior programming experience or not, the tutorials on this site will walk you through all the steps to write, compile, and debug your C++ programs, all with plenty of examples.",
+    "url": "https://www.learncpp.com/",
+    "imgUrl": "https://picturelo.s3.eu-west-3.amazonaws.com/provider/linkedinlearning/3linkedinlearning.png",
+    "provider": ["linkedinlearning"],
+    "type": ["MOOC"],
+    "topic": "c++"
+  },
+  {
+    "title": "Why Rust is the Most Loved Language by Developers",
+    "desc": "The latest Stack Overflow survey confirms what we already knew here at Mozilla: Rust is the most loved language for developers with 73% of users saying they want to keep working with it.",
+    "url": "\"https://medium.com/mozilla-tech/why-rust-is-the-most-loved-language-by-developers-666add782563",
+    "imgUrl": "https://miro.medium.com/1*Hv_ATAMyCJbz4BRn58AX6g.png",
+    "provider": ["Medium"],
+    "type": ["Article"],
+    "topic": "rust"
+  },
+  {
+    "title": "Build Your First Web Pages With HTML and CSS",
+    "desc": "Learn to create your first web pages using HTML and CSS, the two most important languages on the web. No coding experience required!",
+    "url": "https://openclassrooms.com/en/courses/5265446-build-your-first-web-pages-with-html-and-css",
+    "imgUrl": "https://course.oc-static.com/courses/5265446/5265446_teaser_picture_1563195047.jpg%3Fr%3Dpad",
+    "provider": ["OpenClassrooms"],
+    "type": ["MOOC"],
+    "topic": "html/css"
+  },
+  {
+    "title": "Design Patterns Using C# and .NET Core",
+    "desc": "Design patterns are reusable solutions to common programming problems. They speed up the development process by providing tested, proven development paradigms.",
+    "url": "https://www.opensesame.com/c/design-patterns-using-c-and-net-core-15530",
+    "imgUrl": "https://www.opensesame.com/system/files/styles/course_details_main_image/s3/images/9781788625258.png",
+    "provider": ["OpenSesame"],
+    "type": ["Distance Learning"],
+    "topic": "c#"
+  },
+  {
+    "title": "Java with BlueJ",
+    "desc": "This book is Part I of a two-part set that introduces the Java programming language. The text assumes the student will be using the BlueJ development environment and provides some introductory BlueJ material. Our experience has been that BlueJ is easy to learn and provides a good programming environ...",
+    "url": "https://open.umn.edu/opentextbooks/textbooks/java-with-bluej\"",
+    "imgUrl": "https://open.umn.edu/opentextbooks/storage/representations/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBbkVCIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--e297ccc27a275c80cb0c0e2a4b805c40a89ca0b4/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCam9MY21WemFYcGxTU0lMT1RoNE1qQXdCam9HUlZRPSIsImV4cCI6bnVsbCwicHVyIjoidmFyaWF0aW9uIn19--0d7d5444fd3cef07650424add2baed2238869e12/0000JavWitBlu.png",
+    "provider": ["opentextbooklibrary"],
+    "type": ["book"],
+    "topic": "java"
   }
 ]
