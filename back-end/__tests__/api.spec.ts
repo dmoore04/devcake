@@ -1,12 +1,5 @@
 import request from 'supertest';
-import mongoose from 'mongoose';
 import app from '../src/app';
-import logger from '../src/utils/logger';
-
-afterAll(async () => {
-  await mongoose.connection.close();
-  logger.info('Disconnected from db');
-});
 
 describe('/api', () => {
   describe('GET', () => {
