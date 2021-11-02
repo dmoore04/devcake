@@ -7,13 +7,13 @@ export class Content {
   @prop({ required: true })
   url!: string;
 
-  @prop({ required: true })
+  @prop({ type: () => String, required: true })
   provider!: string[];
 
-  @prop({ required: true })
+  @prop({ type: () => String, required: true })
   type!: string[];
 
-  @prop({ required: true })
+  @prop({ type: () => String, required: true })
   topic!: string;
 
   @prop()

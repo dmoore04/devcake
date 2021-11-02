@@ -14,10 +14,10 @@ export class User {
   @prop({ required: true })
   private password!: string;
 
-  @prop({ default: [] })
+  @prop({ type: () => String, default: [] })
   public topics?: string[];
 
-  @prop({ default: [] })
+  @prop({ type: () => String, default: [] })
   public media?: string[];
 
   @prop({ ref: () => Content, default: [] })
