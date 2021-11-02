@@ -1,5 +1,6 @@
-import { getModelForClass, prop } from '@typegoose/typegoose';
+import { getModelForClass, modelOptions, prop } from '@typegoose/typegoose';
 
+@modelOptions({ schemaOptions: { collection: 'content' } })
 export class Content {
   @prop({ required: true })
   title!: string;
