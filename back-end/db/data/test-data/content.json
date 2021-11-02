@@ -1,0 +1,65 @@
+[
+  {
+    "title": "Head first JavaScript Programming: A brain-friendly guide",
+    "desc": "Provides information on scripting Web applications with JavaScript, including objects, functions, and the browser's document object model.",
+    "url": "https://www.amazon.com/dp/144934013X",
+    "imgUrl": "https://m.media-amazon.com/images/I/51qQTSKL2nL._AC_UY500_FMwebp_QL65_.jpg",
+    "provider": ["Amazon"],
+    "type": ["book"],
+    "topic": "javascript"
+  },
+  {
+    "title": "Source Code",
+    "desc": "Everything that matters in tech, in just a few minutes. The story of the day, the other news you need to know about, and analysis from the smartest people in the industry. Ready for you every morning.",
+    "url": "https://podcasts.apple.com/fr/podcast/source-code/id1497440658",
+    "imgUrl": "https://is3-ssl.mzstatic.com/image/thumb/Podcasts113/v4/ff/b2/03/ffb203ef-d9cb-4630-8882-a2232ef2e0ce/mza_13795905241203950507.jpg/400x400.png",
+    "provider": ["Apple Podcasts"],
+    "type": ["podcast"],
+    "topic": "coding"
+  },
+  {
+    "title": "Javascript Developer",
+    "desc": "JavaScript (JS) is a type of web programming language that is supported across all web browsers and tools, and is the language that gives JavaScript developers control and power to create, enhance and modify websites. About 1/3rd of all developer jobs require some JavaScript knowledge.",
+    "url": "https://www.careerexplorer.com/careers/javascript-developer",
+    "imgUrl": "https://res.cloudinary.com/hnpb47ejt/image/upload/c_fill,f_auto,h_160,q_auto,w_160/v1479149791/luqx0yxsish3cgjiaw3c.jpg",
+    "provider": ["CareerExplorer"],
+    "type": ["careers"],
+    "topic": "javascript"
+  },
+  {
+    "title": "Web Application Development with JavaScript and MongoDB",
+    "desc": "In this course, you will develop more advanced web application programming skills.",
+    "url": "https://www.coursera.org/learn/web-application-development",
+    "imgUrl": "https://s3.amazonaws.com/coursera-course-photos/bf/d0c2f03cf211e5a922adc5eaf6c043/MOOC-4.png",
+    "provider": ["Coursera"],
+    "type": ["MOOC"],
+    "topic": "javascript"
+  },
+  {
+    "title": "Programming for the Web with JavaScript",
+    "desc": null,
+    "url": "https://www.edx.org/course/programming-web-javascript-pennx-sd4x",
+    "imgUrl": "https://prod-discovery.edx-cdn.org/media/course/image/dc921dbd-434a-4994-acde-1430679bca2e-5897fb1383ad.small.jpg",
+    "provider": ["edX"],
+    "type": ["MOOC"],
+    "topic": "javascript"
+  },
+  {
+    "title": "Learn to Code for the Web",
+    "desc": "Experiment with coding in different programming languagesEver thought about learning how to code? Now's your chance to learn the languages of the future. On this course, you'll be introduced to the basics of code types.",
+    "url": "https://www.futurelearn.com/courses/learn-to-code-for-the-web",
+    "imgUrl": "https://ugc.futurelearn.com/uploads/images/a6/2a/thumbnail_a62a5fb9-e83a-43ee-9217-4b941c887150.jpg",
+    "provider": ["FutureLearn"],
+    "type": ["MOOC"],
+    "topic": "coding"
+  },
+  {
+    "title": "Data Science with Python online short course",
+    "desc": "Discover how to solve business problems using statistical learning as you work through the weekly modules of this online short course. ",
+    "url": "https://www.getsmarter.com/courses/za/uct-data-science-with-python-short-course",
+    "imgUrl": "https://cdn.www.getsmarter.com/uploads/course/banner_image/180/UCT-DSS-website-image-1296x432-645e15677f3acc85c4f6bac88895d42c.jpg",
+    "provider": ["Getsmarter"],
+    "type": ["Distance Learning"],
+    "topic": "python"
+  }
+]
