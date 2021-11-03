@@ -1,4 +1,6 @@
-const content = [
+import { Content } from '../../../src/models/content.model';
+
+const content: Content[] = [
   {
     title: 'Head first JavaScript Programming: A brain-friendly guide',
     desc: "Provides information on scripting Web applications with JavaScript, including objects, functions, and the browser's document object model.",
@@ -123,7 +125,7 @@ const content = [
     url: 'https://www.pluralsight.com/blog/software-development/code-school-uses-sql',
     imgUrl:
       'https://www.pluralsight.com/content/dam/pluralsight2/general/brand-photos/environment-overhead-008-hero.jpg',
-    privider: ['Pluralsight'],
+    provider: ['Pluralsight'],
     type: ['article'],
     topic: 'sql',
   },

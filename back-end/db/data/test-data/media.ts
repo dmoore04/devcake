@@ -1,4 +1,6 @@
-const media: { type: string; description: string }[] = [
+import { Media } from '../../../src/models/media.model';
+
+const media: Media[] = [
   {
     type: 'article',
     description:

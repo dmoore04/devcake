@@ -12,7 +12,7 @@ export class User {
   public username!: string;
 
   @prop({ required: true })
-  private password!: string;
+  public password!: string;
 
   @prop({ type: () => String, default: [] })
   public topics?: string[];

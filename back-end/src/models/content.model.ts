@@ -18,7 +18,7 @@ export class Content {
   topic!: string;
 
   @prop()
-  desc?: string;
+  desc?: string | null;
 
   @prop()
   imgUrl?: string;

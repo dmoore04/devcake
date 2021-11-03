@@ -1,9 +1,10 @@
-const users = [
+import { User } from '../../../src/models/user.model';
+
+const users: (Omit<User, 'saved'> & { saved: string[] })[] = [
   {
     name: 'John Johnson',
     email: 'john@johnmail.john',
     password: 'johnpass',
-    passwordConfirmation: 'johnpass',
     topics: ['javascript', 'mongodb'],
     media: ['podcasts'],
     saved: ['617ffbea8bae4425133b1fe5'],
@@ -15,7 +16,6 @@ const users = [
     name: 'Bread Manbread',
     email: 'Bread@breadmail.com',
     password: 'breadcake',
-    passwordConfirmation: 'breadcake',
     topics: ['Javascript', 'Python'],
     media: ['Podcasts'],
     saved: ['617ffbea8bae4425133b1fe5'],
@@ -26,7 +26,6 @@ const users = [
     name: 'Danny MOAR',
     email: 'DMOAR@protonmail.com',
     password: 'supersafe123',
-    passwordConfirmation: 'supersafe123',
     topics: ['TypeScript', 'C++'],
     media: ['mooc, articles, books'],
     saved: ['617ffbea8bae4425133b1fe5'],
@@ -38,7 +37,6 @@ const users = [
     name: 'Alex Swine',
     email: 'Swalex@mail.ru',
     password: 'iLik3boatz',
-    passwordConfirmation: 'iLik3boatz',
     topics: ['html', 'css', 'Rust'],
     media: ['careers', 'distance learning'],
     saved: ['617ffbea8bae4425133b1fe5'],

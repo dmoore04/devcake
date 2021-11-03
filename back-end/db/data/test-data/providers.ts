@@ -1,4 +1,6 @@
-const providers = [
+import { Provider } from '../../../src/models/provider.model';
+
+const providers: Provider[] = [
   {
     id: 'amazon',
     name: 'Amazon',
