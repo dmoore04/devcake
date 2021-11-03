@@ -6,6 +6,8 @@ import { connect, disconnect } from './connection';
 import { users, content, topics, media, providers } from './data/test-data';
 import { MediaModel } from '../src/models/media.model';
 import { ProviderModel } from '../src/models/provider.model';
+import seedProdContent from './seed-prod-content';
+import logger from '../src/utils/logger';
 
 export async function seedUsers() {
   await connect();
@@ -52,6 +54,16 @@ export async function seedProviders() {
   return disconnect();
 }
 
-Promise.all([seedUsers(), seedContent(), seedTopics(), seedMedia(), seedProviders()]).then(() => {
-  console.log('Seeded all collections');
-});
+export async function seedDB(includeProdContent: boolean) {
+  const promises = [seedTopics(), seedMedia(), seedProviders()];
+  if (process.env.NODE_ENV === 'test') {
+    promises.push(seedContent(), seedUsers());
+  } else if (includeProdContent === true) {
+    promises.push(seedProdContent(topics, providers));
+  }
+  await Promise.all(promises);
+  logger.info(`Seeded all '${mongoose.connection.name}' collections.`);
+}
+
+// dont set this to true or I will owe RapidAPI money :)
+seedDB(false);

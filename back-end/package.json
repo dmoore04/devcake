@@ -7,8 +7,8 @@
     "test": "NODE_ENV=test jest",
     "start:dev": "ts-node-dev --respawn --transpile-only src/listen.ts",
     "start:test": "NODE_ENV=test ts-node-dev --respawn --transpile-only src/listen.ts",
-    "seed:test": "NODE_ENV=test npx ts-node db/seed-test.ts ",
-    "seed:prod": "npx ts-node db/seed-prod.ts"
+    "seed:test": "NODE_ENV=test npx ts-node db/seed.ts ",
+    "seed:prod": "npx ts-node db/seed.ts"
   },
   "repository": {
     "type": "git",

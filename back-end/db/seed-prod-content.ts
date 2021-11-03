@@ -3,7 +3,6 @@ import mongoose, { Model } from 'mongoose';
 import { Content, ContentModel } from '../src/models/content.model';
 import { Provider } from '../src/models/provider.model';
 import { Topic } from '../src/models/topic.model';
-import { providers as providerData, topics as topicData } from './data/test-data';
 import { connect, disconnect } from './connection';
 import logger from '../src/utils/logger';
 
@@ -50,7 +49,7 @@ async function queryAPI(topic: string, provider: Provider): Promise<Model<Conten
   }
 }
 
-async function seedContent(topics: Topic[], providers: Provider[]) {
+async function seedProdContent(topics: Topic[], providers: Provider[]) {
   await connect();
   const { db } = mongoose.connection;
   await db.dropCollection('content');
@@ -73,7 +72,7 @@ async function seedContent(topics: Topic[], providers: Provider[]) {
   }
 }
 
-seedContent(topicData, providerData);
+export default seedProdContent;
 
 // for each topic
 //    for each provider
