@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { getUserInfo } from '../utils/api';
 
-const LoginPage: React.FC = ({ user, setUser }) => {
+const oldLoginPage: React.FC = () => {
   const [newUser, setNewUser] = useState('');
   const [isInvalidUser, setIsInvalidUser] = useState(false);
   const [submitted, setSubmitted] = useState(false);
@@ -38,4 +38,4 @@ const LoginPage: React.FC = ({ user, setUser }) => {
   );
 };
 
-export default LoginPage;
+export default oldLoginPage;

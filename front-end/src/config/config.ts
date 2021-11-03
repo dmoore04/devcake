@@ -1,3 +1,7 @@
 const config = {
-  default
+  default: {
+    namespace: 'App',
+  },
 };
+
+export default config;
