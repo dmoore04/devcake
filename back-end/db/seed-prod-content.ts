@@ -24,8 +24,10 @@ async function queryAPI(topic: string, provider: Provider): Promise<Model<Conten
       'x-rapidapi-key': process.env.RAPID_API_KEY as string,
     },
   };
+
   try {
     const response = await axios.request(options);
+
     if (response.data.statusCode === 200) {
       const { content } = response.data.response;
       const normalized = content.map(
@@ -42,6 +44,7 @@ async function queryAPI(topic: string, provider: Provider): Promise<Model<Conten
       );
       return normalized;
     }
+
     return false;
   } catch (err) {
     console.error(err);
@@ -54,6 +57,7 @@ async function seedProdContent(topics: Topic[], providers: Provider[]) {
   const { db } = mongoose.connection;
   await db.dropCollection('content');
   const collection = db.collection('content');
+
   try {
     providers.forEach((provider: Provider, i: number) => {
       topics.map((topic: Topic, j: number) =>
@@ -73,8 +77,3 @@ async function seedProdContent(topics: Topic[], providers: Provider[]) {
 }
 
 export default seedProdContent;
-
-// for each topic
-//    for each provider
-//            for each result result.topic = topic
-//            save to db
