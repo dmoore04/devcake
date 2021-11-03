@@ -3,7 +3,6 @@ import mongoose, { Model } from 'mongoose';
 import { Content, ContentModel } from '../src/models/content.model';
 import { Provider } from '../src/models/provider.model';
 import { Topic } from '../src/models/topic.model';
-import { providers as providerData, topics as topicData } from './data/test-data';
 import { connect, disconnect } from './connection';
 import logger from '../src/utils/logger';
 
@@ -25,8 +24,10 @@ async function queryAPI(topic: string, provider: Provider): Promise<Model<Conten
       'x-rapidapi-key': process.env.RAPID_API_KEY as string,
     },
   };
+
   try {
     const response = await axios.request(options);
+
     if (response.data.statusCode === 200) {
       const { content } = response.data.response;
       const normalized = content.map(
@@ -43,6 +44,7 @@ async function queryAPI(topic: string, provider: Provider): Promise<Model<Conten
       );
       return normalized;
     }
+
     return false;
   } catch (err) {
     console.error(err);
@@ -50,11 +52,12 @@ async function queryAPI(topic: string, provider: Provider): Promise<Model<Conten
   }
 }
 
-async function seedContent(topics: Topic[], providers: Provider[]) {
+async function seedProdContent(topics: Topic[], providers: Provider[]) {
   await connect();
   const { db } = mongoose.connection;
   await db.dropCollection('content');
   const collection = db.collection('content');
+
   try {
     providers.forEach((provider: Provider, i: number) => {
       topics.map((topic: Topic, j: number) =>
@@ -73,9 +76,4 @@ async function seedContent(topics: Topic[], providers: Provider[]) {
   }
 }
 
-seedContent(topicData, providerData);
-
-// for each topic
-//    for each provider
-//            for each result result.topic = topic
-//            save to db
+export default seedProdContent;
