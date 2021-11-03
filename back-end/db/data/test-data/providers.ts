@@ -42,12 +42,6 @@ const providers = [
     type: 'mooc',
   },
   {
-    id: 'getsmarter',
-    name: 'Getsmarter',
-    url: 'https://www.getsmarter.com',
-    type: 'mooc',
-  },
-  {
     id: 'linkedinlearning',
     name: 'Linkedin Learning',
     url: 'https://learning.linkedin.com',
@@ -64,18 +58,6 @@ const providers = [
     name: 'OpenClassrooms',
     url: 'https://openclassrooms.com',
     type: 'distance learning',
-  },
-  {
-    id: 'opensesame',
-    name: 'OpenSesame',
-    url: 'https://www.opensesame.com/',
-    type: 'distance learning',
-  },
-  {
-    id: 'opentextbooklibrary',
-    name: 'Open Textbook Library',
-    url: 'https://open.umn.edu/opentextbooks',
-    type: 'book',
   },
   {
     id: 'pluralsight',
