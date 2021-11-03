@@ -22,45 +22,48 @@ async function queryAPI(topic: string, provider: Provider): Promise<Model<Conten
     },
     headers: {
       'x-rapidapi-host': 'learning-objects-v2.p.rapidapi.com',
-      'x-rapidapi-key': 'cbcce81106mshabb05c2b2f06701p157c01jsn976ce2babcb0',
+      'x-rapidapi-key': process.env.RAPID_API_KEY as string,
     },
   };
   try {
     const response = await axios.request(options);
-    const { content } = response.data.response;
-    const normalized = content.map(
-      (c: any) =>
-        new ContentModel({
-          title: c.title,
-          url: c.url,
-          provider: [c.provider],
-          type: [provider.type],
-          topic,
-          desc: c.description || null,
-          imgUrl: c.picture || null,
-        })
-    );
-    return normalized;
+    if (response.data.statusCode === 200) {
+      const { content } = response.data.response;
+      const normalized = content.map(
+        (c: any) =>
+          new ContentModel({
+            title: c.title,
+            url: c.url,
+            provider: [c.provider],
+            type: [provider.type],
+            topic,
+            desc: c.description || null,
+            imgUrl: c.picture || null,
+          })
+      );
+      return normalized;
+    }
+    return false;
   } catch (err) {
     console.error(err);
     return false;
   }
 }
 
-async function seedDB(topics: Topic[], providers: Provider[]) {
+async function seedContent(topics: Topic[], providers: Provider[]) {
   await connect();
   const { db } = mongoose.connection;
   await db.dropCollection('content');
   const collection = db.collection('content');
   try {
-    providers.slice(0, 1).forEach((provider: Provider, i: number) => {
-      topics.slice(0, 1).map((topic: Topic, j: number) =>
+    providers.forEach((provider: Provider, i: number) => {
+      topics.map((topic: Topic, j: number) =>
         setTimeout(async () => {
           const content = await queryAPI(topic.slug, provider);
-          if (content) {
+          if (content && content.length > 0) {
             await collection.insertMany(content);
+            logger.info(`Queried ${provider.name} for ${topic.name} content.`);
           }
-          logger.info(`Queried ${provider.name} for ${topic.name} content.`);
         }, 500 * (i + 1) * (j + 1))
       );
     });
@@ -70,7 +73,7 @@ async function seedDB(topics: Topic[], providers: Provider[]) {
   }
 }
 
-seedDB(topicData, providerData);
+seedContent(topicData, providerData);
 
 // for each topic
 //    for each provider

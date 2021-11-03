@@ -43,7 +43,7 @@ const providers = [
   },
   {
     id: 'linkedinlearning',
-    name: 'Linkedin Learning',
+    name: 'LinkedIn Learning',
     url: 'https://learning.linkedin.com',
     type: 'mooc',
   },
@@ -67,7 +67,7 @@ const providers = [
   },
   {
     id: 'stackoverflow',
-    name: 'stackoverflow',
+    name: 'Stack Overflow',
     url: 'https://stackoverflow.com',
     type: 'article',
   },
