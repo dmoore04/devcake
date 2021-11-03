@@ -42,7 +42,7 @@ const content: Content[] = [
   },
   {
     title: 'Programming for the Web with JavaScript',
-    desc: null,
+    desc: undefined,
     url: 'https://www.edx.org/course/programming-web-javascript-pennx-sd4x',
     imgUrl:
       'https://prod-discovery.edx-cdn.org/media/course/image/dc921dbd-434a-4994-acde-1430679bca2e-5897fb1383ad.small.jpg',
