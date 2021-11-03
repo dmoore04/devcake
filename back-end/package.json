@@ -4,7 +4,7 @@
   "description": "Team breadcakes tech skills app",
   "main": "index.js",
   "scripts": {
-    "test": "NODE_ENV=test jest",
+    "test": "jest",
     "start:dev": "ts-node-dev --respawn --transpile-only src/listen.ts",
     "start:test": "NODE_ENV=test ts-node-dev --respawn --transpile-only src/listen.ts",
     "seed:test": "NODE_ENV=test npx ts-node db/seed.ts ",
