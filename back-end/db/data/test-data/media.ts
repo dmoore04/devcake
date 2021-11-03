@@ -34,11 +34,6 @@ const media: { type: string; description: string }[] = [
     description: 'Educational audio files from providers such as Apple Podcasts, SoundCloud, etc.',
   },
   {
-    type: 'tutorial',
-    description:
-      'Tutorials and others step by step instructions from providers such à WikiHow, Instructables, etc.',
-  },
-  {
     type: 'video',
     description: 'Educational videos from providers such as YouTube, Nebula, Vimeo, etc.',
   },

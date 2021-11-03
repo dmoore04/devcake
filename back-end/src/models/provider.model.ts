@@ -7,6 +7,9 @@ export class Provider {
   @prop({ required: true })
   id!: string;
 
+  @prop({ required: true })
+  type!: string;
+
   @prop()
   url?: string;
 }
