@@ -1,0 +1,95 @@
+// import { createContext, useState, useReducer } from 'react';
+
+// export interface UserContextInterface {
+//   name: string;
+//   email: string;
+//   password: string;
+//   passwordConfirmation: string;
+//   topics: string[];
+//   media: string[];
+//   saved: string[];
+//   username: string;
+// }
+
+// const initialState: UserContextInterface = {
+//   name: '',
+//   email: '',
+//   password: '',
+//   passwordConfirmation: '',
+//   topics: [''],
+//   media: [''],
+//   saved: [''],
+//   username: '',
+// };
+
+// export const UserContext = createContext<UserContextInterface | null>(null);
+
+// export const UserProvider: React.FC = ({ children }) => {
+//   const [user, setUser] = useState<UserContextInterface>({
+//     name: '',
+//     email: '',
+//     password: '',
+//     passwordConfirmation: '',
+//     topics: [''],
+//     media: [''],
+//     saved: [''],
+//     username: '',
+//   });
+
+//   return <UserContext.Provider value={{ user, setUser }}>{children}</UserContext.Provider>;
+// };
+
+// type Action =
+//   | { type: 'setName'; payload: string }
+//   | { type: 'setEmail'; payload: string }
+//   | { type: 'setPassword'; payload: string }
+//   | { type: 'setPasswordConfirmation'; payload: string }
+//   | { type: 'setTopics'; payload: string[] }
+//   | { type: 'setMedia'; payload: string[] }
+//   | { type: 'setSaved'; payload: string[] }
+//   | { type: 'setUsername'; payload: string };
+
+// const reducer = (state: State, action: Action): State => {
+//   switch (action.type) {
+//     case 'setName':
+//       return {
+//         ...state,
+//         name: action.payload,
+//       };
+//     case 'setEmail':
+//       return {
+//         ...state,
+//         email: action.payload,
+//       };
+//     case 'setPassword':
+//       return {
+//         ...state,
+//         password: action.payload,
+//       };
+//     case 'setPasswordConfirmation':
+//       return {
+//         ...state,
+//         passwordConfirmation: action.payload,
+//       };
+//     case 'setTopics':
+//       return {
+//         ...state,
+//         topics: action.payload,
+//       };
+//     case 'setMedia':
+//       return {
+//         ...state,
+//         media: action.payload,
+//       };
+//     case 'setSaved':
+//       return {
+//         ...state,
+//         saved: action.payload,
+//       };
+//     case 'setUsername':
+//       return {
+//         ...state,
+//         username: action.payload,
+//       };
+//   }
+// };
