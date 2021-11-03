@@ -5,7 +5,6 @@
   "main": "index.js",
   "scripts": {
     "test": "NODE_ENV=test jest",
-    "prepare": "husky install",
     "start:dev": "ts-node-dev --respawn --transpile-only src/listen.ts",
     "start:test": "NODE_ENV=test ts-node-dev --respawn --transpile-only src/listen.ts",
     "seed:test": "NODE_ENV=test npx ts-node db/seed-test.ts "

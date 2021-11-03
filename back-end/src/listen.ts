@@ -1,6 +1,6 @@
 import config from 'config';
 import app from './app';
-import connect from '../db/connection';
+import { connect } from '../db/connection';
 import logger from './utils/logger';
 
 const port = config.get<number>('port');
