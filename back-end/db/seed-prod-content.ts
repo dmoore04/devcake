@@ -3,7 +3,6 @@ import mongoose, { Model } from 'mongoose';
 import { Content, ContentModel } from '../src/models/content.model';
 import { Provider } from '../src/models/provider.model';
 import { Topic } from '../src/models/topic.model';
-import { connect, disconnect } from './connection';
 import logger from '../src/utils/logger';
 
 async function queryAPI(topic: string, provider: Provider): Promise<Model<Content>[] | false> {
@@ -53,7 +52,6 @@ async function queryAPI(topic: string, provider: Provider): Promise<Model<Conten
 }
 
 async function seedProdContent(topics: Topic[], providers: Provider[]) {
-  await connect();
   const { db } = mongoose.connection;
   await db.dropCollection('content');
   const collection = db.collection('content');
@@ -72,7 +70,6 @@ async function seedProdContent(topics: Topic[], providers: Provider[]) {
     });
   } catch (error) {
     logger.error(error);
-    await disconnect();
   }
 }
 
