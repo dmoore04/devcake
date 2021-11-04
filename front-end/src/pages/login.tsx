@@ -4,11 +4,13 @@ import logging from '../config/logging';
 import { Link } from 'react-router-dom';
 import UserContext from '../contexts/UserContext';
 import IUser from '../interfaces/user';
+import { Redirect } from 'react-router';
 
 const LoginPage: React.FC<IPage> = (props) => {
   const { user, setUser } = useContext(UserContext);
   const [usernameInput, setUsernameInput] = useState('');
   const [passwordInput, setPasswordInput] = useState('');
+  const [submitted, setSubmitted] = useState(false);
 
   console.log('usernameInput:', usernameInput);
   console.log('passwordInput:', passwordInput);
@@ -33,7 +35,12 @@ const LoginPage: React.FC<IPage> = (props) => {
     //   setUser(responseFromMongo);
     // })
     setUser(responseFromMongo);
+    setSubmitted(true);
   };
+
+  if (submitted) {
+    return <Redirect push to={{ pathname: '/' }} />;
+  }
 
   return (
     <div>
