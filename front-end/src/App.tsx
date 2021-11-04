@@ -3,10 +3,18 @@ import { BrowserRouter, Switch, Route, RouteComponentProps } from 'react-router-
 import React, { useEffect, useState } from 'react';
 import routes from './config/routes';
 import logging from './config/logging';
-import { UserContext } from './contexts/UserContext';
+import UserContext from './contexts/UserContext';
+import IUser from './interfaces/user';
 
 const App: React.FC = () => {
-  const [user, setUser] = useState(UserContext);
+  const [user, setUser] = useState<IUser>({
+    username: '',
+    avatarURL: '',
+    name: '',
+    topics: [],
+    media: [],
+    saved: [],
+  });
 
   useEffect(() => {
     logging.info('Loading app...');
@@ -19,7 +27,7 @@ const App: React.FC = () => {
 
   return (
     <div>
-      <UserContext.Provider value={user}>
+      <UserContext.Provider value={{ user, setUser }}>
         <BrowserRouter>
           <Switch>
             {routes.map((route, index) => {
