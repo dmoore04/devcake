@@ -11,7 +11,7 @@ beforeAll(async () => {
 });
 
 afterEach(async () => {
-  await seedCollection<(Omit<User, 'saved'> & { saved: string[] }) | User>(users, UserModel);
+  await seedCollection<User>(users, UserModel);
 });
 
 afterAll(async () => {
