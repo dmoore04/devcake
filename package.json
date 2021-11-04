@@ -4,7 +4,8 @@
   "description": "Team breadcakes tech skills app",
   "main": "index.js",
   "scripts": {
-    "test": "echo 'no test script'"
+    "test": "echo 'no test script'",
+    "prepare": "husky install"
   },
   "repository": {
     "type": "git",
@@ -29,6 +30,7 @@
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "^7.26.1",
     "eslint-plugin-react-hooks": "^4.2.0",
+    "husky": "^7.0.4",
     "prettier": "^2.4.1",
     "ts-node": "^10.4.0",
     "typescript": "^4.4.4"

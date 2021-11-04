@@ -1,10 +1,5 @@
 import request from 'supertest';
-import mongoose from 'mongoose';
 import app from '../src/app';
-
-afterAll(async () => {
-  await mongoose.disconnect();
-});
 
 describe('/api', () => {
   describe('GET', () => {
