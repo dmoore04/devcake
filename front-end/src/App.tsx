@@ -1,26 +1,52 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+// import { UserContext } from './contexts/User';
+import { BrowserRouter, Switch, Route, RouteComponentProps } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import routes from './config/routes';
+import logging from './config/logging';
+import UserContext from './contexts/UserContext';
+import IUser from './interfaces/user';
 
-function App() {
+const App: React.FC = () => {
+  const [user, setUser] = useState<IUser>({
+    username: '',
+    avatarURL: '',
+    name: '',
+    topics: [],
+    media: [],
+    saved: [],
+  });
+
+  useEffect(() => {
+    logging.info('Loading app...');
+    const loggedInUserContext: string | null = localStorage.getItem('loggedInUser');
+    if (loggedInUserContext) {
+      const userObj = JSON.parse(loggedInUserContext);
+      setUser(userObj.username);
+    }
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <UserContext.Provider value={{ user, setUser }}>
+        <BrowserRouter>
+          <Switch>
+            {routes.map((route, index) => {
+              return (
+                <Route
+                  key={index}
+                  path={route.path}
+                  exact={route.exact}
+                  render={(props: RouteComponentProps<any>) => (
+                    <route.component name={route.name} {...props} {...route.props} />
+                  )}
+                />
+              );
+            })}
+          </Switch>
+        </BrowserRouter>
+      </UserContext.Provider>
     </div>
   );
-}
+};
 
 export default App;
