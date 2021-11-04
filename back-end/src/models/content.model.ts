@@ -2,10 +2,10 @@ import { getModelForClass, modelOptions, prop } from '@typegoose/typegoose';
 
 @modelOptions({ schemaOptions: { collection: 'content' } })
 export class Content {
-  @prop({ required: true })
+  @prop({ required: true, unique: true })
   title!: string;
 
-  @prop({ required: true })
+  @prop({ required: true, unique: true })
   url!: string;
 
   @prop({ type: () => String, required: true })

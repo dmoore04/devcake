@@ -1,7 +1,7 @@
 import { getModelForClass, prop } from '@typegoose/typegoose';
 
 export class Media {
-  @prop({ required: true })
+  @prop({ required: true, unique: true })
   type!: string;
 
   @prop()

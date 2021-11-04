@@ -1,10 +1,10 @@
 import { getModelForClass, prop } from '@typegoose/typegoose';
 
 export class Topic {
-  @prop({ required: true })
+  @prop({ required: true, unique: true })
   public name!: string;
 
-  @prop({ required: true })
+  @prop({ required: true, unique: true })
   public slug!: string;
 
   @prop({ required: true })

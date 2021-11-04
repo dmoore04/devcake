@@ -5,10 +5,10 @@ export class User {
   @prop({ required: true })
   public name!: string;
 
-  @prop({ required: true })
+  @prop({ required: true, unique: true })
   public email!: string;
 
-  @prop({ required: true })
+  @prop({ required: true, unique: true })
   public username!: string;
 
   @prop({ required: true })
