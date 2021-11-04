@@ -1,31 +1,42 @@
 // import { UserContext } from './contexts/User';
 import { BrowserRouter, Switch, Route, RouteComponentProps } from 'react-router-dom';
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import routes from './config/routes';
 import logging from './config/logging';
+import { UserContext } from './contexts/UserContext';
 
-const App: React.FC = ({}) => {
+const App: React.FC = () => {
+  const [user, setUser] = useState(UserContext);
+
   useEffect(() => {
     logging.info('Loading app...');
+    const loggedInUserContext: string | null = localStorage.getItem('loggedInUser');
+    if (loggedInUserContext) {
+      const userObj = JSON.parse(loggedInUserContext);
+      setUser(userObj.username);
+    }
   }, []);
+
   return (
     <div>
-      <BrowserRouter>
-        <Switch>
-          {routes.map((route, index) => {
-            return (
-              <Route
-                key={index}
-                path={route.path}
-                exact={route.exact}
-                render={(props: RouteComponentProps<any>) => (
-                  <route.component name={route.name} {...props} {...route.props} />
-                )}
-              />
-            );
-          })}
-        </Switch>
-      </BrowserRouter>
+      <UserContext.Provider value={user}>
+        <BrowserRouter>
+          <Switch>
+            {routes.map((route, index) => {
+              return (
+                <Route
+                  key={index}
+                  path={route.path}
+                  exact={route.exact}
+                  render={(props: RouteComponentProps<any>) => (
+                    <route.component name={route.name} {...props} {...route.props} />
+                  )}
+                />
+              );
+            })}
+          </Switch>
+        </BrowserRouter>
+      </UserContext.Provider>
     </div>
   );
 };

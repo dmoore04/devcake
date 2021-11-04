@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import IPage from '../interfaces/page';
 import logging from '../config/logging';
-import { RouteComponentProps } from 'react-router-dom';
+import { RouteComponentProps, withRouter, Link } from 'react-router-dom';
 
 const AboutPage: React.FC<IPage & RouteComponentProps<any>> = (props) => {
   const [message, setMessage] = useState<string>('');
@@ -9,7 +9,6 @@ const AboutPage: React.FC<IPage & RouteComponentProps<any>> = (props) => {
     logging.info(`Loading ${props.name}`);
 
     let number = props.match.params.number;
-    console.log(number);
 
     if (number) {
       setMessage(`The number is ${number}`);
@@ -17,7 +16,12 @@ const AboutPage: React.FC<IPage & RouteComponentProps<any>> = (props) => {
       setMessage('no number provided');
     }
   }, [props]);
-  return <p>{message}</p>;
+  return (
+    <div>
+      <p>{message}</p>
+      <Link to="/"> go to the home page</Link>
+    </div>
+  );
 };
 
-export default AboutPage;
+export default withRouter(AboutPage);
