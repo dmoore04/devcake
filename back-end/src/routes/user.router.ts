@@ -1,8 +1,8 @@
 import { Router } from 'express';
-import sendUsers from '../controllers/users.controller';
+import { sendUsers, postUser } from '../controllers/users.controller';
 
 const usersRouter = Router();
 
-usersRouter.get('/', sendUsers);
+usersRouter.route('/').get(sendUsers).post(postUser);
 
 export default usersRouter;
