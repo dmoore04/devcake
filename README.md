@@ -1,2 +1,2 @@
 # DevCake 🍰
-Team breadcakes tech skills app
+Team breadcakes self-learning aide.
