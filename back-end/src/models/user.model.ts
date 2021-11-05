@@ -21,7 +21,7 @@ export class User {
   public media?: string[];
 
   @prop({ ref: () => Content, default: [] })
-  public saved?: Ref<Content>[];
+  public saved?: Ref<Content, string>[];
 
   @prop({ default: 'https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_960_720.png' })
   public avatarUrl?: string;

@@ -1,6 +1,6 @@
 import { User } from '../../../src/models/user.model';
 
-const users: (Omit<User, 'saved'> & { saved: string[] })[] = [
+const users: User[] = [
   {
     name: 'John Johnson',
     email: 'john@johnmail.john',
