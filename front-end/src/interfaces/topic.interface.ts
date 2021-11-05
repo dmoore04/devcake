@@ -5,5 +5,5 @@ export default interface ITopicData {
   popularity: number;
   desc: string;
   imgUrl: string;
-  __v: number;
+  toggled: boolean;
 }

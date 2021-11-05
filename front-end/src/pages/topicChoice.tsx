@@ -8,10 +8,11 @@ const TopicChoice: React.FC<IPage> = (props) => {
 
   useEffect(() => {
     logging.info(`Loading ${props.name}`);
-    fetchTopics().then((topics) => {
-      console.log(topics);
+    fetchTopics().then((result) => {
+      console.log(result);
     });
   }, [props.name]);
+
   return <p>This is the topic choice page!</p>;
 };
 
