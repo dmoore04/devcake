@@ -16,7 +16,7 @@ describe('/api/content', () => {
     it('200: should respond with an array of content', async () => {
       const response = await request(app).get('/api/content').expect(200);
       const { content } = response.body;
-      expect(content.length).toBe(13);
+      expect(content.docs.length).toBe(10);
     });
   });
 });

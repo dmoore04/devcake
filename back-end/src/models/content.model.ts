@@ -1,5 +1,14 @@
-import { getModelForClass, modelOptions, prop } from '@typegoose/typegoose';
+import mongoosePaginate from 'mongoose-paginate-v2';
+import { getModelForClass, modelOptions, plugin, prop } from '@typegoose/typegoose';
+import { FilterQuery, PaginateOptions, PaginateResult } from 'mongoose';
 
+type PaginateMethod<T> = (
+  query?: FilterQuery<T>,
+  options?: PaginateOptions,
+  callback?: (err: any, result: PaginateResult<T>) => void
+) => Promise<PaginateResult<T>>;
+
+@plugin(mongoosePaginate)
 @modelOptions({ schemaOptions: { collection: 'content' } })
 export class Content {
   @prop({ required: true, unique: true })
@@ -22,6 +31,8 @@ export class Content {
 
   @prop()
   imgUrl?: string;
+
+  static paginate: PaginateMethod<Content>;
 }
 
 export const ContentModel = getModelForClass(Content);
