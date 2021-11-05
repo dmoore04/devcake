@@ -15,7 +15,8 @@ describe('/api/media', () => {
   describe('GET', () => {
     it('200: should respond with an array of media types', async () => {
       const response = await request(app).get('/api/media').expect(200);
-      expect(response.body.length).toBe(9);
+      const { media } = response.body;
+      expect(media.length).toBe(9);
     });
   });
 });
