@@ -17,6 +17,10 @@
   "plugins": ["react", "@typescript-eslint", "prettier", "jest"],
   "rules": {
     "prettier/prettier": ["error"],
+    "no-unused-vars": "off",
+    "strict": 1,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
     "no-console": "off",
     "import/extensions": [
       "error",

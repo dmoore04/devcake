@@ -1,12 +1,14 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import IPage from '../interfaces/page';
 import logging from '../config/logging';
 import NavBar from '../components/nav-bar';
+import axios, { CancelTokenSource } from 'axios';
 
 const HomePage: React.FC<IPage> = (props) => {
-  useEffect(() => {
-    logging.info(`Loading ${props.name}`);
-  }, [props.name]);
+  const [topics, setTopics] = useState([]);
+  const [categories, setCategories] = useState([]);
+  const [pageNumber, setPageNumber] = useState<number>(1);
+
   return (
     <div>
       <NavBar />
