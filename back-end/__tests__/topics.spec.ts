@@ -15,7 +15,8 @@ describe('/api/topics', () => {
   describe('GET', () => {
     it('200: should repond with an array of topics', async () => {
       const response = await request(app).get('/api/topics').expect(200);
-      expect(response.body.length).toBe(31);
+      const { topics } = response.body;
+      expect(topics.length).toBe(31);
     });
   });
 });
