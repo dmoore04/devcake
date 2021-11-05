@@ -4,14 +4,14 @@ import config from 'config';
 import app from '../src/app';
 import { User, UserModel } from '../src/models';
 import { seedCollection } from '../src/utils/db';
-import { users } from '../db/data/test-data';
+import { users as userData } from '../db/data/test-data';
 
 beforeAll(async () => {
   await mongoose.connect(config.get<string>('dbUri'));
 });
 
 afterEach(async () => {
-  await seedCollection<User>(users, UserModel);
+  await seedCollection<User>(userData, UserModel);
 });
 
 afterAll(async () => {
@@ -22,7 +22,8 @@ describe('/api/users', () => {
   describe('GET', () => {
     it('200: should respond with an array of users', async () => {
       const response = await request(app).get('/api/users').expect(200);
-      expect(response.body.length).toBe(4);
+      const { users } = response.body;
+      expect(users.length).toBe(4);
     });
   });
   describe('POST', () => {
@@ -35,7 +36,8 @@ describe('/api/users', () => {
       };
 
       const response = await request(app).post('/api/users').send(testUser).expect(201);
-      expect(response.body).toMatchObject({
+      const { user } = response.body;
+      expect(user).toMatchObject({
         _id: expect.any(String),
         name: 'Testy McTestface',
         email: 'test@example.com',
