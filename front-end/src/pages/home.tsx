@@ -7,6 +7,7 @@ import useContentSearch from '../hooks/useContentSearch';
 
 const HomePage: React.FC<IPage> = (props) => {
   const [pageNumber, setPageNumber] = useState<number>(1);
+  console.log(pageNumber);
   const { loading, error, hasMore, content } = useContentSearch(pageNumber);
   const observer = useRef<IntersectionObserver>();
   useEffect(() => {}, [pageNumber]);
@@ -17,12 +18,15 @@ const HomePage: React.FC<IPage> = (props) => {
       observer.current = new IntersectionObserver((entries: IntersectionObserverEntry[]) => {
         if (entries[0].isIntersecting && hasMore) {
           console.log('VISIBLE!!!!');
-          setPageNumber((prevPage) => prevPage + 1);
+          setPageNumber((prevPage) => {
+            let newPageValue: number = prevPage + 1;
+            return newPageValue;
+          });
         }
       });
       if (node) observer.current.observe(node);
     },
-    [loading, hasMore]
+    [loading, hasMore, pageNumber]
   );
   return (
     <div>

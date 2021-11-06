@@ -34,7 +34,7 @@ const useContentSearch: Hook = (pageNumber) => {
     setLoading(true);
     setError(false);
     let cancel: any;
-    fetchContent()
+    fetchContent(pageNumber)
       .then((res) => {
         setContent((currContent) => {
           return [
