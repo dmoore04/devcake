@@ -32,6 +32,13 @@ describe('/api/users', () => {
       const { users } = response.body;
       expect(users.length).toBe(4);
     });
+    it('200: accepts query parameters', async () => {
+      const userResponse = await request(app).post('/api/users').send(testUser);
+      const expected = userResponse.body.user;
+      const response = await request(app).get(`/api/users?username=${expected.username}`);
+      const { users } = response.body;
+      expect(users[0]).toMatchObject(expected);
+    });
   });
   describe('POST', () => {
     it('200: should save a new user to the database and respond with the new user', async () => {
