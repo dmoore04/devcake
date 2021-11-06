@@ -42,7 +42,6 @@ describe('/api/users', () => {
         name: 'Testy McTestface',
         email: 'test@example.com',
         username: 'mrtest01',
-        password: 'test',
         topics: [],
         media: [],
         saved: [],
