@@ -51,7 +51,7 @@ describe('/api/users', () => {
   });
 });
 
-describe.only('/api/users/:user_id', () => {
+describe('/api/users/:user_id', () => {
   describe('PATCH', () => {
     it('200: should update a user document and return the updated version', async () => {
       const userResponse = await request(app).post('/api/users').send(testUser);
