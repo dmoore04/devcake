@@ -7,7 +7,7 @@ const content: Content[] = [
     url: 'https://www.amazon.com/dp/144934013X',
     imgUrl: 'https://m.media-amazon.com/images/I/51qQTSKL2nL._AC_UY500_FMwebp_QL65_.jpg',
     provider: ['Amazon'],
-    type: ['book'],
+    type: 'book',
     topic: 'javascript',
   },
   {
@@ -17,7 +17,7 @@ const content: Content[] = [
     imgUrl:
       'https://is3-ssl.mzstatic.com/image/thumb/Podcasts113/v4/ff/b2/03/ffb203ef-d9cb-4630-8882-a2232ef2e0ce/mza_13795905241203950507.jpg/400x400.png',
     provider: ['Apple Podcasts'],
-    type: ['podcast'],
+    type: 'podcast',
     topic: 'coding',
   },
   {
@@ -27,7 +27,7 @@ const content: Content[] = [
     imgUrl:
       'https://res.cloudinary.com/hnpb47ejt/image/upload/c_fill,f_auto,h_160,q_auto,w_160/v1479149791/luqx0yxsish3cgjiaw3c.jpg',
     provider: ['CareerExplorer'],
-    type: ['careers'],
+    type: 'careers',
     topic: 'javascript',
   },
   {
@@ -37,7 +37,7 @@ const content: Content[] = [
     imgUrl:
       'https://s3.amazonaws.com/coursera-course-photos/bf/d0c2f03cf211e5a922adc5eaf6c043/MOOC-4.png',
     provider: ['Coursera'],
-    type: ['mooc'],
+    type: 'mooc',
     topic: 'javascript',
   },
   {
@@ -47,7 +47,7 @@ const content: Content[] = [
     imgUrl:
       'https://prod-discovery.edx-cdn.org/media/course/image/dc921dbd-434a-4994-acde-1430679bca2e-5897fb1383ad.small.jpg',
     provider: ['edX'],
-    type: ['mooc'],
+    type: 'mooc',
     topic: 'javascript',
   },
   {
@@ -57,7 +57,7 @@ const content: Content[] = [
     imgUrl:
       'https://ugc.futurelearn.com/uploads/images/a6/2a/thumbnail_a62a5fb9-e83a-43ee-9217-4b941c887150.jpg',
     provider: ['FutureLearn'],
-    type: ['mooc'],
+    type: 'mooc',
     topic: 'coding',
   },
   {
@@ -67,7 +67,7 @@ const content: Content[] = [
     imgUrl:
       'https://cdn.www.getsmarter.com/uploads/course/banner_image/180/UCT-DSS-website-image-1296x432-645e15677f3acc85c4f6bac88895d42c.jpg',
     provider: ['Getsmarter'],
-    type: ['distance learning'],
+    type: 'distance learning',
     topic: 'python',
   },
   {
@@ -77,7 +77,7 @@ const content: Content[] = [
     imgUrl:
       'https://picturelo.s3.eu-west-3.amazonaws.com/provider/linkedinlearning/3linkedinlearning.png',
     provider: ['LinkedIn Learning'],
-    type: ['mooc'],
+    type: 'mooc',
     topic: 'c++',
   },
   {
@@ -86,7 +86,7 @@ const content: Content[] = [
     url: 'https://medium.com/mozilla-tech/why-rust-is-the-most-loved-language-by-developers-666add782563',
     imgUrl: 'https://miro.medium.com/1*Hv_ATAMyCJbz4BRn58AX6g.png',
     provider: ['Medium'],
-    type: ['article'],
+    type: 'article',
     topic: 'rust',
   },
   {
@@ -96,7 +96,7 @@ const content: Content[] = [
     imgUrl:
       'https://course.oc-static.com/courses/5265446/5265446_teaser_picture_1563195047.jpg%3Fr%3Dpad',
     provider: ['OpenClassrooms'],
-    type: ['mooc'],
+    type: 'mooc',
     topic: 'html/css',
   },
   {
@@ -106,7 +106,7 @@ const content: Content[] = [
     imgUrl:
       'https://www.opensesame.com/system/files/styles/course_details_main_image/s3/images/9781788625258.png',
     provider: ['OpenSesame'],
-    type: ['distance learning'],
+    type: 'distance learning',
     topic: 'c#',
   },
   {
@@ -116,7 +116,7 @@ const content: Content[] = [
     imgUrl:
       'https://open.umn.edu/opentextbooks/storage/representations/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBbkVCIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--e297ccc27a275c80cb0c0e2a4b805c40a89ca0b4/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdCam9MY21WemFYcGxTU0lMT1RoNE1qQXdCam9HUlZRPSIsImV4cCI6bnVsbCwicHVyIjoidmFyaWF0aW9uIn19--0d7d5444fd3cef07650424add2baed2238869e12/0000JavWitBlu.png',
     provider: ['Open Textbook Library'],
-    type: ['book'],
+    type: 'book',
     topic: 'java',
   },
   {
@@ -126,7 +126,7 @@ const content: Content[] = [
     imgUrl:
       'https://www.pluralsight.com/content/dam/pluralsight2/general/brand-photos/environment-overhead-008-hero.jpg',
     provider: ['Pluralsight'],
-    type: ['article'],
+    type: 'article',
     topic: 'sql',
   },
 ];

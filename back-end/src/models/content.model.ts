@@ -21,7 +21,7 @@ export class Content {
   provider!: string[];
 
   @prop({ type: () => String, required: true })
-  type!: string[];
+  type!: string;
 
   @prop({ type: () => String, required: true })
   topic!: string;
