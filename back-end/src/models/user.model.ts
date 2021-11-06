@@ -1,10 +1,9 @@
 import { getModelForClass, prop, Ref, pre, DocumentType } from '@typegoose/typegoose';
 import { Content } from './content.model';
 import bcrypt from 'bcrypt';
-import { Document } from 'mongoose';
 
 @pre<User>('save', async function (next) {
-  if (this.isModified('password')) {
+  if (this.isModified('password') || this.isNew) {
     const salt = await bcrypt.genSalt(10);
     const hash = await bcrypt.hashSync(this.password, salt);
     this.password = hash;

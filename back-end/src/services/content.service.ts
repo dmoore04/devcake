@@ -1,6 +1,5 @@
-import { User, UserModel } from '../models';
+import { UserModel } from '../models';
 import { ContentModel } from '../models/content.model';
-import mongoose from 'mongoose';
 
 const findContent = async (user_id?: any, page?: number, limit?: number) => {
   const user = await UserModel.findById(user_id);
