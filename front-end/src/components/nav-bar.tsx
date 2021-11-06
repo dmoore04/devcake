@@ -10,8 +10,8 @@ const NavBar: React.FC = () => {
       <Link key="topic-choice" to="/topic-choice">
         Topic Choice
       </Link>
-      <Link key="category-choice" to="/category-choice">
-        Category Choice
+      <Link key="media-choice" to="/media-choice">
+        Media Choice
       </Link>
       <Link key="user-profile" to="/user-profile">
         User Profile

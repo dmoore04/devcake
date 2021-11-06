@@ -1,12 +1,16 @@
 import axios from 'axios';
 import logging from '../config/logging';
-import ITopicsData from '../interfaces/topicsData.interface';
 
 const api = axios.create({ baseURL: 'http://localhost:3000/api' });
 
 export const fetchTopics = async () => {
-  const res = await api.get<ITopicsData>('/topics');
-  return res.data;
+  const res = await api.get('/topics');
+  return res.data.topics;
+};
+
+export const fetchMedia = async () => {
+  const res = await api.get('/media');
+  return res.data.media;
 };
 
 const postUser = (newUserInfo: {}) => {
