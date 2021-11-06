@@ -20,3 +20,17 @@ describe('/api/topics', () => {
     });
   });
 });
+
+describe('/api/topics/:topic_id', () => {
+  describe('GET', () => {
+    it('200: should respond with the specified topic', async () => {
+      const topicsResponse = await request(app).get('/api/topics');
+      const { topics } = topicsResponse.body;
+      const expected = topics[0];
+      const topic_id = expected._id;
+      const response = await request(app).get(`/api/topics/${topic_id}`).expect(200);
+      const { topic } = response.body;
+      expect(topic).toMatchObject(expected);
+    });
+  });
+});
