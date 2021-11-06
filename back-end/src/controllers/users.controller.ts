@@ -3,7 +3,9 @@ import { findUsers, saveUser, updateUser } from '../services/users.service';
 
 export const sendUsers = async (req: Request, res: Response, next: NextFunction) => {
   try {
-    const users = await findUsers();
+    const { username } = req.query;
+    const query = username ? { username: String(username) } : {};
+    const users = await findUsers(query);
     res.status(200).send({ users });
   } catch (err) {
     next(err);
