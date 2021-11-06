@@ -1,8 +1,6 @@
 import React, { useEffect, useState, useRef, useCallback } from 'react';
 import IPage from '../interfaces/page';
-import logging from '../config/logging';
 import NavBar from '../components/nav-bar';
-import axios, { CancelTokenSource } from 'axios';
 import useContentSearch from '../hooks/useContentSearch';
 
 const HomePage: React.FC<IPage> = (props) => {
@@ -17,7 +15,6 @@ const HomePage: React.FC<IPage> = (props) => {
       if (observer.current) observer.current.disconnect();
       observer.current = new IntersectionObserver((entries: IntersectionObserverEntry[]) => {
         if (entries[0].isIntersecting && hasMore) {
-          console.log('VISIBLE!!!!');
           setPageNumber((prevPage) => {
             let newPageValue: number = prevPage + 1;
             return newPageValue;
