@@ -11,7 +11,7 @@ beforeAll(async () => {
 });
 
 afterEach(async () => {
-  await seedCollection<User>(userData, UserModel);
+  await seedCollection<Partial<User>>(userData, UserModel);
 });
 
 afterAll(async () => {
@@ -28,7 +28,7 @@ describe('/api/users', () => {
   });
   describe('POST', () => {
     it('200: should save a new user to the database and respond with the new user', async () => {
-      const testUser: User = {
+      const testUser: Omit<User, 'comparePassword'> = {
         name: 'Testy McTestface',
         email: 'test@example.com',
         username: 'mrtest01',
@@ -42,7 +42,6 @@ describe('/api/users', () => {
         name: 'Testy McTestface',
         email: 'test@example.com',
         username: 'mrtest01',
-        password: 'test',
         topics: [],
         media: [],
         saved: [],

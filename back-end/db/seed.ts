@@ -12,8 +12,8 @@ import * as db from '../src/utils/db';
 export async function seedUsers() {
   const { db } = mongoose.connection;
   await db.dropCollection('users');
-  const collection = db.collection('users');
-  await collection.insertMany(users.map((user) => new UserModel(user)));
+  db.collection('users');
+  await UserModel.create(users);
 }
 
 export async function seedContent() {

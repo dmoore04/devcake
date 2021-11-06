@@ -1,6 +1,6 @@
 import { User } from '../../../src/models/user.model';
 
-const users: User[] = [
+const users: Partial<User>[] = [
   {
     name: 'John Johnson',
     email: 'john@johnmail.john',
