@@ -1,6 +1,6 @@
 import { UserModel, User } from '../models';
 
-export const findUsers = async () => UserModel.find();
+export const findUsers = async (query: Partial<User>) => UserModel.find(query);
 
 export const saveUser = async (newUser: User) => await UserModel.create(newUser);
 
