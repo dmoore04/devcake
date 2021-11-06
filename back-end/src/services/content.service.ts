@@ -1,4 +1,4 @@
-import { UserModel } from '../models';
+import { User, UserModel } from '../models';
 import { ContentModel } from '../models/content.model';
 import mongoose from 'mongoose';
 
