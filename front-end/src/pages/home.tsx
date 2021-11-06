@@ -43,7 +43,7 @@ const HomePage: React.FC<IPage> = (props) => {
           return <div key={singleContent._id}>{singleContent}</div>;
         }
       })}
-      <div>{loading && <p>loading...</p>}</div>
+      <div>{loading && hasMore && <p>loading...</p>}</div>
       <div>{error && <p>error</p>}</div>
     </div>
   );

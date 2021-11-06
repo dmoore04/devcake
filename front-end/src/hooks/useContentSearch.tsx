@@ -40,7 +40,6 @@ const useContentSearch: Hook = (pageNumber) => {
           return [
             ...new Set([
               ...currContent,
-              //GET RID OF SPREAD OPERATOR BELOW ON RES.MAP TO SEE INFINITE SCROLL
               ...res.map(
                 (item: IContent) =>
                   `${item.title}
@@ -59,7 +58,6 @@ const useContentSearch: Hook = (pageNumber) => {
         console.log(res);
       })
       .catch((e) => {
-        // if (axios.isCancel(e)) return;
         setError(true);
       });
   }, [pageNumber]);
