@@ -139,5 +139,17 @@
       "imgUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Git-logo.svg/1280px-Git-logo.svg.png",
       "__v": 0
     }
+  },
+  "GET /media": {
+    "description": "returns an array of all valid media types",
+    "exampleResponse": {
+      "media": [
+        {
+          "_id": "6186d805ab8a337e5b81120c",
+          "type": "article",
+          "description": "Articles that may be useful for learning a new skill or job from providers such as Wikipedia, Medium, etc. "
+        }
+      ]
+    }
   }
 }
