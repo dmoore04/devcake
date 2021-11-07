@@ -23,8 +23,6 @@ type Hook = (props: any) => {
 };
 
 const useContentSearch: Hook = (pageNumber) => {
-  // const { user } = useContext(userContext);
-  // const [pageNumber, setPageNumber] = useState<number>(1);
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<boolean>(false);
   const [hasMore, setHasMore] = useState<boolean>(false);
@@ -33,7 +31,6 @@ const useContentSearch: Hook = (pageNumber) => {
   useEffect(() => {
     setLoading(true);
     setError(false);
-    let cancel: any;
     fetchContent(pageNumber)
       .then((res) => {
         setContent((currContent) => {
@@ -55,7 +52,6 @@ const useContentSearch: Hook = (pageNumber) => {
         });
         setHasMore(res.length > 0);
         setLoading(false);
-        console.log(res);
       })
       .catch((e) => {
         setError(true);
