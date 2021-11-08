@@ -3,42 +3,40 @@ import IPage from '../interfaces/page';
 import logging from '../config/logging';
 import { Link } from 'react-router-dom';
 import UserContext from '../contexts/UserContext';
-import IUser from '../interfaces/user';
 import { Redirect } from 'react-router';
+import { loginUser } from '../utils/api';
+import ILoginQuery from '../interfaces/loginQuery.interface';
 
 const LoginPage: React.FC<IPage> = (props) => {
   const { user, setUser } = useContext(UserContext);
   const [usernameInput, setUsernameInput] = useState('');
   const [passwordInput, setPasswordInput] = useState('');
   const [submitted, setSubmitted] = useState(false);
-
-  console.log('usernameInput:', usernameInput);
-  console.log('passwordInput:', passwordInput);
+  const [isError, setIsError] = useState(false);
 
   useEffect(() => {
+    setIsError(false);
     logging.info(`Loading ${props.name}`);
   }, [props.name]);
 
-  const responseFromMongo: IUser = {
-    username: 'test--Brad',
-    avatarURL: '',
-    name: 'mr Test',
-    topics: ['test topic'],
-    media: ['test media'],
-    saved: [],
-  };
-
   const handleSubmit = (e: React.SyntheticEvent) => {
+    setIsError(false);
     e.preventDefault();
-    // const userinfo = { username: usernameInput, password: passwordInput };
-    // fetchUser(userinfo).then(result=>{
-    //   setUser(responseFromMongo);
-    // })
-    setUser(responseFromMongo);
-    setSubmitted(true);
+    const userInfo: ILoginQuery = { username: usernameInput, password: passwordInput };
+    loginUser(userInfo)
+      .then((user) => {
+        if (user) {
+          setUser(user);
+          localStorage.setItem('devCakeUser', JSON.stringify(user));
+          setSubmitted(true);
+        }
+      })
+      .catch((err) => {
+        setIsError(true);
+      });
   };
 
-  if (submitted) {
+  if (submitted || user.username) {
     return <Redirect push to={{ pathname: '/' }} />;
   }
 
@@ -71,6 +69,7 @@ const LoginPage: React.FC<IPage> = (props) => {
         ></input>
         <br /> <br />
         <button type="submit">Sign In</button>
+        {isError ? <p>Incorrect Username or Password</p> : null}
       </form>
       <p>
         Don't have an account? <Link to="/sign-up"> Sign up</Link>

@@ -1,14 +1,23 @@
-import React, { useEffect, useState, useRef, useCallback } from 'react';
+import React, { useEffect, useState, useRef, useCallback, useContext } from 'react';
 import IPage from '../interfaces/page';
 import NavBar from '../components/nav-bar';
 import useContentSearch from '../hooks/useContentSearch';
+<<<<<<< HEAD
 import { Link } from 'react-router-dom';
+=======
+import UserContext from '../contexts/UserContext';
+>>>>>>> 920169e0b17b5a25b4a09b9f8118f61191df02e6
 
-const HomePage: React.FC<IPage> = (props) => {
+const HomePage: React.FC<IPage> = () => {
+  const { user } = useContext(UserContext);
+  const id = user._id;
+  console.log(id, 'ID in home');
   const [pageNumber, setPageNumber] = useState<number>(1);
-  const { loading, error, hasMore, content } = useContentSearch(pageNumber);
+  const { loading, error, hasMore, content } = useContentSearch({ id, pageNumber });
   const observer = useRef<IntersectionObserver>();
+
   useEffect(() => {}, [pageNumber]);
+
   const lastItemElementref = useCallback(
     (node) => {
       if (loading) return;

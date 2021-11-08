@@ -1,8 +1,28 @@
-import { Link } from 'react-router-dom';
-import React from 'react';
 import { Nav, NavbarContainer, NavLogo } from '../styling/NavBar_elements';
+import { Link, Redirect } from 'react-router-dom';
+import React, { useContext } from 'react';
+import UserContext from '../contexts/UserContext';
 
 const NavBar: React.FC = () => {
+  const { user, setUser } = useContext(UserContext);
+
+  const handleSignOut = (e: React.SyntheticEvent) => {
+    setUser({
+      _id: '',
+      username: '',
+      avatarUrl: '',
+      name: '',
+      topics: [],
+      media: [],
+      saved: [],
+    });
+    localStorage.removeItem('devCakeUser');
+  };
+
+  if (!user.username) {
+    return <Redirect push to={{ pathname: '/log-in' }} />;
+  }
+
   return (
     <>
       <Nav>
@@ -14,8 +34,8 @@ const NavBar: React.FC = () => {
           <Link key="topic-choice" to="/topic-choice">
             Topic Choice
           </Link>
-          <Link key="category-choice" to="/category-choice">
-            Category Choice
+          <Link key="media-choice" to="/media-choice">
+            Media Choice
           </Link>
           <Link key="user-profile" to="/user-profile">
             User Profile
@@ -28,6 +48,14 @@ const NavBar: React.FC = () => {
           </Link>
         </NavbarContainer>
       </Nav>
+      <div>
+        <img src={user.avatarUrl} alt="profile pic" width="50" />
+        <h3>{user.name}</h3>
+        <h4>{user.username}</h4>
+        <button id="signOut__btn" onClick={handleSignOut}>
+          log out
+        </button>
+      </div>
     </>
   );
 };

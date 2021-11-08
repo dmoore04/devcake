@@ -1,15 +1,6 @@
 import { useEffect, useState } from 'react';
-import axios from 'axios';
 import IContent from '../interfaces/contentsData.interface';
-
-const api = axios.create({ baseURL: 'http://localhost:3000/api' });
-
-export const fetchContent = async (page?: number) => {
-  let path = '/content';
-  if (page) path += `?page=${page}`;
-  const res = await api.get(path);
-  return res.data.content.docs;
-};
+import { fetchContent } from '../utils/api';
 
 type Hook = (props: any) => {
   loading: boolean;
@@ -19,16 +10,18 @@ type Hook = (props: any) => {
   pageNumber: number;
 };
 
-const useContentSearch: Hook = (pageNumber) => {
+const useContentSearch: Hook = ({ id, pageNumber }) => {
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<boolean>(false);
   const [hasMore, setHasMore] = useState<boolean>(false);
   const [content, setContent] = useState<IContent[]>([]);
 
+  console.log(id, '<- id in content search hook');
+
   useEffect(() => {
     setLoading(true);
     setError(false);
-    fetchContent(pageNumber)
+    fetchContent(id, pageNumber)
       .then((res) => {
         setContent((currContent) => {
           return [
@@ -54,7 +47,7 @@ const useContentSearch: Hook = (pageNumber) => {
       .catch((e) => {
         setError(true);
       });
-  }, [pageNumber]);
+  }, [id, pageNumber]);
   return { loading, error, hasMore, content, pageNumber };
 };
 

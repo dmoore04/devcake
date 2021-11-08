@@ -8,8 +8,9 @@ interface IUserContext {
 
 const UserContext = createContext<IUserContext>({
   user: {
+    _id: '',
     username: '',
-    avatarURL: '',
+    avatarUrl: '',
     name: '',
     topics: [],
     media: [],
