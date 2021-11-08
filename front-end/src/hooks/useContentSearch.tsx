@@ -34,16 +34,17 @@ const useContentSearch: Hook = (pageNumber) => {
           return [
             ...new Set([
               ...currContent,
-              ...res.map(
-                (item: IContent) =>
-                  `${item.title}
-                  ${item.desc}
-                  ${item.url}
-                  ${item.imgUrl}
-                  ${item.provider}
-                  ${item.provider}
-                  ${item.topic}`
-              ),
+              ...res.map((item: IContent) => {
+                return {
+                  title: item.title,
+                  desc: item.desc,
+                  url: item.url,
+                  imgUrl: item.imgUrl,
+                  provider: item.provider,
+                  type: item.type,
+                  topic: item.topic,
+                };
+              }),
             ]),
           ];
         });
