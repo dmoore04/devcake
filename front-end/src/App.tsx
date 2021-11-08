@@ -8,6 +8,7 @@ import IUser from './interfaces/user';
 
 const App: React.FC = () => {
   const [user, setUser] = useState<IUser>({
+    _id: '',
     username: '',
     avatarURL: '',
     name: '',
@@ -18,11 +19,11 @@ const App: React.FC = () => {
 
   useEffect(() => {
     logging.info('Loading app...');
-    const loggedInUserContext: string | null = localStorage.getItem('loggedInUser');
-    if (loggedInUserContext) {
-      const userObj = JSON.parse(loggedInUserContext);
-      setUser(userObj.username);
-    }
+    // const loggedInUserContext: string | null = localStorage.getItem('loggedInUser');
+    // if (loggedInUserContext) {
+    //   const userObj = JSON.parse(loggedInUserContext);
+    //   setUser(userObj.username);
+    // }
   }, []);
 
   return (

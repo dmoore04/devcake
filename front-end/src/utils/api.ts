@@ -1,5 +1,7 @@
 import axios from 'axios';
-import logging from '../config/logging';
+import ILoginQuery from '../interfaces/loginQuery.interface';
+import INewUser from '../interfaces/newUser.interface';
+import IUser from '../interfaces/user';
 
 const api = axios.create({ baseURL: 'http://localhost:3000/api' });
 
@@ -13,8 +15,31 @@ export const fetchMedia = async () => {
   return res.data.media;
 };
 
-const postUser = (newUserInfo: {}) => {
-  logging.info(`sending new user info to the DB: ${newUserInfo}`, 'API request');
+export const loginUser = async (userInfo: ILoginQuery) => {
+  const res = await api.post(`/users/login`, userInfo);
+  if (res.data.user) {
+    const user = res.data.user;
+    const loggedInUser: IUser = {
+      _id: user._id,
+      username: user.username,
+      name: user.name,
+      avatarURL: user.avatarUrl,
+      topics: [],
+      media: [],
+      saved: [],
+    };
+    return loggedInUser;
+  }
+  Promise.reject('invalid username or password');
 };
 
-export default postUser;
+export const postUser = async (newUserInfo: INewUser) => {
+  const res = await api.post(`/users`, newUserInfo);
+  return res.data.user;
+};
+
+export const addTopics = async (user_id: string, topicsToAdd: string[]) => {
+  const newTopics = { topics: topicsToAdd };
+  const res = await api.patch(`/users/${user_id}`, newTopics);
+  return res.data.user;
+};

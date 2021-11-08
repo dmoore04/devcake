@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useContext } from 'react';
 import IPage from '../interfaces/page';
 import logging from '../config/logging';
-import { fetchTopics } from '../utils/api';
+import { fetchTopics, addTopics } from '../utils/api';
 import { Link, Redirect } from 'react-router-dom';
 import ITopicData from '../interfaces/topic.interface';
 import UserContext from '../contexts/UserContext';
@@ -10,14 +10,12 @@ import ITopicQueryData from '../interfaces/TopicQueryData.interface';
 const TopicChoice: React.FC<IPage> = (props) => {
   const [topics, setTopics] = useState<ITopicData[]>([]);
 
-  const [toggledTopics, setToggledTopics] = useState<[]>([]);
   const [submitted, setSubmitted] = useState(false);
-
+  const [isError, setIsError] = useState(false);
   const { user, setUser } = useContext(UserContext);
 
-  console.log(user);
-
   useEffect(() => {
+    setIsError(false);
     setSubmitted(false);
     logging.info(`Loading ${props.name}`);
     fetchTopics().then((result) => {
@@ -48,14 +46,27 @@ const TopicChoice: React.FC<IPage> = (props) => {
 
   const handleSubmit = (e: React.SyntheticEvent) => {
     e.preventDefault();
+    setIsError(false);
     const topicArr: string[] = [];
     topics.forEach((topic) => {
       if (topic.toggled) {
-        topicArr.push(topic.id);
+        topicArr.push(topic.slug);
       }
     });
-    console.log(`patching the user with the following topics: ${topicArr}`);
-    console.log('pressed submit - set state submitted to true');
+    const user_id = user._id;
+    if (topicArr.length > 0) {
+      addTopics(user_id, topicArr)
+        .then((patchedUser) => {
+          console.log(patchedUser);
+          setUser(patchedUser);
+          setSubmitted(true);
+        })
+        .catch((err) => {
+          setIsError(true);
+        });
+    } else {
+      setIsError(true);
+    }
   };
 
   if (submitted) {
@@ -90,6 +101,7 @@ const TopicChoice: React.FC<IPage> = (props) => {
       <button type="submit" onClick={handleSubmit}>
         Next
       </button>
+      {isError ? <p>At least one topic must be selected</p> : null}
     </div>
   );
 };
