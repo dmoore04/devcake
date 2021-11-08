@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from 'express';
-import { findUsers, saveUser, updateUser } from '../services/users.service';
+import { findUsers, saveUser, updateUser, testUserLogin } from '../services/users.service';
 
 export const sendUsers = async (req: Request, res: Response, next: NextFunction) => {
   try {
@@ -29,6 +29,16 @@ export const patchUser = async (req: Request, res: Response, next: NextFunction)
     res.status(200).send({ user: updatedUser });
   } catch (err) {
     next(err);
+  }
+};
+
+export const loginUser = async (req: Request, res: Response, next: NextFunction) => {
+  try {
+    const { username, password } = req.body;
+    const user = await testUserLogin(username, password);
+    res.status(200).send({ user });
+  } catch (err) {
+    res.status(401).send({ msg: err });
   }
 };
 

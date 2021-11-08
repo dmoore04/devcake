@@ -72,3 +72,43 @@ describe('/api/users/:user_id', () => {
     });
   });
 });
+
+describe('/api/users/login', () => {
+  describe('POST', () => {
+    it('200: should respond with the logged in user if password is valid', async () => {
+      await request(app).post('/api/users').send(testUser);
+
+      const response = await request(app)
+        .post('/api/users/login')
+        .send({ username: 'mrtest01', password: 'test' })
+        .expect(200);
+
+      const { user } = response.body;
+      expect(user).toMatchObject({
+        _id: expect.any(String),
+        name: 'Testy McTestface',
+        email: 'test@example.com',
+        username: 'mrtest01',
+        topics: [],
+        media: [],
+        saved: [],
+        avatarUrl: expect.any(String),
+      });
+    });
+    it('401: should respond with an error message for an invalid username/password', async () => {
+      const badUsername = await request(app)
+        .post('/api/users/login')
+        .send({ username: 'idontexist', password: 'test' })
+        .expect(401);
+
+      expect(badUsername.body.msg).toBe('invalid username');
+
+      const badPassword = await request(app)
+        .post('/api/users/login')
+        .send({ username: 'j0hntr0n', password: 'notjohnpass' })
+        .expect(401);
+
+      expect(badPassword.body.msg).toBe('invalid password');
+    });
+  });
+});
