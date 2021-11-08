@@ -1,8 +1,5 @@
-import React, { useEffect, useState, useContext } from 'react';
-import IPage from '../interfaces/page';
-import logging from '../config/logging';
-import NavBar from '../components/nav-bar';
-import axios, { CancelTokenSource } from 'axios';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 import IContent from '../interfaces/contentsData.interface';
 
 const api = axios.create({ baseURL: 'http://localhost:3000/api' });

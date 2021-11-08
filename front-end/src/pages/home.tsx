@@ -22,7 +22,7 @@ const HomePage: React.FC<IPage> = (props) => {
       });
       if (node) observer.current.observe(node);
     },
-    [loading, hasMore, pageNumber]
+    [loading, hasMore]
   );
   return (
     <div>
