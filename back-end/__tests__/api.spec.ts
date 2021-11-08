@@ -13,7 +13,7 @@ describe('/api', () => {
 });
 
 describe.only('/any-bad-path', () => {
-  describe('GET', () => {
+  describe('ANY METHOD', () => {
     it('404: should respond with an error message', async () => {
       const res = await request(app).get('/a-bad-path').expect(404);
       const { msg } = res.body;
