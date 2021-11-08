@@ -38,7 +38,7 @@
   },
   "GET /users": {
     "description": "serves an array of all user documents",
-    "queries": ["queries"],
+    "queries": ["username"],
     "exampleResponse": {
       "users": [
         {
