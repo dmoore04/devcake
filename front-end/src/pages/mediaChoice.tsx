@@ -58,7 +58,7 @@ const MediaChoice: React.FC<IPage> = (props) => {
         .then((patchedUser) => {
           console.log(patchedUser);
           setUser(patchedUser);
-          //need to send to local storage
+          localStorage.setItem('devCakeUser', JSON.stringify(patchedUser));
           setSubmitted(true);
         })
         .catch((err) => {

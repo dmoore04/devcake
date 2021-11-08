@@ -1,7 +1,7 @@
 export default interface IUser {
   _id: string;
   username: string;
-  avatarURL: string;
+  avatarUrl: string;
   name: string;
   topics: string[];
   media: string[];

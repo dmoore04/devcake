@@ -31,13 +31,17 @@ const SignUpPage: React.FC<IPage> = (props) => {
       .then((newUser) => {
         console.log(newUser);
         setUser(newUser);
-        //NEED TO SEND TO LOCAL STORAGE
+        localStorage.setItem('devCakeUser', JSON.stringify(newUser));
         setSubmitted(true);
       })
       .catch((err) => {
         console.log(err);
       });
   };
+
+  if (user.username && user.topics.length) {
+    return <Redirect push to={{ pathname: '/' }} />;
+  }
 
   if (submitted) {
     return <Redirect push to={{ pathname: '/topic-choice' }} />;
