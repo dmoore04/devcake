@@ -14,9 +14,6 @@ const LoginPage: React.FC<IPage> = (props) => {
   const [submitted, setSubmitted] = useState(false);
   const [isError, setIsError] = useState(false);
 
-  console.log('usernameInput:', usernameInput);
-  console.log('passwordInput:', passwordInput);
-
   useEffect(() => {
     setIsError(false);
     logging.info(`Loading ${props.name}`);

@@ -5,8 +5,6 @@ import UserContext from '../contexts/UserContext';
 const NavBar: React.FC = () => {
   const { user, setUser } = useContext(UserContext);
 
-  console.log(user.avatarUrl);
-
   const handleSignOut = (e: React.SyntheticEvent) => {
     setUser({
       _id: '',
