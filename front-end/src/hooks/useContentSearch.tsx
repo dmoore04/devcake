@@ -1,8 +1,5 @@
-import React, { useEffect, useState, useContext } from 'react';
-import IPage from '../interfaces/page';
-import logging from '../config/logging';
-import NavBar from '../components/nav-bar';
-import axios, { CancelTokenSource } from 'axios';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 import IContent from '../interfaces/contentsData.interface';
 
 const api = axios.create({ baseURL: 'http://localhost:3000/api' });
@@ -37,16 +34,17 @@ const useContentSearch: Hook = (pageNumber) => {
           return [
             ...new Set([
               ...currContent,
-              ...res.map(
-                (item: IContent) =>
-                  `${item.title}
-                  ${item.desc}
-                  ${item.url}
-                  ${item.imgUrl}
-                  ${item.provider}
-                  ${item.provider}
-                  ${item.topic}`
-              ),
+              ...res.map((item: IContent) => {
+                return {
+                  title: item.title,
+                  desc: item.desc,
+                  url: item.url,
+                  imgUrl: item.imgUrl,
+                  provider: item.provider,
+                  type: item.type,
+                  topic: item.topic,
+                };
+              }),
             ]),
           ];
         });

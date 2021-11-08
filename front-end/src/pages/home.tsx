@@ -22,7 +22,7 @@ const HomePage: React.FC<IPage> = (props) => {
       });
       if (node) observer.current.observe(node);
     },
-    [loading, hasMore, pageNumber]
+    [loading, hasMore]
   );
   return (
     <div>
@@ -32,11 +32,27 @@ const HomePage: React.FC<IPage> = (props) => {
         if (content.length === index + 1) {
           return (
             <div ref={lastItemElementref} key={singleContent._id}>
-              {singleContent}
+              <h2>{singleContent.title}</h2>
+              <h3>type</h3>
+              <h4>{singleContent.type}</h4>
+              <h3>topic</h3>
+              <h4>{singleContent.topic}</h4>
+              <img src={singleContent.imgUrl} alt={singleContent.title} />
+              <h4>{singleContent.provider}</h4>
             </div>
           );
         } else {
-          return <div key={singleContent._id}>{singleContent}</div>;
+          return (
+            <div key={singleContent._id}>
+              <h2>{singleContent.title}</h2>
+              <h3>type</h3>
+              <h4>{singleContent.type}</h4>
+              <h3>topic</h3>
+              <h4>{singleContent.topic}</h4>
+              <img src={singleContent.imgUrl} alt={singleContent.title} />
+              <h4>{singleContent.provider}</h4>
+            </div>
+          );
         }
       })}
       <div>{loading && hasMore && <p>loading...</p>}</div>
