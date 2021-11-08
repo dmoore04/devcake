@@ -23,7 +23,7 @@ export const loginUser = async (userInfo: ILoginQuery) => {
       _id: user._id,
       username: user.username,
       name: user.name,
-      avatarURL: user.avatarUrl,
+      avatarUrl: user.avatarUrl,
       topics: [],
       media: [],
       saved: [],

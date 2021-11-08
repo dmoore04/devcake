@@ -30,7 +30,7 @@ const LoginPage: React.FC<IPage> = (props) => {
       .then((user) => {
         if (user) {
           setUser(user);
-          //NEED TO SEND TO LOCAL STORAGE
+          localStorage.setItem('devCakeUser', JSON.stringify(user));
           setSubmitted(true);
         }
       })

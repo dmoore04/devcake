@@ -57,8 +57,8 @@ const TopicChoice: React.FC<IPage> = (props) => {
     if (topicArr.length > 0) {
       addTopics(user_id, topicArr)
         .then((patchedUser) => {
-          console.log(patchedUser);
           setUser(patchedUser);
+          localStorage.setItem('devCakeUser', JSON.stringify(patchedUser));
           setSubmitted(true);
         })
         .catch((err) => {
