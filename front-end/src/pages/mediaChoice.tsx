@@ -1,22 +1,22 @@
 import React, { useEffect, useState, useContext } from 'react';
 import IPage from '../interfaces/page';
 import logging from '../config/logging';
-import { fetchMedia } from '../utils/api';
+import { addMedia, fetchMedia } from '../utils/api';
 import { Link, Redirect } from 'react-router-dom';
 import IMediaData from '../interfaces/mediaData.interface';
 import UserContext from '../contexts/UserContext';
 
 const MediaChoice: React.FC<IPage> = (props) => {
-  const [media, setMedia] = useState<IMediaData[]>([]);
-
-  const [toggledMedia, setToggledMedia] = useState<[]>([]);
-  const [submitted, setSubmitted] = useState(false);
-
   const { user, setUser } = useContext(UserContext);
+
+  const [media, setMedia] = useState<IMediaData[]>([]);
+  const [isError, setIsError] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
 
   console.log(user);
 
   useEffect(() => {
+    setIsError(false);
     setSubmitted(false);
     logging.info(`Loading ${props.name}`);
     fetchMedia().then((result) => {
@@ -45,15 +45,39 @@ const MediaChoice: React.FC<IPage> = (props) => {
 
   const handleSubmit = (e: React.SyntheticEvent) => {
     e.preventDefault();
+    setIsError(false);
     const mediaArr: string[] = [];
     media.forEach((type) => {
       if (type.toggled) {
-        mediaArr.push(type._id);
+        mediaArr.push(type.type);
       }
     });
-    console.log(`patching the user with the following types: ${mediaArr}`);
-    console.log('pressed submit - set state submitted to true');
+    const user_id = user._id;
+    if (mediaArr.length > 0) {
+      addMedia(user_id, mediaArr)
+        .then((patchedUser) => {
+          console.log(patchedUser);
+          setUser(patchedUser);
+          //need to send to local storage
+          setSubmitted(true);
+        })
+        .catch((err) => {
+          setIsError(true);
+        });
+    } else {
+      setIsError(true);
+    }
   };
+
+  //   const mediaArr: string[] = [];
+  //   media.forEach((type) => {
+  //     if (type.toggled) {
+  //       mediaArr.push(type._id);
+  //     }
+  //   });
+  //   console.log(`patching the user with the following types: ${mediaArr}`);
+  //   console.log('pressed submit - set state submitted to true');
+  // };
 
   if (submitted) {
     return <Redirect push to={{ pathname: '/' }} />;
@@ -87,6 +111,7 @@ const MediaChoice: React.FC<IPage> = (props) => {
       <button type="submit" onClick={handleSubmit}>
         Next
       </button>
+      {isError ? <p>At least one topic must be selected</p> : null}
     </div>
   );
 };

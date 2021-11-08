@@ -43,3 +43,9 @@ export const addTopics = async (user_id: string, topicsToAdd: string[]) => {
   const res = await api.patch(`/users/${user_id}`, newTopics);
   return res.data.user;
 };
+
+export const addMedia = async (user_id: string, mediaToAdd: string[]) => {
+  const newMedia = { media: mediaToAdd };
+  const res = await api.patch(`/users/${user_id}`, newMedia);
+  return res.data.user;
+};
