@@ -2,6 +2,7 @@ import React, { useEffect, useState, useRef, useCallback } from 'react';
 import IPage from '../interfaces/page';
 import NavBar from '../components/nav-bar';
 import useContentSearch from '../hooks/useContentSearch';
+import { Link } from 'react-router-dom';
 
 const HomePage: React.FC<IPage> = (props) => {
   const [pageNumber, setPageNumber] = useState<number>(1);
@@ -33,24 +34,28 @@ const HomePage: React.FC<IPage> = (props) => {
           return (
             <div ref={lastItemElementref} key={singleContent._id}>
               <h2>{singleContent.title}</h2>
-              <h3>type</h3>
-              <h4>{singleContent.type}</h4>
-              <h3>topic</h3>
-              <h4>{singleContent.topic}</h4>
+
+              <h4>
+                {singleContent.topic} {singleContent.type}
+              </h4>
+              <p>{singleContent.desc}</p>
               <img src={singleContent.imgUrl} alt={singleContent.title} />
               <h4>{singleContent.provider}</h4>
+              <Link to={singleContent.url}>Learn More</Link>
             </div>
           );
         } else {
           return (
             <div key={singleContent._id}>
               <h2>{singleContent.title}</h2>
-              <h3>type</h3>
-              <h4>{singleContent.type}</h4>
-              <h3>topic</h3>
-              <h4>{singleContent.topic}</h4>
+
+              <h4>
+                {singleContent.topic} {singleContent.type}
+              </h4>
+              <p>{singleContent.desc}</p>
               <img src={singleContent.imgUrl} alt={singleContent.title} />
               <h4>{singleContent.provider}</h4>
+              <Link to={singleContent.url}>Learn More</Link>
             </div>
           );
         }
