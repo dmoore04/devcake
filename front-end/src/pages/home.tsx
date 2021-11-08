@@ -5,7 +5,6 @@ import useContentSearch from '../hooks/useContentSearch';
 
 const HomePage: React.FC<IPage> = (props) => {
   const [pageNumber, setPageNumber] = useState<number>(1);
-  console.log(pageNumber);
   const { loading, error, hasMore, content } = useContentSearch(pageNumber);
   const observer = useRef<IntersectionObserver>();
   useEffect(() => {}, [pageNumber]);
