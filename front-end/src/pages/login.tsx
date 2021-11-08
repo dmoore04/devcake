@@ -39,7 +39,7 @@ const LoginPage: React.FC<IPage> = (props) => {
       });
   };
 
-  if (submitted) {
+  if (submitted || user.username) {
     return <Redirect push to={{ pathname: '/' }} />;
   }
 
