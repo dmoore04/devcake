@@ -2,7 +2,11 @@ import React, { useEffect, useState, useRef, useCallback, useContext } from 'rea
 import IPage from '../interfaces/page';
 import NavBar from '../components/nav-bar';
 import useContentSearch from '../hooks/useContentSearch';
+<<<<<<< HEAD
+import { Link } from 'react-router-dom';
+=======
 import UserContext from '../contexts/UserContext';
+>>>>>>> 920169e0b17b5a25b4a09b9f8118f61191df02e6
 
 const HomePage: React.FC<IPage> = () => {
   const { user } = useContext(UserContext);
@@ -39,24 +43,28 @@ const HomePage: React.FC<IPage> = () => {
           return (
             <div ref={lastItemElementref} key={singleContent._id}>
               <h2>{singleContent.title}</h2>
-              <h3>type</h3>
-              <h4>{singleContent.type}</h4>
-              <h3>topic</h3>
-              <h4>{singleContent.topic}</h4>
+
+              <h4>
+                {singleContent.topic} {singleContent.type}
+              </h4>
+              <p>{singleContent.desc}</p>
               <img src={singleContent.imgUrl} alt={singleContent.title} />
               <h4>{singleContent.provider}</h4>
+              <Link to={singleContent.url}>Learn More</Link>
             </div>
           );
         } else {
           return (
             <div key={singleContent._id}>
               <h2>{singleContent.title}</h2>
-              <h3>type</h3>
-              <h4>{singleContent.type}</h4>
-              <h3>topic</h3>
-              <h4>{singleContent.topic}</h4>
+
+              <h4>
+                {singleContent.topic} {singleContent.type}
+              </h4>
+              <p>{singleContent.desc}</p>
               <img src={singleContent.imgUrl} alt={singleContent.title} />
               <h4>{singleContent.provider}</h4>
+              <Link to={singleContent.url}>Learn More</Link>
             </div>
           );
         }

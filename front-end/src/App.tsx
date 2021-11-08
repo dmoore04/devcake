@@ -5,6 +5,7 @@ import routes from './config/routes';
 import logging from './config/logging';
 import UserContext from './contexts/UserContext';
 import IUser from './interfaces/user';
+import './App.css';
 
 const App: React.FC = () => {
   const [user, setUser] = useState<IUser>({

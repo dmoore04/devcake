@@ -1,3 +1,4 @@
+import { Nav, NavbarContainer, NavLogo } from '../styling/NavBar_elements';
 import { Link, Redirect } from 'react-router-dom';
 import React, { useContext } from 'react';
 import UserContext from '../contexts/UserContext';
@@ -24,26 +25,29 @@ const NavBar: React.FC = () => {
 
   return (
     <>
-      <div>
-        <Link key="home" to="/">
-          Home
-        </Link>
-        <Link key="topic-choice" to="/topic-choice">
-          Topic Choice
-        </Link>
-        <Link key="media-choice" to="/media-choice">
-          Media Choice
-        </Link>
-        <Link key="user-profile" to="/user-profile">
-          User Profile
-        </Link>
-        <Link key="following" to="/user-profile">
-          Following
-        </Link>
-        <Link key="Bookmarks" to="/user-profile">
-          Bookmarks
-        </Link>
-      </div>
+      <Nav>
+        <NavbarContainer>
+          <NavLogo to="/">DevCake</NavLogo>
+          <Link key="home" to="/">
+            Home
+          </Link>
+          <Link key="topic-choice" to="/topic-choice">
+            Topic Choice
+          </Link>
+          <Link key="media-choice" to="/media-choice">
+            Media Choice
+          </Link>
+          <Link key="user-profile" to="/user-profile">
+            User Profile
+          </Link>
+          <Link key="following" to="/user-profile">
+            Following
+          </Link>
+          <Link key="Bookmarks" to="/user-profile">
+            Bookmarks
+          </Link>
+        </NavbarContainer>
+      </Nav>
       <div>
         <img src={user.avatarUrl} alt="profile pic" width="50" />
         <h3>{user.name}</h3>
