@@ -5,14 +5,14 @@ import { fetchTopics, addTopics } from '../utils/api';
 import { Link, Redirect } from 'react-router-dom';
 import ITopicData from '../interfaces/topic.interface';
 import UserContext from '../contexts/UserContext';
-import ITopicQueryData from '../interfaces/TopicQueryData.interface';
+import ITopicQueryData from '../interfaces/topicQueryData.interface';
 
 const TopicChoice: React.FC<IPage> = (props) => {
-  const [topics, setTopics] = useState<ITopicData[]>([]);
+  const { user, setUser } = useContext(UserContext);
 
+  const [topics, setTopics] = useState<ITopicData[]>([]);
   const [submitted, setSubmitted] = useState(false);
   const [isError, setIsError] = useState(false);
-  const { user, setUser } = useContext(UserContext);
 
   useEffect(() => {
     setIsError(false);
