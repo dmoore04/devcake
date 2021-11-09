@@ -1,4 +1,4 @@
-import { getModelForClass, prop, Ref, pre, DocumentType } from '@typegoose/typegoose';
+import { getModelForClass, prop, Ref, pre } from '@typegoose/typegoose';
 import { Content } from './content.model';
 import bcrypt from 'bcrypt';
 
