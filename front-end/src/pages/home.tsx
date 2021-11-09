@@ -1,7 +1,6 @@
 import React, { useEffect, useState, useRef, useCallback, useContext } from 'react';
 import IPage from '../interfaces/page';
 import NavBar from '../components/nav-bar';
-import TopicSuggestion from '../components/TopicSuggestion';
 import useContentSearch from '../hooks/useContentSearch';
 import UserContext from '../contexts/UserContext';
 

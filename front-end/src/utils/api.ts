@@ -44,6 +44,12 @@ export const addTopics = async (user_id: string, topicsToAdd: string[]) => {
   return res.data.user;
 };
 
+export const patchSaved = async (user_id: string, savedItems: string[]) => {
+  const newSaved = { saved: [...savedItems] };
+  const res = await api.patch(`/users/${user_id}`, newSaved);
+  return res.data.user;
+};
+
 export const addMedia = async (user_id: string, mediaToAdd: string[]) => {
   const newMedia = { media: mediaToAdd };
   const res = await api.patch(`/users/${user_id}`, newMedia);
@@ -58,4 +64,10 @@ export const fetchContent = async (id: string, page?: number) => {
   console.log(path, '<--- PATH');
   const res = await api.get(path);
   return res.data.content.docs;
+};
+
+export const fetchSingleContent = async (id: string) => {
+  console.log(id);
+  const res = await api.get(`/content/${id}`);
+  return res.data;
 };
