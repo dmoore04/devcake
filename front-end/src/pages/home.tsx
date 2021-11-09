@@ -61,7 +61,9 @@ const HomePage: React.FC<IPage> = () => {
               <p>{singleContent.desc}</p>
               <img src={singleContent.imgUrl} alt={singleContent.title} />
               <h4>{singleContent.provider}</h4>
-              <Link to={singleContent.url}>Learn More</Link>
+              <Link className="btn btn-primary" to={singleContent.url}>
+                Learn More
+              </Link>
             </div>
           );
         }
