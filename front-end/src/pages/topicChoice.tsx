@@ -6,6 +6,8 @@ import { Link, Redirect } from 'react-router-dom';
 import ITopicData from '../interfaces/topic.interface';
 import UserContext from '../contexts/UserContext';
 import ITopicQueryData from '../interfaces/topicQueryData.interface';
+import { Button } from '../styling/Components.styled';
+import '../App.css';
 
 const TopicChoice: React.FC<IPage> = (props) => {
   const { user, setUser } = useContext(UserContext);
@@ -85,22 +87,22 @@ const TopicChoice: React.FC<IPage> = (props) => {
       <div>
         {topics.map((topic) => {
           return (
-            <button
+            <Button
               id={topic.id}
               key={topic.id}
               name={`${topic.name}-button`}
-              className={`${topic.name}__button`}
+              className={`btn`}
               onClick={handleToggle}
             >
               {topic.name}
-            </button>
+            </Button>
           );
         })}
       </div>
       <br />
-      <button type="submit" onClick={handleSubmit}>
+      <Button className="btn" type="submit" onClick={handleSubmit}>
         Next
-      </button>
+      </Button>
       {isError ? <p>At least one topic must be selected</p> : null}
     </div>
   );
