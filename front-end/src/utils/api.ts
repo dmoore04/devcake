@@ -18,15 +18,15 @@ export const fetchMedia = async () => {
 export const loginUser = async (userInfo: ILoginQuery) => {
   const res = await api.post(`/users/login`, userInfo);
   if (res.data.user) {
-    const user = res.data.user;
+    const { user } = res.data;
     const loggedInUser: IUser = {
       _id: user._id,
       username: user.username,
       name: user.name,
       avatarUrl: user.avatarUrl,
-      topics: [],
-      media: [],
-      saved: [],
+      topics: user.topics,
+      media: user.media,
+      saved: user.saved,
     };
     return loggedInUser;
   }
