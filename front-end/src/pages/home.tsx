@@ -2,11 +2,8 @@ import React, { useEffect, useState, useRef, useCallback, useContext } from 'rea
 import IPage from '../interfaces/page';
 import NavBar from '../components/nav-bar';
 import useContentSearch from '../hooks/useContentSearch';
-<<<<<<< HEAD
 import { Link } from 'react-router-dom';
-=======
 import UserContext from '../contexts/UserContext';
->>>>>>> 920169e0b17b5a25b4a09b9f8118f61191df02e6
 
 const HomePage: React.FC<IPage> = () => {
   const { user } = useContext(UserContext);
