@@ -38,6 +38,10 @@
   border: none;
 }
 
+::-webkit-scrollbar {
+  display: none;
+}
+
 body {
   font-family: 'Poppins', sans-serif;
   color: var(--color-dark);
@@ -45,33 +49,9 @@ body {
   overflow-x: hidden;
 }
 
-/* general styles */
-
-.container {
-  width: 80%;
-  margin: 0 auto;
-}
-
-.profile-photo {
-  width: 2.7rem;
-  aspect-ratio: 1/1;
-  border-radius: 50%;
-  overflow: hidden;
-}
-
 img {
   display: block;
   width: 100%;
-}
-
-.btn {
-  display: inline-block;
-  padding: var(--btn-padding);
-  font-weight: 500;
-  border-radius: var(--border-radius);
-  cursor: pointer;
-  transition: all 300ms ease;
-  font-size: 0.9rem;
 }
 
 .btn:hover {
@@ -90,3 +70,4 @@ img {
 .text-muted {
   color: var(--color-gray);
 }
+
