@@ -35,12 +35,11 @@ const NavBar: React.FC = () => {
             <h3>{user.name}</h3>
             <h4>{user.username}</h4>
             <div>
-              <img src={user.avatarUrl} alt="profile pic" width="50" />
+              <Link key="user-profile" to="/user-profile">
+                <img src={user.avatarUrl} alt="profile pic" width="50" />
+              </Link>
             </div>
           </div>
-          <Link key="user-profile" to="/user-profile">
-            <img src={user.avatarUrl} alt="profile pic" width="50" />
-          </Link>
           <Link key="home" to="/">
             Home
           </Link>

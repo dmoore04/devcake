@@ -32,6 +32,7 @@ const HomePage: React.FC<IPage> = () => {
   );
   return (
     <div>
+      <NavBar />
       <p>This is the homepage!</p>
       {content.map((singleContent, index) => {
         if (content.length === index + 1) {
