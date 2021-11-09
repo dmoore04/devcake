@@ -8,19 +8,15 @@ import UserContext from '../contexts/UserContext';
 
 const MediaChoice: React.FC<IPage> = (props) => {
   const { user, setUser } = useContext(UserContext);
-
   const [media, setMedia] = useState<IMediaData[]>([]);
   const [isError, setIsError] = useState(false);
   const [submitted, setSubmitted] = useState(false);
-
-  console.log(user);
 
   useEffect(() => {
     setIsError(false);
     setSubmitted(false);
     logging.info(`Loading ${props.name}`);
     fetchMedia().then((result) => {
-      console.log(result);
       const mediaArr = result.map((media: IMediaData) => {
         const newMedia = {
           _id: media._id,

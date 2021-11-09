@@ -2,7 +2,10 @@ import React, { useEffect, useState, useRef, useCallback, useContext } from 'rea
 import IPage from '../interfaces/page';
 import NavBar from '../components/nav-bar';
 import useContentSearch from '../hooks/useContentSearch';
+<<<<<<< HEAD
 import { Link } from 'react-router-dom';
+=======
+>>>>>>> 39021859f8c512cd016e29d505e9b2dfed35b229
 import UserContext from '../contexts/UserContext';
 
 const HomePage: React.FC<IPage> = () => {
@@ -47,7 +50,9 @@ const HomePage: React.FC<IPage> = () => {
               <p>{singleContent.desc}</p>
               <img src={singleContent.imgUrl} alt={singleContent.title} />
               <h4>{singleContent.provider}</h4>
-              <Link to={singleContent.url}>Learn More</Link>
+              <a href={singleContent.url} target="_blank" rel="noreferrer">
+                Learn More
+              </a>
             </div>
           );
         } else {
@@ -61,9 +66,15 @@ const HomePage: React.FC<IPage> = () => {
               <p>{singleContent.desc}</p>
               <img src={singleContent.imgUrl} alt={singleContent.title} />
               <h4>{singleContent.provider}</h4>
+<<<<<<< HEAD
               <Link className="btn btn-primary" to={singleContent.url}>
                 Learn More
               </Link>
+=======
+              <a href={singleContent.url} target="_blank" rel="noreferrer">
+                Learn More
+              </a>
+>>>>>>> 39021859f8c512cd016e29d505e9b2dfed35b229
             </div>
           );
         }
