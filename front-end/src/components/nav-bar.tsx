@@ -25,9 +25,22 @@ const NavBar: React.FC = () => {
 
   return (
     <>
-      <Nav>
+      <Nav className="left">
         <NavbarContainer>
+          <button id="signOut__btn" onClick={handleSignOut}>
+            log out
+          </button>
           <NavLogo to="/">DevCake</NavLogo>
+          <div>
+            <h3>{user.name}</h3>
+            <h4>{user.username}</h4>
+            <div>
+              <img src={user.avatarUrl} alt="profile pic" width="50" />
+            </div>
+          </div>
+          <Link key="user-profile" to="/user-profile">
+            <img src={user.avatarUrl} alt="profile pic" width="50" />
+          </Link>
           <Link key="home" to="/">
             Home
           </Link>
@@ -48,14 +61,6 @@ const NavBar: React.FC = () => {
           </Link>
         </NavbarContainer>
       </Nav>
-      <div>
-        <img src={user.avatarUrl} alt="profile pic" width="50" />
-        <h3>{user.name}</h3>
-        <h4>{user.username}</h4>
-        <button id="signOut__btn" onClick={handleSignOut}>
-          log out
-        </button>
-      </div>
     </>
   );
 };
