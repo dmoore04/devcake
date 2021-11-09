@@ -5,7 +5,10 @@ const findContent = async (user_id?: any, page?: number, limit?: number) => {
   const user = await UserModel.findById(user_id);
   const query = user ? { type: { $in: user.media }, topic: { $in: user.topics } } : {};
   const options = { page, limit };
-  const aggregate = ContentModel.aggregate([{ $match: query }, { $sample: { size: 10 } }]);
+  const aggregate = ContentModel.aggregate([
+    { $match: query },
+    { $sample: { size: await ContentModel.count() } },
+  ]);
   return ContentModel.aggregatePaginate(aggregate, options);
 };
 
