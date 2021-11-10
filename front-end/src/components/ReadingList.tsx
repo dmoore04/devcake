@@ -1,17 +1,17 @@
 import { useContext, useEffect, useState } from 'react';
-import { patchSaved, fetchSingleContent } from '../utils/api';
+import { patchSaved, fetchSavedContent } from '../utils/api';
 import UserContext from '../contexts/UserContext';
 import IContent from '../interfaces/contentsData.interface';
 import {
-  Follow,
-  Followed,
-  Avatar,
-  FollowedContainer,
+  Bookmarks,
+  Bookmark,
+  Bookmarked,
+  Image,
+  BookmarkContainer,
   ButtonTitle,
-  Following,
 } from '../styling/Profile_elements';
 
-const FollowedTopics: React.FC = () => {
+const ReadingList: React.FC = () => {
   const { user, setUser } = useContext(UserContext);
   const [readingList, setReadingList] = useState<IContent[]>([]);
 
@@ -33,47 +33,39 @@ const FollowedTopics: React.FC = () => {
   }
 
   useEffect(() => {
-    const savedItems: string[] = user.saved;
-    const bookmarked: IContent[] = [];
-    savedItems.forEach((item) => {
-      console.log(item);
-      fetchSingleContent(item).then((result) => {
-        bookmarked.push(result);
-      });
+    fetchSavedContent(user._id).then((savedContent) => {
+      setReadingList(savedContent);
     });
-    setReadingList(bookmarked);
-  }, [user.saved]);
-
-  console.log(user.saved);
+  }, [user._id]);
+  console.log(readingList);
 
   return (
     <div>
-      <p>this is the reading list</p>
       <ul>
-        {readingList.map((item) => (
-          <Following>
-            <FollowedContainer>
-              <ButtonTitle>
-                <span>
-                  <Avatar src={item.imgUrl} height="50px" />
-                </span>
-                {!user.saved.includes(item._id) ? (
-                  <Follow onClick={() => addToList(item._id)}>Add to Reading List</Follow>
-                ) : (
-                  <Followed onClick={() => removeFromList(item._id)}>
-                    Added to Reading List
-                  </Followed>
-                )}
-              </ButtonTitle>
-              <h3> {item.title}</h3>
-              <h4>{item.type}</h4>
-              <p> {item.desc}</p>
-            </FollowedContainer>
-          </Following>
+        {readingList.map((content) => (
+          <li>
+            <Bookmarks>
+              <BookmarkContainer>
+                <ButtonTitle>
+                  <span>
+                    <Image src={content.imgUrl} height="200px" />
+                  </span>
+                  {!user.saved.includes(content._id) ? (
+                    <Bookmark onClick={() => addToList(content._id)}>Bookmark</Bookmark>
+                  ) : (
+                    <Bookmarked onClick={() => removeFromList(content._id)}>Bookmarked</Bookmarked>
+                  )}
+                </ButtonTitle>
+                <h3> {content.title}</h3>
+                <h4>{content.type}</h4>
+                <p> {content.desc}</p>
+              </BookmarkContainer>
+            </Bookmarks>
+          </li>
         ))}
       </ul>
     </div>
   );
 };
 
-export default FollowedTopics;
+export default ReadingList;

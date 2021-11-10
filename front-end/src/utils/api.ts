@@ -1,4 +1,5 @@
 import axios from 'axios';
+import IContent from '../interfaces/contentsData.interface';
 import ILoginQuery from '../interfaces/loginQuery.interface';
 import INewUser from '../interfaces/newUser.interface';
 import IUser from '../interfaces/user';
@@ -67,7 +68,11 @@ export const fetchContent = async (id: string, page?: number) => {
 };
 
 export const fetchSingleContent = async (id: string) => {
-  console.log(id);
   const res = await api.get(`/content/${id}`);
-  return res.data;
+  return res.data.content;
+};
+
+export const fetchSavedContent = async (user_id: string) => {
+  const res = await api.get(`/users/${user_id}/saved`);
+  return res.data.content;
 };

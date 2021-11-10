@@ -11,6 +11,7 @@ import ReadingList from '../components/ReadingList';
 const UserProfile: React.FC<IPage> = (props) => {
   const { user } = useContext(UserContext);
   const [displayFollowing, setDisplayFollowing] = useState(true);
+  const [displayReadingList, setDisplayReadingList] = useState(false);
 
   useEffect(() => {
     setDisplayFollowing(true);
@@ -19,10 +20,12 @@ const UserProfile: React.FC<IPage> = (props) => {
 
   const toggleFollowing = () => {
     setDisplayFollowing(true);
+    setDisplayReadingList(false);
   };
 
   const toggleReading = () => {
     setDisplayFollowing(false);
+    setDisplayReadingList(true);
   };
 
   return (
@@ -39,7 +42,8 @@ const UserProfile: React.FC<IPage> = (props) => {
         <button onClick={toggleFollowing}>Following</button>{' '}
         <button onClick={toggleReading}>Reading List</button>
       </p>
-      {displayFollowing ? <FollowedTopics /> : <ReadingList />}
+      {displayFollowing ? <FollowedTopics /> : null}
+      {displayReadingList ? <ReadingList /> : null}
     </>
   );
 };
