@@ -1,5 +1,11 @@
 import { Request, Response, NextFunction } from 'express';
-import { findUsers, saveUser, updateUser, testUserLogin } from '../services/users.service';
+import {
+  findUsers,
+  saveUser,
+  updateUser,
+  testUserLogin,
+  findSavedContent,
+} from '../services/users.service';
 
 export const sendUsers = async (req: Request, res: Response, next: NextFunction) => {
   try {
@@ -40,6 +46,14 @@ export const loginUser = async (req: Request, res: Response, next: NextFunction)
   } catch (err) {
     res.status(401).send({ msg: err });
   }
+};
+
+export const sendSavedContent = async (req: Request, res: Response, next: NextFunction) => {
+  try {
+    const { user_id } = req.params;
+    const saved = await findSavedContent(user_id);
+    res.status(200).send({ content: saved });
+  } catch (err) {}
 };
 
 export default sendUsers;
