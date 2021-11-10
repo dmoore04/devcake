@@ -39,7 +39,7 @@ const ReadingList: React.FC = () => {
   }, [user._id]);
   console.log(readingList);
 
-  return (
+  return readingList ? (
     <div>
       <ul>
         {readingList.map((content) => (
@@ -65,6 +65,8 @@ const ReadingList: React.FC = () => {
         ))}
       </ul>
     </div>
+  ) : (
+    <p> Your reading list is empty</p>
   );
 };
 
