@@ -51,13 +51,16 @@ const ReadingList: React.FC = () => {
                     <Image src={content.imgUrl} height="200px" />
                   </span>
                   {!user.saved.includes(content._id) ? (
-                    <Button className="btn btn-primary" onClick={() => addToList(content._id)}>
+                    <Bookmark className="btn btn-primary" onClick={() => addToList(content._id)}>
                       Bookmark
-                    </Button>
+                    </Bookmark>
                   ) : (
-                    <Button className="btn btn-primary" onClick={() => removeFromList(content._id)}>
+                    <Bookmarked
+                      className="btn btn-primary"
+                      onClick={() => removeFromList(content._id)}
+                    >
                       Bookmarked
-                    </Button>
+                    </Bookmarked>
                   )}
                 </ButtonTitle>
                 <h3> {content.title}</h3>

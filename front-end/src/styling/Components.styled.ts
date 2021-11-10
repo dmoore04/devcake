@@ -7,6 +7,14 @@ export const Container = styled.div`
   position: fixed;
 `;
 
+export const SuggestionBody = styled.div`
+  width: 18%;
+  margin: 0 auto;
+  height: 100vh;
+  position: fixed;
+  right: 0;
+`;
+
 export const Button = styled.button`
   display: inline-block;
   padding: var(--btn-padding);
@@ -16,6 +24,8 @@ export const Button = styled.button`
   transition: all 300ms ease;
   font-size: 0.9rem;
   align-self: center;
+  background-color: hsl(var(--primary-color-hue), 100%, 24%);
+  color: white;
 `;
 
 export const SingleContentCard = styled.li`

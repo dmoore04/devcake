@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from 'react';
 import { addTopics, fetchTopics } from '../utils/api';
 import UserContext from '../contexts/UserContext';
 import ITopicData from '../interfaces/topic.interface';
-import { Container, Button } from '../styling/Components.styled';
+import { Button, SuggestionBody } from '../styling/Components.styled';
 
 import {
   Follow,
@@ -43,7 +43,7 @@ const TopicSuggestion: React.FC = () => {
   }, [user.topics]);
 
   return (
-    <Container>
+    <SuggestionBody>
       <Suggestions className="sidebar">
         <SuggestionTitle>You might like...</SuggestionTitle>
         <ul>
@@ -56,16 +56,20 @@ const TopicSuggestion: React.FC = () => {
                   {topic.name}
                 </ButtonTitle>
                 {!user.topics.includes(topic.slug) ? (
-                  <Button onClick={() => followTopic(topic.slug)}>Follow</Button>
+                  <Button className="btn btn-primary" onClick={() => followTopic(topic.slug)}>
+                    Follow
+                  </Button>
                 ) : (
-                  <Button onClick={() => unfollowTopic(topic.slug)}>Followed</Button>
+                  <Button className="btn btn-primary" onClick={() => unfollowTopic(topic.slug)}>
+                    Followed
+                  </Button>
                 )}
               </SuggestionContainer>
             </span>
           ))}
         </ul>
       </Suggestions>
-    </Container>
+    </SuggestionBody>
   );
 };
 

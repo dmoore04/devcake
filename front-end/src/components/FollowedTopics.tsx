@@ -53,13 +53,13 @@ const FollowedTopics: React.FC = () => {
                     <Avatar src={topic.imgUrl} height="50px" />
                   </span>
                   {!user.topics.includes(topic.slug) ? (
-                    <Button className="btn btn-primary" onClick={() => followTopic(topic.slug)}>
+                    <Follow className="btn btn-primary" onClick={() => followTopic(topic.slug)}>
                       Follow
-                    </Button>
+                    </Follow>
                   ) : (
-                    <Button className="btn btn-primary" onClick={() => unfollowTopic(topic.slug)}>
+                    <Followed className="btn btn-primary" onClick={() => unfollowTopic(topic.slug)}>
                       Followed
-                    </Button>
+                    </Followed>
                   )}
                 </ButtonTitle>
                 <h3> {topic.name}</h3>
