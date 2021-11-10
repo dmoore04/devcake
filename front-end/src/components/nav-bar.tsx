@@ -26,7 +26,7 @@ const NavBar: React.FC = () => {
 
   return (
     <>
-      <Container>
+      <Container className="sidebar">
         <NavLogo to="/">DevCake</NavLogo>
         <div className="profile">
           {/* <h3 className= "handle text-muted">{user.name}</h3> */}
@@ -37,9 +37,7 @@ const NavBar: React.FC = () => {
             </Link>
           </div>
         </div>
-        <Button className="btn" id="signOut__btn" onClick={handleSignOut}>
-          log out
-        </Button>
+
         {/* <MenuItem> */}
         <Link className="menu-item active" key="home" to="/">
           <span>
@@ -65,6 +63,9 @@ const NavBar: React.FC = () => {
           </span>
           <h3>User Profile</h3>
         </Link>
+        <Button className="btn" id="signOut__btn" onClick={handleSignOut}>
+          log out
+        </Button>
       </Container>
     </>
   );
