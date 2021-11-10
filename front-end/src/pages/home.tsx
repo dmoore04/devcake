@@ -5,6 +5,7 @@ import useContentSearch from '../hooks/useContentSearch';
 import UserContext from '../contexts/UserContext';
 import { Button, SingleContentCard } from '../styling/Components.styled';
 import AddToBookmarks from '../components/AddToBookmarks';
+import TopicSuggestion from '../components/TopicSuggestion';
 
 const HomePage: React.FC<IPage> = () => {
   const { user } = useContext(UserContext);
@@ -37,6 +38,9 @@ const HomePage: React.FC<IPage> = () => {
       <div className="left sidebar">
         <NavBar />
       </div>
+      <div className="right">
+        <TopicSuggestion />
+      </div>
 
       <div className="middle">
         <ul className="content">
@@ -65,7 +69,7 @@ const HomePage: React.FC<IPage> = () => {
                     <h4>{singleContent.provider}</h4>
                   </div>
                   <AddToBookmarks />
-                  <Button className="btn:hover btn-primary">
+                  <Button className="btn btn-primary">
                     <a href={singleContent.url} target="_blank" rel="noreferrer">
                       Learn More
                     </a>
@@ -82,7 +86,6 @@ const HomePage: React.FC<IPage> = () => {
                   />
 
                   <div className="card-content">
-                    <AddToBookmarks />
                     <h2 className="singleContentTitle">{singleContent.title}</h2>
 
                     <h4 className="singleContentTopic-type">Topic: {singleContent.topic}</h4>
@@ -91,10 +94,17 @@ const HomePage: React.FC<IPage> = () => {
                     <p>{singleContent.desc}</p>
 
                     <h4>Provider: {singleContent.provider}</h4>
+
+                    <AddToBookmarks />
                   </div>
 
                   <div className="item-3">
-                    <a className="btn" href={singleContent.url} target="_blank" rel="noreferrer">
+                    <a
+                      className="btn btn-primary"
+                      href={singleContent.url}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
                       Learn More
                     </a>
                   </div>

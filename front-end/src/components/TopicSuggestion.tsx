@@ -2,6 +2,8 @@ import { useContext, useEffect, useState } from 'react';
 import { addTopics, fetchTopics } from '../utils/api';
 import UserContext from '../contexts/UserContext';
 import ITopicData from '../interfaces/topic.interface';
+import { Container, Button } from '../styling/Components.styled';
+
 import {
   Follow,
   Followed,
@@ -41,26 +43,29 @@ const TopicSuggestion: React.FC = () => {
   }, [user.topics]);
 
   return (
-    <Suggestions>
-      <SuggestionTitle>You might like...</SuggestionTitle>
-      <ul>
-        {topics.map((topic) => (
-          <SuggestionContainer key={topic.slug}>
-            <ButtonTitle>
-              <span>
-                <Avatar src={topic.imgUrl} height="20px" />
-              </span>
-              {topic.name}
-            </ButtonTitle>
-            {!user.topics.includes(topic.slug) ? (
-              <Follow onClick={() => followTopic(topic.slug)}>Follow</Follow>
-            ) : (
-              <Followed onClick={() => unfollowTopic(topic.slug)}>Followed</Followed>
-            )}
-          </SuggestionContainer>
-        ))}
-      </ul>
-    </Suggestions>
+    <Container>
+      <Suggestions className="sidebar">
+        <SuggestionTitle>You might like...</SuggestionTitle>
+        <ul>
+          {topics.map((topic) => (
+            <span className="menu-item">
+              <SuggestionContainer key={topic.slug}>
+                <ButtonTitle>
+                  <Avatar src={topic.imgUrl} height="30px" />
+
+                  {topic.name}
+                </ButtonTitle>
+                {!user.topics.includes(topic.slug) ? (
+                  <Button onClick={() => followTopic(topic.slug)}>Follow</Button>
+                ) : (
+                  <Button onClick={() => unfollowTopic(topic.slug)}>Followed</Button>
+                )}
+              </SuggestionContainer>
+            </span>
+          ))}
+        </ul>
+      </Suggestions>
+    </Container>
   );
 };
 
