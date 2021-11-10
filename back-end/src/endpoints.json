@@ -100,19 +100,6 @@
       }
     }
   },
-  "GET /content/:content_id": {
-    "description": "returns a specific piece of content",
-    "exampleResponse": {
-      "_id": "6182fadbe57af5f7b8cf23c0",
-      "title": "Head first JavaScript Programming: A brain-friendly guide",
-      "url": "https://www.amazon.com/dp/144934013X",
-      "provider": ["Amazon"],
-      "type": ["book"],
-      "topic": "javascript",
-      "desc": "Provides information on scripting Web applications with JavaScript, including objects, functions, and the browser's document object model.",
-      "imgUrl": "https://m.media-amazon.com/images/I/51qQTSKL2nL._AC_UY500_FMwebp_QL65_.jpg"
-    }
-  },
   "GET /topics": {
     "description": "returns a list of all topic documents",
     "exampleResponse": {
@@ -151,6 +138,21 @@
           "description": "Articles that may be useful for learning a new skill or job from providers such as Wikipedia, Medium, etc. "
         }
       ]
+    }
+  },
+  "GET /content/:content_id": {
+    "description": "Returns a specific content document",
+    "exampleResponse": {
+      "content": {
+        "_id": "6182a74efb0651ba7a263a42",
+        "title": "Introduction to C#",
+        "url": "https://www.edx.org/course/introduction-to-c-4",
+        "provider": ["edX"],
+        "type": "mooc",
+        "topic": "c#",
+        "desc": "- Automatizar tu proceso de ventas haciendo uso de herramientas como Mailchimp, Autopilot y Active Campaign, facilitando el control de las acciones de gestion, permitiendo de esta forma enfocarse en el anelisis y optimizacion de la estrategia",
+        "imgUrl": "https://prod-discovery.edx-cdn.org/media/course/image/9b458aa7-198c-456a-9223-402ea859881d-56dc9fcd0439.small.png"
+      }
     }
   }
 }

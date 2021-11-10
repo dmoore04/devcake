@@ -6,13 +6,12 @@ import {
   Follow,
   Followed,
   Avatar,
-  SuggestionContainer,
+  FollowedContainer,
   ButtonTitle,
-  Suggestions,
-  SuggestionTitle,
-} from '../styling/TopicSuggestion_elements';
+  Following,
+} from '../styling/Profile_elements';
 
-const TopicSuggestion: React.FC = () => {
+const FollowedTopics: React.FC = () => {
   const { user, setUser } = useContext(UserContext);
   const [topics, setTopics] = useState<ITopicData[]>([]);
 
@@ -35,33 +34,37 @@ const TopicSuggestion: React.FC = () => {
 
   useEffect(() => {
     fetchTopics().then((topics: ITopicData[]) => {
-      const suggested = topics.filter((topic) => !user.topics.includes(topic.slug));
-      setTopics(suggested.slice(0, 5));
+      const followed = topics.filter((topic) => user.topics.includes(topic.slug));
+      setTopics(followed);
     });
-  });
+  }, [user.topics]);
 
   return (
-    <Suggestions>
-      <SuggestionTitle>You might like...</SuggestionTitle>
+    <div>
       <ul>
         {topics.map((topic) => (
-          <SuggestionContainer key={topic.slug}>
-            <ButtonTitle>
-              <span>
-                <Avatar src={topic.imgUrl} height="20px" />
-              </span>
-              {topic.name}
-            </ButtonTitle>
-            {!user.topics.includes(topic.slug) ? (
-              <Follow onClick={() => followTopic(topic.slug)}>Follow</Follow>
-            ) : (
-              <Followed onClick={() => unfollowTopic(topic.slug)}>Followed</Followed>
-            )}
-          </SuggestionContainer>
+          <li key={topic.slug}>
+            <Following>
+              <FollowedContainer>
+                <ButtonTitle>
+                  <span>
+                    <Avatar src={topic.imgUrl} height="50px" />
+                  </span>
+                  {!user.topics.includes(topic.slug) ? (
+                    <Follow onClick={() => followTopic(topic.slug)}>Follow</Follow>
+                  ) : (
+                    <Followed onClick={() => unfollowTopic(topic.slug)}>Followed</Followed>
+                  )}
+                </ButtonTitle>
+                <h3> {topic.name}</h3>
+                <p> {topic.desc}</p>
+              </FollowedContainer>
+            </Following>
+          </li>
         ))}
       </ul>
-    </Suggestions>
+    </div>
   );
 };
 
-export default TopicSuggestion;
+export default FollowedTopics;

@@ -1,8 +1,9 @@
 import { Router } from 'express';
-import sendContent from '../controllers/content.controller';
+import { sendContentFeed, sendContent } from '../controllers/content.controller';
 
 const contentRouter = Router();
 
-contentRouter.get('/', sendContent);
+contentRouter.get('/:content_id', sendContent);
+contentRouter.get('/', sendContentFeed);
 
 export default contentRouter;
