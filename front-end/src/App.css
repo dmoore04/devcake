@@ -39,6 +39,7 @@
 }
 
 body {
+  margin: 0;
   font-family: 'Poppins', sans-serif;
   color: var(--color-dark);
   background: var(--color-light);
@@ -92,7 +93,7 @@ img {
 }
 
 .container .left {
-  height: max-content;
+  height: 100vh;
   position: sticky;
   top: var(--sticky-top-left);
   grid-area: nav;
@@ -100,6 +101,7 @@ img {
 
 .left {
   position: fixed;
+  height: 100vh;
   z-index: 1;
   top: 0;
   overflow-x: hidden;
@@ -116,10 +118,10 @@ img {
 }
 
 .left .sidebar {
-  margin-top: 1rem;
   background: var(--color-white);
   border-radius: var(--card-border-radius);
   position: fixed;
+  height: 100vh;
 }
 
 .menu-item {
