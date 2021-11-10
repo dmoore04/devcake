@@ -19,4 +19,16 @@ describe('/api/content', () => {
       expect(content.docs.length).toBe(10);
     });
   });
+  describe('/:content_id', () => {
+    describe('GET', () => {
+      it('200: should return a specific content document', async () => {
+        const contentResponse = await request(app).get('/api/content');
+        const { docs } = contentResponse.body.content;
+        const { _id } = docs[0];
+        const response = await request(app).get(`/api/content/${_id}`);
+        const { content } = response.body;
+        expect(content).toMatchObject(docs[0]);
+      });
+    });
+  });
 });
