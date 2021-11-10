@@ -121,15 +121,9 @@ const HomePage: React.FC = () => {
                     {console.log(singleContent)}
                     <AddToBookmarks content_id={singleContent._id} />
                   </div>
-
                   <div className="item-3">
-                    <a
-                      className="btn btn-primary"
-                      href={singleContent.url}
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      Learn More
+                    <a href={singleContent.url} target="_blank" rel="noreferrer">
+                      <Button className="btn btn-primary">Learn More</Button>
                     </a>
                   </div>
                 </SingleContentCard>

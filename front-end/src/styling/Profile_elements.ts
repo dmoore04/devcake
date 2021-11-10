@@ -8,27 +8,29 @@ export const Following = styled.section`
 `;
 
 export const Follow = styled.button`
-  border-radius: 100px;
-  height: 2em;
-  width: 75px;
-  background: #c4c4c4;
-  color: black;
-  font-weight: 600;
-  border: none;
-  box-shadow: 1px 1px 2px 0px black;
+  display: inline-block;
+  padding: var(--btn-padding);
+  font-weight: 500;
+  border-radius: var(--border-radius);
   cursor: pointer;
+  transition: all 300ms ease;
+  font-size: 0.9rem;
+  align-self: center;
+  background-color: green;
 `;
 
 export const Followed = styled.button`
-  border-radius: 100px;
-  height: 2em;
-  width: 75px;
-  background: #007922;
-  color: white;
-  font-weight: 600;
-  border: none;
-  box-shadow: -1px -1px 2px 0px black;
+  display: inline-block;
+  padding: var(--btn-padding);
+  font-weight: 500;
+  border-radius: var(--border-radius);
   cursor: pointer;
+  transition: all 300ms ease;
+  font-size: 0.9rem;
+  align-self: center;
+  background-color: white;
+  color: var(--color-primary);
+  border: 0.5px solid var(--color-primary);
 `;
 
 export const Avatar = styled.img`
@@ -57,27 +59,29 @@ export const Bookmarks = styled.section`
 `;
 
 export const Bookmark = styled.button`
-  border-radius: 100px;
-  height: 2em;
-  width: 75px;
-  background: #c4c4c4;
-  color: black;
-  font-weight: 600;
-  border: none;
-  box-shadow: 1px 1px 2px 0px black;
+  display: inline-block;
+  padding: var(--btn-padding);
+  font-weight: 500;
+  border-radius: var(--border-radius);
   cursor: pointer;
+  transition: all 300ms ease;
+  font-size: 0.9rem;
+  align-self: center;
+  background-color: green;
 `;
 
 export const Bookmarked = styled.button`
-  border-radius: 100px;
-  height: 2em;
-  width: 75px;
-  background: #007922;
-  color: white;
-  font-weight: 600;
-  border: none;
-  box-shadow: -1px -1px 2px 0px black;
+  display: inline-block;
+  padding: var(--btn-padding);
+  font-weight: 500;
+  border-radius: var(--border-radius);
   cursor: pointer;
+  transition: all 300ms ease;
+  font-size: 0.9rem;
+  align-self: center;
+  background-color: white;
+  color: var(--color-primary);
+  border: 0.5px solid var(--color-primary);
 `;
 
 export const Image = styled.img`
@@ -107,8 +111,6 @@ export const StyledPageContainer = styled.div`
 
 export const StyledUserProfile = styled.div`
   grid-area: main;
-  border-left: 2px solid black;
-  border-right: 2px solid black;
   padding: 0px;
 `;
 

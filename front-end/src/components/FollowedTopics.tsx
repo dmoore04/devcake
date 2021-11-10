@@ -11,6 +11,7 @@ import {
   Following,
   TopicList,
 } from '../styling/Profile_elements';
+import { SingleContentCard, Button } from '../styling/Components.styled';
 
 const FollowedTopics: React.FC = () => {
   const { user, setUser } = useContext(UserContext);
@@ -43,24 +44,30 @@ const FollowedTopics: React.FC = () => {
   return (
     <TopicList>
       {topics.map((topic) => (
-        <li key={topic.slug}>
-          <Following>
-            <FollowedContainer>
-              <ButtonTitle>
-                <span>
-                  <Avatar src={topic.imgUrl} height="50px" />
-                </span>
-                {!user.topics.includes(topic.slug) ? (
-                  <Follow onClick={() => followTopic(topic.slug)}>Follow</Follow>
-                ) : (
-                  <Followed onClick={() => unfollowTopic(topic.slug)}>Followed</Followed>
-                )}
-              </ButtonTitle>
-              <h3> {topic.name}</h3>
-              <p> {topic.desc}</p>
-            </FollowedContainer>
-          </Following>
-        </li>
+        <SingleContentCard className="singleContent">
+          <li key={topic.slug}>
+            <Following>
+              <FollowedContainer>
+                <ButtonTitle>
+                  <span>
+                    <Avatar src={topic.imgUrl} height="50px" />
+                  </span>
+                  {!user.topics.includes(topic.slug) ? (
+                    <Follow className="btn btn-primary" onClick={() => followTopic(topic.slug)}>
+                      Follow
+                    </Follow>
+                  ) : (
+                    <Followed className="btn btn-primary" onClick={() => unfollowTopic(topic.slug)}>
+                      Followed
+                    </Followed>
+                  )}
+                </ButtonTitle>
+                <h3> {topic.name}</h3>
+                <p> {topic.desc}</p>
+              </FollowedContainer>
+            </Following>
+          </li>
+        </SingleContentCard>
       ))}
     </TopicList>
   );

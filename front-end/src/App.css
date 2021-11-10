@@ -39,6 +39,7 @@
 }
 
 body {
+  margin: 0;
   font-family: 'Poppins', sans-serif;
   color: var(--color-dark);
   background: var(--color-light);
@@ -57,7 +58,6 @@ a {
 
 img {
   display: block;
-  width: 70%;
   border-radius: 30%;
 }
 
@@ -66,8 +66,9 @@ img {
 }
 
 .btn {
-  background: var(--color-primary);
+  /* background: var(--color-primary); */
   color: white;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
 }
 
 #signOut__btn {
@@ -92,7 +93,7 @@ img {
 }
 
 .container .left {
-  height: max-content;
+  height: 100vh;
   position: sticky;
   top: var(--sticky-top-left);
   grid-area: nav;
@@ -100,6 +101,7 @@ img {
 
 .left {
   position: fixed;
+  height: 100vh;
   z-index: 1;
   top: 0;
   overflow-x: hidden;
@@ -116,10 +118,10 @@ img {
 }
 
 .left .sidebar {
-  margin-top: 1rem;
   background: var(--color-white);
   border-radius: var(--card-border-radius);
   position: fixed;
+  height: 100vh;
 }
 
 .menu-item {
@@ -256,6 +258,7 @@ img {
   transition: all 300ms ease;
   font-size: 0.9rem;
   align-self: center;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
 }
 
 .bookmark {

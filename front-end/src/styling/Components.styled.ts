@@ -4,7 +4,15 @@ export const Container = styled.div`
   width: 18%;
   margin: 0 auto;
   height: 100vh;
-  position: sticky;
+  position: fixed;
+`;
+
+export const SuggestionBody = styled.div`
+  width: 18%;
+  margin: 0 auto;
+  height: 100vh;
+  position: fixed;
+  right: 0;
 `;
 
 export const Button = styled.button`
@@ -16,11 +24,11 @@ export const Button = styled.button`
   transition: all 300ms ease;
   font-size: 0.9rem;
   align-self: center;
+  background-color: hsl(var(--primary-color-hue), 100%, 24%);
+  color: white;
 `;
 
 export const SingleContentCard = styled.li`
-  // border: 3px solid;
-
   box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
   margin: 5px;
   display: grid;
@@ -33,5 +41,6 @@ export const SingleContentCard = styled.li`
   img {
     margin: 30px 30px 30px 30px;
     float: left;
+    width: 70%;
   }
 `;

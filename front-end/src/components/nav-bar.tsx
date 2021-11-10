@@ -39,7 +39,7 @@ const NavBar: React.FC = () => {
         </div>
 
         {/* <MenuItem> */}
-        <Link className="menu-item active" key="home" to="/">
+        <Link className="menu-item" key="home" to="/">
           <span>
             <i className="fas fa-home"></i>
           </span>

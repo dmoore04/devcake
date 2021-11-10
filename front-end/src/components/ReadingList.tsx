@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from 'react';
 import { patchSaved, fetchSavedContent } from '../utils/api';
 import UserContext from '../contexts/UserContext';
 import IContent from '../interfaces/contentsData.interface';
+import { SingleContentCard, Button } from '../styling/Components.styled';
 import {
   Bookmarks,
   Bookmark,
@@ -42,23 +43,32 @@ const ReadingList: React.FC = () => {
     <ul>
       {readingList.map((content) => (
         <li>
-          <Bookmarks>
-            <BookmarkContainer>
-              <ButtonTitle>
-                <span>
-                  <Image src={content.imgUrl} height="200px" />
-                </span>
-                {!user.saved.includes(content._id) ? (
-                  <Bookmark onClick={() => addToList(content._id)}>Bookmark</Bookmark>
-                ) : (
-                  <Bookmarked onClick={() => removeFromList(content._id)}>Bookmarked</Bookmarked>
-                )}
-              </ButtonTitle>
-              <h3> {content.title}</h3>
-              <h4>{content.type}</h4>
-              <p> {content.desc}</p>
-            </BookmarkContainer>
-          </Bookmarks>
+          <SingleContentCard className="singleContent">
+            <Bookmarks>
+              <BookmarkContainer>
+                <ButtonTitle>
+                  <span>
+                    <Image src={content.imgUrl} height="200px" />
+                  </span>
+                  {!user.saved.includes(content._id) ? (
+                    <Bookmark className="btn btn-primary" onClick={() => addToList(content._id)}>
+                      Bookmark
+                    </Bookmark>
+                  ) : (
+                    <Bookmarked
+                      className="btn btn-primary"
+                      onClick={() => removeFromList(content._id)}
+                    >
+                      Bookmarked
+                    </Bookmarked>
+                  )}
+                </ButtonTitle>
+                <h3> {content.title}</h3>
+                <h4>{content.type}</h4>
+                <p> {content.desc}</p>
+              </BookmarkContainer>
+            </Bookmarks>
+          </SingleContentCard>
         </li>
       ))}
     </ul>
