@@ -29,6 +29,7 @@ const useContentSearch: Hook = ({ id, pageNumber }) => {
               ...currContent,
               ...res.map((item: IContent) => {
                 return {
+                  _id: item._id,
                   title: item.title,
                   desc: item.desc,
                   url: item.url,
