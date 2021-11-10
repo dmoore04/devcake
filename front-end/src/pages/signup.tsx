@@ -5,6 +5,13 @@ import { Link, Redirect } from 'react-router-dom';
 import { postUser } from '../utils/api';
 import INewUser from '../interfaces/newUser.interface';
 import UserContext from '../contexts/UserContext';
+import {
+  LoginContainer,
+  SignUp,
+  StyledLogin,
+  StyledPassword,
+  StyledTextInput,
+} from '../styling/login_elements';
 
 const SignUpPage: React.FC<IPage> = (props) => {
   const [submitted, setSubmitted] = useState(false);
@@ -48,60 +55,63 @@ const SignUpPage: React.FC<IPage> = (props) => {
   }
 
   return (
-    <div>
-      <h1> DevCake</h1>
-      <h2>Witty Slogan.</h2>
-      <form onSubmit={handleSubmit}>
-        <input
-          required
-          type="text"
-          name="fullName"
-          id="fullName"
-          placeholder="Full Name"
-          onChange={(e) => {
-            setNameInput(e.target.value);
-          }}
-        ></input>
+    <LoginContainer>
+      <StyledLogin>
+        <h1> DevCake</h1>
+        <h2>Witty Slogan.</h2>
         <br /> <br />
-        <input
-          required
-          type="text"
-          name="email"
-          id="email"
-          placeholder="Email"
-          onChange={(e) => {
-            setEmailInput(e.target.value);
-          }}
-        ></input>
-        <br /> <br />
-        <input
-          required
-          type="text"
-          name="username"
-          id="username"
-          placeholder="Username"
-          onChange={(e) => {
-            setUsernameInput(e.target.value);
-          }}
-        ></input>
-        <br /> <br />
-        <input
-          required
-          type="password"
-          name="password"
-          id="password"
-          placeholder="Password"
-          onChange={(e) => {
-            setPasswordInput(e.target.value);
-          }}
-        ></input>
-        <br /> <br />
-        <button type="submit">Sign Up</button>
-      </form>
-      <p>
-        Already have an account? <Link to="/log-in"> Sign in</Link>
-      </p>
-    </div>
+        <form onSubmit={handleSubmit}>
+          <StyledTextInput
+            required
+            type="text"
+            name="username"
+            id="username"
+            placeholder="Username"
+            onChange={(e) => {
+              setUsernameInput(e.target.value);
+            }}
+          />
+          <br /> <br />
+          <StyledTextInput
+            required
+            type="text"
+            name="fullName"
+            id="fullName"
+            placeholder="Full Name"
+            onChange={(e) => {
+              setNameInput(e.target.value);
+            }}
+          />
+          <br /> <br />
+          <StyledTextInput
+            required
+            type="text"
+            name="email"
+            id="email"
+            placeholder="Email"
+            onChange={(e) => {
+              setEmailInput(e.target.value);
+            }}
+          />
+          <br /> <br />
+          <StyledPassword
+            required
+            type="password"
+            name="password"
+            id="password"
+            placeholder="Password"
+            onChange={(e) => {
+              setPasswordInput(e.target.value);
+            }}
+          />
+          <br /> <br />
+          <SignUp type="submit">Sign Up</SignUp>
+        </form>
+        <p>
+          Already have an account? <Link to="/log-in"> Sign in</Link>
+        </p>
+      </StyledLogin>
+    </LoginContainer>
   );
 };
 
