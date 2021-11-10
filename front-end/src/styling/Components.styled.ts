@@ -18,12 +18,12 @@ export const Button = styled.button`
 `;
 
 export const SingleContentCard = styled.li`
-  border: 3px solid;
+  // border: 3px solid;
 
   box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
   margin: 5px;
   display: grid;
-  grid-template-columns: 25% 65% 10%;
+  grid-template-columns: 18% 72%;
   grid-template-rows: 10% 80% 10%;
   grid-template-areas:
     'topic blank bookmark'

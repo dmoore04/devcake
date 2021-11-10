@@ -1,6 +1,7 @@
 import React from 'react';
 import { useEffect, useContext, useState } from 'react';
 import UserContext from '../contexts/UserContext';
+import { Button } from '../styling/Components.styled';
 
 const AddToBookmarks: React.FC = () => {
   const { user } = useContext(UserContext);
@@ -21,7 +22,7 @@ const AddToBookmarks: React.FC = () => {
   //       setError(true);
   //     });
   // }, [id]);
-  return <button>Bookmark</button>;
+  return <i className="far fa-bookmark bookmark"></i>;
 };
 
 export default AddToBookmarks;

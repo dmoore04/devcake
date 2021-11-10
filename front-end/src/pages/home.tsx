@@ -1,7 +1,6 @@
 import React, { useEffect, useState, useRef, useCallback, useContext } from 'react';
 import IPage from '../interfaces/page';
 import NavBar from '../components/nav-bar';
-import TopicSuggestion from '../components/TopicSuggestion';
 import useContentSearch from '../hooks/useContentSearch';
 import UserContext from '../contexts/UserContext';
 import { Button, SingleContentCard } from '../styling/Components.styled';
@@ -51,6 +50,7 @@ const HomePage: React.FC<IPage> = () => {
                 >
                   <img
                     id="SingleContentImage"
+                    className="item-1"
                     src={singleContent.imgUrl}
                     alt={singleContent.title}
                   />
@@ -75,20 +75,25 @@ const HomePage: React.FC<IPage> = () => {
             } else {
               return (
                 <SingleContentCard key={singleContent._id}>
-                  <img src={singleContent.imgUrl} alt={singleContent.title} className="item-1" />
-                  <div className="card-content item-2">
-                    <h2>{singleContent.title}</h2>
+                  <img
+                    src={singleContent.imgUrl}
+                    alt={singleContent.title}
+                    id="SingleContentImage"
+                  />
 
-                    <h4>
-                      {singleContent.topic} {singleContent.type}
-                    </h4>
+                  <div className="card-content">
+                    <AddToBookmarks />
+                    <h2 className="singleContentTitle">{singleContent.title}</h2>
+
+                    <h4 className="singleContentTopic-type">Topic: {singleContent.topic}</h4>
+                    <h4 className="singleContentTopic-type">Type: {singleContent.type}</h4>
+
                     <p>{singleContent.desc}</p>
 
-                    <h4>{singleContent.provider}</h4>
+                    <h4>Provider: {singleContent.provider}</h4>
                   </div>
-                  <div className="item-3">
-                    <AddToBookmarks />
 
+                  <div className="item-3">
                     <a className="btn" href={singleContent.url} target="_blank" rel="noreferrer">
                       Learn More
                     </a>
