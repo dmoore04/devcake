@@ -36,35 +36,32 @@ const ReadingList: React.FC = () => {
     fetchSavedContent(user._id).then((savedContent) => {
       setReadingList(savedContent);
     });
-  }, [user._id]);
-  console.log(readingList);
+  }, []);
 
   return readingList ? (
-    <div>
-      <ul>
-        {readingList.map((content) => (
-          <li>
-            <Bookmarks>
-              <BookmarkContainer>
-                <ButtonTitle>
-                  <span>
-                    <Image src={content.imgUrl} height="200px" />
-                  </span>
-                  {!user.saved.includes(content._id) ? (
-                    <Bookmark onClick={() => addToList(content._id)}>Bookmark</Bookmark>
-                  ) : (
-                    <Bookmarked onClick={() => removeFromList(content._id)}>Bookmarked</Bookmarked>
-                  )}
-                </ButtonTitle>
-                <h3> {content.title}</h3>
-                <h4>{content.type}</h4>
-                <p> {content.desc}</p>
-              </BookmarkContainer>
-            </Bookmarks>
-          </li>
-        ))}
-      </ul>
-    </div>
+    <ul>
+      {readingList.map((content) => (
+        <li>
+          <Bookmarks>
+            <BookmarkContainer>
+              <ButtonTitle>
+                <span>
+                  <Image src={content.imgUrl} height="200px" />
+                </span>
+                {!user.saved.includes(content._id) ? (
+                  <Bookmark onClick={() => addToList(content._id)}>Bookmark</Bookmark>
+                ) : (
+                  <Bookmarked onClick={() => removeFromList(content._id)}>Bookmarked</Bookmarked>
+                )}
+              </ButtonTitle>
+              <h3> {content.title}</h3>
+              <h4>{content.type}</h4>
+              <p> {content.desc}</p>
+            </BookmarkContainer>
+          </Bookmarks>
+        </li>
+      ))}
+    </ul>
   ) : (
     <p> Your reading list is empty</p>
   );

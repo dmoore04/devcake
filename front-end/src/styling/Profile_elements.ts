@@ -90,3 +90,68 @@ export const BookmarkContainer = styled.li`
   margin-bottom: 1em;
   padding-left: 1em;
 `;
+
+export const TopicList = styled.ul`
+  list-style: none;
+  padding-left: 0;
+`;
+
+export const StyledPageContainer = styled.div`
+  display: grid;
+  grid-template-columns: 18vw 1fr 20vw;
+  grid-column-gap: 1rem;
+  column-gap: 1rem;
+  position: relative;
+  grid-template-areas: 'nav main right';
+`;
+
+export const StyledUserProfile = styled.div`
+  grid-area: main;
+  border-left: 2px solid black;
+  border-right: 2px solid black;
+  padding: 0px;
+`;
+
+export const StyledUserCard = styled.div`
+  display: grid;
+  grid-template-columns: 20% 1fr;
+  grid-template-rows: 50% 50%;
+  grid-template-areas:
+    'picture name'
+    'picture username';
+  img {
+    width: 200px;
+    grid-area: picture;
+  }
+`;
+export const ButtonContainer = styled.p`
+  display: flex;
+  margin: 10 0;
+`;
+export const HeaderButton = styled.button`
+  height: 2em;
+  width: 49%;
+  background: #007922;
+  color: white;
+  font-weight: 600;
+  border: none;
+  box-shadow: -1px -1px 2px 0px black;
+  cursor: pointer;
+  margin: 10 0;
+  padding: 0;
+  border: 1px solid #007922;
+`;
+
+export const UnselectedHeaderButton = styled.button`
+  border: 1px solid #007922;
+  height: 2em;
+  width: 49%;
+  background: white;
+  color: #007922;
+  font-weight: 600;
+  border: none;
+  box-shadow: -1px -1px 2px 0px black;
+  cursor: pointer;
+  margin: 10 0;
+  padding: 0;
+`;
