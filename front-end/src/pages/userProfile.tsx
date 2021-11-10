@@ -40,6 +40,9 @@ const UserProfile: React.FC<IPage> = (props) => {
       <div className="left sidebar">
         <NavBar />
       </div>
+      <div className="right">
+        <TopicSuggestion />
+      </div>
       <TopicSuggestion />
       <StyledUserProfile id="userInfo">
         <h3>User Profile</h3>
