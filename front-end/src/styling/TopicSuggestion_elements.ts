@@ -9,6 +9,7 @@ export const Suggestions = styled.section`
 
 export const SuggestionTitle = styled.h4`
   padding: 1em;
+  font-size: 1.3rem;
 `;
 
 export const Follow = styled.button`

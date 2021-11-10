@@ -5,6 +5,7 @@ import useContentSearch from '../hooks/useContentSearch';
 import UserContext from '../contexts/UserContext';
 import { Button, SingleContentCard } from '../styling/Components.styled';
 import AddToBookmarks from '../components/AddToBookmarks';
+import TopicSuggestion from '../components/TopicSuggestion';
 
 const HomePage: React.FC<IPage> = () => {
   const { user } = useContext(UserContext);
@@ -36,6 +37,9 @@ const HomePage: React.FC<IPage> = () => {
     <div className="container">
       <div className="left sidebar">
         <NavBar />
+      </div>
+      <div className="right">
+        <TopicSuggestion />
       </div>
 
       <div className="middle">
