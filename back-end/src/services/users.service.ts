@@ -1,4 +1,4 @@
-import { UserModel, User } from '../models';
+import { UserModel, User, ContentModel } from '../models';
 
 export const findUsers = async (query: Partial<User>) => UserModel.find(query).exec();
 
@@ -19,4 +19,13 @@ export const testUserLogin = async (username: string, password: string) => {
   } else {
     return Promise.reject('invalid username');
   }
+};
+
+export const findSavedContent = async (user_id: any) => {
+  const user = await UserModel.findById(user_id);
+  if (user) {
+    const content = await ContentModel.find({ _id: { $in: user.saved } });
+    return content.length > 0 ? content : false;
+  }
+  return false;
 };
