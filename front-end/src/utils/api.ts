@@ -1,5 +1,4 @@
 import axios from 'axios';
-import IContent from '../interfaces/contentsData.interface';
 import ILoginQuery from '../interfaces/loginQuery.interface';
 import INewUser from '../interfaces/newUser.interface';
 import IUser from '../interfaces/user';
