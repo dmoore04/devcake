@@ -69,7 +69,7 @@ export const BookmarkContainer = styled.li`
   padding-left: 1em;
 `;
 
-export const TopicList = styled.ul`
+export const List = styled.ul`
   list-style: none;
   padding-left: 0;
 `;
@@ -106,26 +106,26 @@ export const ButtonContainer = styled.p`
 `;
 export const HeaderButton = styled.button`
   height: 2em;
-  width: 49%;
+  width: 50%;
   background: #007922;
   color: white;
   font-weight: 600;
   border: none;
   cursor: pointer;
-  margin-right: 10px;
-  margin-left: 10px;
+  /* margin-right: 10px;
+  margin-left: 10px; */
   padding: 0;
 `;
 export const UnselectedHeaderButton = styled.button`
   height: 2em;
-  width: 49%;
+  width: 50%;
   background: white;
   color: #007922;
   font-weight: 600;
   border: none;
   cursor: pointer;
-  margin-right: 10px;
-  margin-left: 10px;
+  /* margin-right: 10px;
+  margin-left: 10px; */
   padding: 0;
 `;
 export const Bookmark = styled.button`
