@@ -1,5 +1,5 @@
 export default interface IContent {
-  _id?: string;
+  _id: string;
   title: string;
   desc: string;
   url: string;
