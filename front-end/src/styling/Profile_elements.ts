@@ -107,8 +107,6 @@ export const StyledPageContainer = styled.div`
 
 export const StyledUserProfile = styled.div`
   grid-area: main;
-  border-left: 2px solid black;
-  border-right: 2px solid black;
   padding: 0px;
 `;
 

@@ -56,13 +56,9 @@ const TopicSuggestion: React.FC = () => {
                   {topic.name}
                 </ButtonTitle>
                 {!user.topics.includes(topic.slug) ? (
-                  <Button className="btn btn-primary" onClick={() => followTopic(topic.slug)}>
-                    Follow
-                  </Button>
+                  <Button onClick={() => followTopic(topic.slug)}>Follow</Button>
                 ) : (
-                  <Button className="btn btn-primary" onClick={() => unfollowTopic(topic.slug)}>
-                    Followed
-                  </Button>
+                  <Button onClick={() => unfollowTopic(topic.slug)}>Followed</Button>
                 )}
               </SuggestionContainer>
             </span>
