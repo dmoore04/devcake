@@ -28,7 +28,7 @@ const App: React.FC = () => {
   }, []);
 
   return (
-    <div>
+    <div className="container">
       <UserContext.Provider value={{ user, setUser }}>
         <BrowserRouter>
           <Switch>
