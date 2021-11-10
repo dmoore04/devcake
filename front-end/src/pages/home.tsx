@@ -4,6 +4,7 @@ import NavBar from '../components/nav-bar';
 import TopicSuggestion from '../components/TopicSuggestion';
 import useContentSearch from '../hooks/useContentSearch';
 import UserContext from '../contexts/UserContext';
+import { Button } from '../styling/Components.styled';
 
 const HomePage: React.FC<IPage> = () => {
   const { user } = useContext(UserContext);
@@ -33,7 +34,9 @@ const HomePage: React.FC<IPage> = () => {
   );
   return (
     <div>
+      {/* <Left> */}
       <NavBar />
+      {/* </Left> */}
       <p>This is the homepage!</p>
       {content.map((singleContent, index) => {
         if (content.length === index + 1) {
@@ -47,9 +50,11 @@ const HomePage: React.FC<IPage> = () => {
               <p>{singleContent.desc}</p>
               <img src={singleContent.imgUrl} alt={singleContent.title} />
               <h4>{singleContent.provider}</h4>
+              <Button className = "btn:hover btn-primary">
               <a href={singleContent.url} target="_blank" rel="noreferrer">
                 Learn More
               </a>
+              </Button>
             </div>
           );
         } else {
@@ -63,7 +68,12 @@ const HomePage: React.FC<IPage> = () => {
               <p>{singleContent.desc}</p>
               <img src={singleContent.imgUrl} alt={singleContent.title} />
               <h4>{singleContent.provider}</h4>
-              <a href={singleContent.url} target="_blank" rel="noreferrer">
+              <a
+                className="btn btn-primary"
+                href={singleContent.url}
+                target="_blank"
+                rel="noreferrer"
+              >
                 Learn More
               </a>
             </div>
