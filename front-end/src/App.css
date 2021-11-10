@@ -213,7 +213,8 @@ img {
 .middle .content .singleContent {
   padding: var(--card-padding);
   border-radius: var(--card-border-radius);
-  display: flex;
+  display: grid;
+  grid-template-columns: 30% 60% 10%;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
@@ -243,8 +244,21 @@ img {
 }
 
 .item-3 {
-  grid-area: buttons;
+  grid-area: learn;
+}
+
+.btn-primary {
+  display: inline-block;
+  padding: var(--btn-padding);
+  font-weight: 500;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: all 300ms ease;
+  font-size: 0.9rem;
+  align-self: center;
 }
 
 .bookmark {
+  grid-column-start: 55%;
+  grid-row-start: bookmark;
 }
