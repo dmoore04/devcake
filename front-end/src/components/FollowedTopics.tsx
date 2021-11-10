@@ -9,7 +9,7 @@ import {
   FollowedContainer,
   ButtonTitle,
   Following,
-  TopicList,
+  List,
 } from '../styling/Profile_elements';
 import { SingleContentCard, Button } from '../styling/Components.styled';
 
@@ -42,7 +42,7 @@ const FollowedTopics: React.FC = () => {
   }, []);
 
   return (
-    <TopicList>
+    <List>
       {topics.map((topic) => (
         <SingleContentCard className="singleContent">
           <li key={topic.slug}>
@@ -69,7 +69,7 @@ const FollowedTopics: React.FC = () => {
           </li>
         </SingleContentCard>
       ))}
-    </TopicList>
+    </List>
   );
 };
 

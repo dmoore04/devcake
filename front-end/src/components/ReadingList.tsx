@@ -10,6 +10,7 @@ import {
   Image,
   BookmarkContainer,
   ButtonTitle,
+  List,
 } from '../styling/Profile_elements';
 
 const ReadingList: React.FC = () => {
@@ -40,7 +41,7 @@ const ReadingList: React.FC = () => {
   }, []);
 
   return readingList ? (
-    <ul>
+    <List>
       {readingList.map((content) => (
         <li>
           <SingleContentCard className="singleContent">
@@ -71,7 +72,7 @@ const ReadingList: React.FC = () => {
           </SingleContentCard>
         </li>
       ))}
-    </ul>
+    </List>
   ) : (
     <p> Your reading list is empty</p>
   );

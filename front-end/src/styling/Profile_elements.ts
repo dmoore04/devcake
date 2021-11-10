@@ -95,7 +95,7 @@ export const BookmarkContainer = styled.li`
   padding-left: 1em;
 `;
 
-export const TopicList = styled.ul`
+export const List = styled.ul`
   list-style: none;
   padding-left: 0;
 `;
