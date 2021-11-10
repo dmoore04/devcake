@@ -71,7 +71,7 @@ describe('/api/users', () => {
       });
     });
 
-    describe('/saved', () => {
+    describe.skip('/saved', () => {
       describe('GET', () => {
         it('200: should respond with a users saved content', async () => {
           const contentResponse = await request(app).get('/api/content');
