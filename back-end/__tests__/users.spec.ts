@@ -56,6 +56,39 @@ describe('/api/users', () => {
       });
     });
   });
+
+  describe('/:user_id', () => {
+    describe('PATCH', () => {
+      it('200: should update a user document and return the updated version', async () => {
+        const userResponse = await request(app).post('/api/users').send(testUser);
+        const { _id } = userResponse.body.user;
+        const response = await request(app)
+          .patch(`/api/users/${_id}`)
+          .send({ topics: ['javascript', 'python'] })
+          .expect(200);
+        const { user } = response.body;
+        expect(user.topics).toEqual(['javascript', 'python']);
+      });
+    });
+
+    describe('/saved', () => {
+      describe('GET', () => {
+        it('200: should respond with a users saved content', async () => {
+          const contentResponse = await request(app).get('/api/content');
+          const { docs } = contentResponse.body.content;
+          const userResponse = await request(app).post('/api/users').send(testUser);
+          const { _id } = userResponse.body.user;
+          await request(app)
+            .patch(`/api/users/${_id}`)
+            .send({ saved: [docs[0]._id, docs[1]._id] });
+
+          const response = await request(app).get(`/api/users/${_id}/saved`);
+          const { content } = response.body;
+          expect(content).toMatchObject([docs[0], docs[1]]);
+        });
+      });
+    });
+  });
 });
 
 describe('/api/users/:user_id', () => {
