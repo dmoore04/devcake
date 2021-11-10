@@ -2,30 +2,50 @@ import React from 'react';
 import { useEffect, useContext, useState } from 'react';
 import UserContext from '../contexts/UserContext';
 import { Button } from '../styling/Components.styled';
+import { patchSaved, fetchSavedContent } from '../utils/api';
+import IContent from '../interfaces/contentsData.interface';
+import IBookmark from '../interfaces/bookmark.interface';
 
-const AddToBookmarks: React.FC = () => {
-  const { user } = useContext(UserContext);
-  const [loading, setLoading] = useState<boolean>(false);
-  const [error, setError] = useState<boolean>(false);
-  const id = user._id;
-  console.log(id, '<<<<<IN ADD TO BOOKMARKS');
+type ComponentProps = {
+  content_id: string;
+};
 
-  // useEffect(() => {
-  //   setLoading(true);
-  //   setError(false);
-  //   addBookmark(id)
-  //     .then((res) => {
-  //       user.saved = [...user.saved, res];
-  //       setLoading(false);
-  //     })
-  //     .catch((e) => {
-  //       setError(true);
-  //     });
-  // }, [id]);
+const AddToBookmarks: React.FC<ComponentProps> = (props: any) => {
+  const { user, setUser } = useContext(UserContext);
+
+  const { content_id } = props;
+  console.log(props);
+
+  async function addToSaved(content_id: string) {
+    console.log(content_id);
+    if (!user.saved.includes(content_id)) {
+      user.saved.push(content_id);
+      const newUser = await patchSaved(user._id, user.saved);
+      setUser(newUser);
+      localStorage.setItem('devCakeUser', JSON.stringify(newUser));
+    }
+  }
+
+  async function removeFromSaved(content_id: string) {
+    const index = user.saved.indexOf(content_id);
+    if (index > -1) user.saved.splice(index, 1);
+    const newUser = await patchSaved(user._id, user.saved);
+    setUser(newUser);
+    localStorage.setItem('devCakeUser', JSON.stringify(newUser));
+  }
+
   return (
-    <h4>
-      Bookmark =&gt; <i className="far fa-bookmark bookmark"></i>
-    </h4>
+    <>
+      {!user.saved.includes(content_id) ? (
+        <button onClick={() => addToSaved(content_id)}>
+          <i className="far fa-bookmark bookmark"></i>
+        </button>
+      ) : (
+        <button onClick={() => removeFromSaved(content_id)}>
+          <i className="fas fa-bookmark bookmark"></i>
+        </button>
+      )}
+    </>
   );
 };
 

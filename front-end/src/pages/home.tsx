@@ -6,9 +6,12 @@ import UserContext from '../contexts/UserContext';
 import { Button, SingleContentCard } from '../styling/Components.styled';
 import AddToBookmarks from '../components/AddToBookmarks';
 import TopicSuggestion from '../components/TopicSuggestion';
+import { patchSaved, fetchSavedContent } from '../utils/api';
+import IContent from '../interfaces/contentsData.interface';
+import IBookmark from '../interfaces/bookmark.interface';
 
-const HomePage: React.FC<IPage> = () => {
-  const { user } = useContext(UserContext);
+const HomePage: React.FC = () => {
+  const { user, setUser } = useContext(UserContext);
   const id = user._id;
   const [pageNumber, setPageNumber] = useState<number>(1);
   const { loading, error, hasMore, content } = useContentSearch({ id, pageNumber });
@@ -32,6 +35,26 @@ const HomePage: React.FC<IPage> = () => {
     },
     [loading, hasMore]
   );
+
+  const [readingList, setReadingList] = useState<IContent[]>([]);
+
+  async function addToSaved(contentID: string) {
+    if (!user.saved.includes(contentID)) {
+      user.saved.push(contentID);
+      const newUser = await patchSaved(user._id, user.saved);
+      setUser(newUser);
+      localStorage.setItem('devCakeUser', JSON.stringify(newUser));
+    }
+  }
+
+  async function removeFromSaved(contentID: string) {
+    const index = user.saved.indexOf(contentID);
+    if (index > -1) user.saved.splice(index, 1);
+    const newUser = await patchSaved(user._id, user.saved);
+    setUser(newUser);
+    localStorage.setItem('devCakeUser', JSON.stringify(newUser));
+  }
+
   return (
     // <Main>
     <div className="container">
@@ -67,8 +90,9 @@ const HomePage: React.FC<IPage> = () => {
                     <p>{singleContent.desc}</p>
 
                     <h4>{singleContent.provider}</h4>
+                    <AddToBookmarks content_id={singleContent._id} />
                   </div>
-                  <AddToBookmarks />
+
                   <Button className="btn btn-primary">
                     <a href={singleContent.url} target="_blank" rel="noreferrer">
                       Learn More
@@ -94,8 +118,8 @@ const HomePage: React.FC<IPage> = () => {
                     <p>{singleContent.desc}</p>
 
                     <h4>Provider: {singleContent.provider}</h4>
-
-                    <AddToBookmarks />
+                    {console.log(singleContent)}
+                    <AddToBookmarks content_id={singleContent._id} />
                   </div>
 
                   <div className="item-3">
