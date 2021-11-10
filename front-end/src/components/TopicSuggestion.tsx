@@ -38,7 +38,7 @@ const TopicSuggestion: React.FC = () => {
       const suggested = topics.filter((topic) => !user.topics.includes(topic.slug));
       setTopics(suggested.slice(0, 5));
     });
-  });
+  }, [user.topics]);
 
   return (
     <Suggestions>
