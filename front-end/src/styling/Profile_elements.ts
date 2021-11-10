@@ -58,32 +58,6 @@ export const Bookmarks = styled.section`
   height: 100%;
 `;
 
-export const Bookmark = styled.button`
-  display: inline-block;
-  padding: var(--btn-padding);
-  font-weight: 500;
-  border-radius: var(--border-radius);
-  cursor: pointer;
-  transition: all 300ms ease;
-  font-size: 0.9rem;
-  align-self: center;
-  background-color: green;
-`;
-
-export const Bookmarked = styled.button`
-  display: inline-block;
-  padding: var(--btn-padding);
-  font-weight: 500;
-  border-radius: var(--border-radius);
-  cursor: pointer;
-  transition: all 300ms ease;
-  font-size: 0.9rem;
-  align-self: center;
-  background-color: white;
-  color: var(--color-primary);
-  border: 0.5px solid var(--color-primary);
-`;
-
 export const Image = styled.img`
   margin-right: 0.5em;
 `;
@@ -137,23 +111,45 @@ export const HeaderButton = styled.button`
   color: white;
   font-weight: 600;
   border: none;
-  box-shadow: -1px -1px 2px 0px black;
   cursor: pointer;
-  margin: 10 0;
+  margin-right: 10px;
+  margin-left: 10px;
   padding: 0;
-  border: 1px solid #007922;
 `;
-
 export const UnselectedHeaderButton = styled.button`
-  border: 1px solid #007922;
   height: 2em;
   width: 49%;
   background: white;
   color: #007922;
   font-weight: 600;
   border: none;
-  box-shadow: -1px -1px 2px 0px black;
   cursor: pointer;
-  margin: 10 0;
+  margin-right: 10px;
+  margin-left: 10px;
   padding: 0;
+`;
+export const Bookmark = styled.button`
+  display: inline-block;
+  padding: var(--btn-padding);
+  font-weight: 500;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: all 300ms ease;
+  font-size: 0.9rem;
+  align-self: center;
+  background-color: var(--color-primary);
+`;
+
+export const Bookmarked = styled.button`
+  display: inline-block;
+  padding: var(--btn-padding);
+  font-weight: 500;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: all 300ms ease;
+  font-size: 0.9rem;
+  align-self: center;
+  background-color: white;
+  color: var(--color-primary);
+  border: 0.5px solid var(--color-primary);
 `;

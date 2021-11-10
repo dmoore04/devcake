@@ -55,13 +55,21 @@ const UserProfile: React.FC<IPage> = (props) => {
         <ButtonContainer>
           {displayFollowing ? (
             <>
-              <HeaderButton onClick={toggleFollowing}>Following</HeaderButton>
-              <UnselectedHeaderButton onClick={toggleReading}>Reading List</UnselectedHeaderButton>
+              <HeaderButton className="btn" onClick={toggleFollowing}>
+                Following
+              </HeaderButton>
+              <UnselectedHeaderButton className="btn" onClick={toggleReading}>
+                Reading List
+              </UnselectedHeaderButton>
             </>
           ) : (
             <>
-              <UnselectedHeaderButton onClick={toggleFollowing}>Following</UnselectedHeaderButton>
-              <HeaderButton onClick={toggleReading}>Reading List</HeaderButton>
+              <UnselectedHeaderButton className="btn" onClick={toggleFollowing}>
+                Following
+              </UnselectedHeaderButton>
+              <HeaderButton className="btn" onClick={toggleReading}>
+                Reading List
+              </HeaderButton>
             </>
           )}
         </ButtonContainer>
