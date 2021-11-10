@@ -5,11 +5,11 @@ import TopicSuggestion from '../components/TopicSuggestion';
 import useContentSearch from '../hooks/useContentSearch';
 import UserContext from '../contexts/UserContext';
 import { Button, SingleContentCard } from '../styling/Components.styled';
+import AddToBookmarks from '../components/AddToBookmarks';
 
 const HomePage: React.FC<IPage> = () => {
   const { user } = useContext(UserContext);
   const id = user._id;
-  console.log(id, 'ID in home');
   const [pageNumber, setPageNumber] = useState<number>(1);
   const { loading, error, hasMore, content } = useContentSearch({ id, pageNumber });
   const observer = useRef<IntersectionObserver>();
@@ -35,7 +35,7 @@ const HomePage: React.FC<IPage> = () => {
   return (
     // <Main>
     <div className="container">
-      <div className="left">
+      <div className="left sidebar">
         <NavBar />
       </div>
 
@@ -44,13 +44,17 @@ const HomePage: React.FC<IPage> = () => {
           {content.map((singleContent, index) => {
             if (content.length === index + 1) {
               return (
-                <SingleContentCard>
-                  <li className="singleContent" ref={lastItemElementref} key={singleContent._id}>
-                    <img
-                      className="SingleContentImage"
-                      src={singleContent.imgUrl}
-                      alt={singleContent.title}
-                    />
+                <SingleContentCard
+                  className="singleContent"
+                  ref={lastItemElementref}
+                  key={singleContent._id}
+                >
+                  <img
+                    id="SingleContentImage"
+                    src={singleContent.imgUrl}
+                    alt={singleContent.title}
+                  />
+                  <div className="card-content">
                     <h2 className="singleContentTitle">{singleContent.title}</h2>
 
                     <h4 className="singleContentTopic-type">
@@ -59,20 +63,20 @@ const HomePage: React.FC<IPage> = () => {
                     <p>{singleContent.desc}</p>
 
                     <h4>{singleContent.provider}</h4>
-                    <Button className="btn:hover btn-primary">
-                      <a href={singleContent.url} target="_blank" rel="noreferrer">
-                        Learn More
-                      </a>
-                    </Button>
-                  </li>
-                  );
+                  </div>
+                  <AddToBookmarks />
+                  <Button className="btn:hover btn-primary">
+                    <a href={singleContent.url} target="_blank" rel="noreferrer">
+                      Learn More
+                    </a>
+                  </Button>
                 </SingleContentCard>
               );
             } else {
               return (
-                <SingleContentCard>
-                  <li key={singleContent._id}>
-                    <img src={singleContent.imgUrl} alt={singleContent.title} />
+                <SingleContentCard key={singleContent._id}>
+                  <img src={singleContent.imgUrl} alt={singleContent.title} className="item-1" />
+                  <div className="card-content item-2">
                     <h2>{singleContent.title}</h2>
 
                     <h4>
@@ -81,11 +85,14 @@ const HomePage: React.FC<IPage> = () => {
                     <p>{singleContent.desc}</p>
 
                     <h4>{singleContent.provider}</h4>
+                  </div>
+                  <div className="item-3">
+                    <AddToBookmarks />
 
                     <a className="btn" href={singleContent.url} target="_blank" rel="noreferrer">
                       Learn More
                     </a>
-                  </li>
+                  </div>
                 </SingleContentCard>
               );
             }
