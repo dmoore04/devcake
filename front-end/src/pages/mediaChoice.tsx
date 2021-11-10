@@ -5,6 +5,7 @@ import { addMedia, fetchMedia } from '../utils/api';
 import { Link, Redirect } from 'react-router-dom';
 import IMediaData from '../interfaces/mediaData.interface';
 import UserContext from '../contexts/UserContext';
+import { Button, ChoiceContainer } from '../styling/TopicMediaChoice.styled';
 
 const MediaChoice: React.FC<IPage> = (props) => {
   const { user, setUser } = useContext(UserContext);
@@ -65,50 +66,42 @@ const MediaChoice: React.FC<IPage> = (props) => {
     }
   };
 
-  //   const mediaArr: string[] = [];
-  //   media.forEach((type) => {
-  //     if (type.toggled) {
-  //       mediaArr.push(type._id);
-  //     }
-  //   });
-  //   console.log(`patching the user with the following types: ${mediaArr}`);
-  //   console.log('pressed submit - set state submitted to true');
-  // };
-
   if (submitted) {
     return <Redirect push to={{ pathname: '/' }} />;
   }
 
   return (
-    <div>
+    <ChoiceContainer>
       <Link key="home" to="/">
         Home
       </Link>
       <Link key="topic-choice" to="/topic-choice">
         Topic Choice
       </Link>
-      <h1>How do you want to learn? </h1>
       <div>
-        {media.map((type) => {
-          return (
-            <button
-              id={type._id}
-              key={type.type}
-              name={`${type.type}-button`}
-              className={`${type.type}__button`}
-              onClick={handleToggle}
-            >
-              {type.type}
-            </button>
-          );
-        })}
+        <h1>How do you want to learn? </h1>
+        {isError ? <p>At least one topic must be selected</p> : null}
+        <div>
+          {media.map((type) => {
+            return (
+              <Button
+                id={type._id}
+                key={type.type}
+                name={`${type.type}-button`}
+                className={`${type.type}__button`}
+                onClick={handleToggle}
+              >
+                {type.type}
+              </Button>
+            );
+          })}
+        </div>
+        <br />
+        <Button type="submit" onClick={handleSubmit}>
+          Next
+        </Button>
       </div>
-      <br />
-      <button type="submit" onClick={handleSubmit}>
-        Next
-      </button>
-      {isError ? <p>At least one topic must be selected</p> : null}
-    </div>
+    </ChoiceContainer>
   );
 };
 

@@ -7,6 +7,13 @@ import UserContext from '../contexts/UserContext';
 import TopicSuggestion from '../components/TopicSuggestion';
 import FollowedTopics from '../components/FollowedTopics';
 import ReadingList from '../components/ReadingList';
+import {
+  ButtonContainer,
+  HeaderButton,
+  StyledUserCard,
+  StyledUserProfile,
+  UnselectedHeaderButton,
+} from '../styling/Profile_elements';
 
 const UserProfile: React.FC<IPage> = (props) => {
   const { user } = useContext(UserContext);
@@ -30,20 +37,35 @@ const UserProfile: React.FC<IPage> = (props) => {
 
   return (
     <>
-      <NavBar />
+      <div className="left sidebar">
+        <NavBar />
+      </div>
       <TopicSuggestion />
-      <section id="userInfo">
-        <h3>this is where the User Info will go</h3>
-        <img src={user.avatarUrl} alt={user.username} width="200" />
-        <h1>{user.name}</h1>
-        <h2>{user.username}</h2>
-      </section>
-      <p>
-        <button onClick={toggleFollowing}>Following</button>{' '}
-        <button onClick={toggleReading}>Reading List</button>
-      </p>
-      {displayFollowing ? <FollowedTopics /> : null}
-      {displayReadingList ? <ReadingList /> : null}
+      <StyledUserProfile id="userInfo">
+        <h3>User Profile</h3>
+        <StyledUserCard>
+          <img src={user.avatarUrl} alt={user.username} width="200" />
+          <h1>{user.name}</h1>
+          <h2>{user.username}</h2>
+        </StyledUserCard>
+
+        <ButtonContainer>
+          {displayFollowing ? (
+            <>
+              <HeaderButton onClick={toggleFollowing}>Following</HeaderButton>
+              <UnselectedHeaderButton onClick={toggleReading}>Reading List</UnselectedHeaderButton>
+            </>
+          ) : (
+            <>
+              <UnselectedHeaderButton onClick={toggleFollowing}>Following</UnselectedHeaderButton>
+              <HeaderButton onClick={toggleReading}>Reading List</HeaderButton>
+            </>
+          )}
+        </ButtonContainer>
+
+        {displayFollowing ? <FollowedTopics /> : null}
+        {displayReadingList ? <ReadingList /> : null}
+      </StyledUserProfile>
     </>
   );
 };

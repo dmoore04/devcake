@@ -6,8 +6,7 @@ import { Link, Redirect } from 'react-router-dom';
 import ITopicData from '../interfaces/topic.interface';
 import UserContext from '../contexts/UserContext';
 import ITopicQueryData from '../interfaces/topicQueryData.interface';
-import { Button } from '../styling/Components.styled';
-import '../App.css';
+import { Button, ChoiceContainer } from '../styling/TopicMediaChoice.styled';
 
 const TopicChoice: React.FC<IPage> = (props) => {
   const { user, setUser } = useContext(UserContext);
@@ -76,35 +75,37 @@ const TopicChoice: React.FC<IPage> = (props) => {
   }
 
   return (
-    <div>
+    <ChoiceContainer>
       <Link key="home" to="/">
         Home
       </Link>
       <Link key="media-choice" to="/media-choice">
         Media Choice
       </Link>
-      <h1>What do you want to follow? </h1>
       <div>
-        {topics.map((topic) => {
-          return (
-            <Button
-              id={topic.id}
-              key={topic.id}
-              name={`${topic.name}-button`}
-              className={`btn`}
-              onClick={handleToggle}
-            >
-              {topic.name}
-            </Button>
-          );
-        })}
+        <h1>What do you want to follow? </h1>
+        {isError ? <p>At least one topic must be selected</p> : null}
+        <div>
+          {topics.map((topic) => {
+            return (
+              <Button
+                id={topic.id}
+                key={topic.id}
+                name={`${topic.name}-button`}
+                className={`btn`}
+                onClick={handleToggle}
+              >
+                {topic.name}
+              </Button>
+            );
+          })}
+        </div>
+        <br />
+        <Button className="btn" type="submit" onClick={handleSubmit}>
+          Next
+        </Button>
       </div>
-      <br />
-      <Button className="btn" type="submit" onClick={handleSubmit}>
-        Next
-      </Button>
-      {isError ? <p>At least one topic must be selected</p> : null}
-    </div>
+    </ChoiceContainer>
   );
 };
 

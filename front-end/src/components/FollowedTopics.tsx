@@ -9,6 +9,7 @@ import {
   FollowedContainer,
   ButtonTitle,
   Following,
+  TopicList,
 } from '../styling/Profile_elements';
 
 const FollowedTopics: React.FC = () => {
@@ -37,33 +38,31 @@ const FollowedTopics: React.FC = () => {
       const followed = topics.filter((topic) => user.topics.includes(topic.slug));
       setTopics(followed);
     });
-  }, [user.topics]);
+  }, []);
 
   return (
-    <div>
-      <ul>
-        {topics.map((topic) => (
-          <li key={topic.slug}>
-            <Following>
-              <FollowedContainer>
-                <ButtonTitle>
-                  <span>
-                    <Avatar src={topic.imgUrl} height="50px" />
-                  </span>
-                  {!user.topics.includes(topic.slug) ? (
-                    <Follow onClick={() => followTopic(topic.slug)}>Follow</Follow>
-                  ) : (
-                    <Followed onClick={() => unfollowTopic(topic.slug)}>Followed</Followed>
-                  )}
-                </ButtonTitle>
-                <h3> {topic.name}</h3>
-                <p> {topic.desc}</p>
-              </FollowedContainer>
-            </Following>
-          </li>
-        ))}
-      </ul>
-    </div>
+    <TopicList>
+      {topics.map((topic) => (
+        <li key={topic.slug}>
+          <Following>
+            <FollowedContainer>
+              <ButtonTitle>
+                <span>
+                  <Avatar src={topic.imgUrl} height="50px" />
+                </span>
+                {!user.topics.includes(topic.slug) ? (
+                  <Follow onClick={() => followTopic(topic.slug)}>Follow</Follow>
+                ) : (
+                  <Followed onClick={() => unfollowTopic(topic.slug)}>Followed</Followed>
+                )}
+              </ButtonTitle>
+              <h3> {topic.name}</h3>
+              <p> {topic.desc}</p>
+            </FollowedContainer>
+          </Following>
+        </li>
+      ))}
+    </TopicList>
   );
 };
 
