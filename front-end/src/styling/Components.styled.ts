@@ -4,7 +4,7 @@ export const Container = styled.div`
   width: 18%;
   margin: 0 auto;
   height: 100vh;
-  position: sticky;
+  position: fixed;
 `;
 
 export const Button = styled.button`
@@ -33,5 +33,6 @@ export const SingleContentCard = styled.li`
   img {
     margin: 30px 30px 30px 30px;
     float: left;
+    width: 70%;
   }
 `;
