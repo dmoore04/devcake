@@ -113,7 +113,7 @@ const HomePage: React.FC = () => {
                     <h2 className="singleContentTitle">{singleContent.title}</h2>
 
                     <p className="content-metadata">
-                      {singleContent.provider} <span className="divider">◼︎</span>{' '}
+                      {singleContent.provider} <span className="divider">▼</span>{' '}
                       {singleContent.type}
                     </p>
 

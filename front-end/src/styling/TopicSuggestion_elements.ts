@@ -8,6 +8,7 @@ export const Suggestions = styled.section`
   height: 100%;
   background: var(--color-white);
   margin: 0 auto;
+  border-radius: 1em;
 `;
 
 export const SuggestionTitle = styled.h4`
@@ -55,4 +56,5 @@ export const SuggestionContainer = styled.li`
   flex-direction: column;
   margin-bottom: 1em;
   padding-left: 1em;
+  border-radius: 2em;
 `;
