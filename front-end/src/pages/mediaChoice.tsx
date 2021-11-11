@@ -4,7 +4,12 @@ import { addMedia, fetchMedia } from '../utils/api';
 import { Link, Redirect } from 'react-router-dom';
 import IMediaData from '../interfaces/mediaData.interface';
 import UserContext from '../contexts/UserContext';
-import { Button, ChoiceContainer, ToggledButton } from '../styling/TopicMediaChoice.styled';
+import {
+  Button,
+  ChoiceContainer,
+  ToggledButton,
+  NextButton,
+} from '../styling/TopicMediaChoice.styled';
 
 const MediaChoice: React.FC<IPage> = (props) => {
   const { user, setUser } = useContext(UserContext);
@@ -48,15 +53,6 @@ const MediaChoice: React.FC<IPage> = (props) => {
     });
     setToggledMedia(newMedia);
   };
-
-  // const handleToggle = (e: React.SyntheticEvent) => {
-  //   const toggledID = (e.target as Element).id;
-  //   media.forEach((type) => {
-  //     if (type._id === toggledID) {
-  //       type.toggled = !type.toggled;
-  //     }
-  //   });
-  // };
 
   const handleSubmit = (e: React.SyntheticEvent) => {
     e.preventDefault();
@@ -119,9 +115,9 @@ const MediaChoice: React.FC<IPage> = (props) => {
           })}
         </div>
         <br />
-        <Button type="submit" onClick={handleSubmit}>
+        <NextButton type="submit" onClick={handleSubmit}>
           Next
-        </Button>
+        </NextButton>
       </div>
     </ChoiceContainer>
   );

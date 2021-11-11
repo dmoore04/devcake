@@ -12,7 +12,21 @@ export const Button = styled.button`
   background: #007922;
   color: white;
   border: none;
-  box-shadow: -1px -1px 2px 0px black;
+  text-transform: capitalize;
+`;
+
+export const NextButton = styled.button`
+  display: inline-block;
+  padding: var(--btn-padding);
+  cursor: pointer;
+  transition: all 300ms ease;
+  margin: 10px 20px;
+  border: none;
+  text-transform: uppercase;
+  background: none;
+  color: var(--color-dark);
+  font-weight: 500 !important;
+  font-size: 1.2em !important;
 `;
 
 export const ToggledButton = styled.button`
@@ -26,8 +40,8 @@ export const ToggledButton = styled.button`
   margin: 10px 20px;
   background: white;
   color: #007922;
-  border: none;
-  box-shadow: -1px -1px 2px 0px black;
+  border: 2px solid #007922;
+  text-transform: capitalize;
 `;
 
 export const ChoiceContainer = styled.div`

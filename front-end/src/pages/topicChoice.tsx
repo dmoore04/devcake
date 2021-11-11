@@ -5,7 +5,12 @@ import { Link, Redirect } from 'react-router-dom';
 import ITopicData from '../interfaces/topic.interface';
 import UserContext from '../contexts/UserContext';
 import ITopicQueryData from '../interfaces/topicQueryData.interface';
-import { Button, ChoiceContainer, ToggledButton } from '../styling/TopicMediaChoice.styled';
+import {
+  Button,
+  ChoiceContainer,
+  ToggledButton,
+  NextButton,
+} from '../styling/TopicMediaChoice.styled';
 
 const TopicChoice: React.FC<IPage> = (props) => {
   const { user, setUser } = useContext(UserContext);
@@ -77,7 +82,7 @@ const TopicChoice: React.FC<IPage> = (props) => {
   }
 
   return (
-    <ChoiceContainer>
+    <ChoiceContainer className="choices">
       <Link key="home" to="/">
         Home
       </Link>
@@ -113,9 +118,9 @@ const TopicChoice: React.FC<IPage> = (props) => {
           })}
         </div>
         <br />
-        <Button className="btn" type="submit" onClick={handleSubmit}>
+        <NextButton type="submit" onClick={handleSubmit}>
           Next
-        </Button>
+        </NextButton>
       </div>
     </ChoiceContainer>
   );

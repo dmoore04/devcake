@@ -66,7 +66,7 @@ const ReadingList: React.FC = () => {
                 </ButtonTitle>
                 <h3> {content.title}</h3>
                 <p className="content-metadata">
-                  {content.provider} ◼︎ {content.type}
+                  {content.provider} ▼ {content.type}
                 </p>
                 <p className="content-desc"> {content.desc}</p>
               </BookmarkContainer>
