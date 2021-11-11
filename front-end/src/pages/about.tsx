@@ -19,7 +19,7 @@ const AboutPage: React.FC<IPage & RouteComponentProps<any>> = (props) => {
   return (
     <div>
       <p>{message}</p>
-      <Link to="/"> go to the home page</Link>
+      <Link to="/"> Go to the Home Page</Link>
     </div>
   );
 };

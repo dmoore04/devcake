@@ -45,11 +45,10 @@ const UserProfile: React.FC<IPage> = (props) => {
       </div>
       <TopicSuggestion />
       <StyledUserProfile id="userInfo">
-        <h3>User Profile</h3>
         <StyledUserCard>
           <img src={user.avatarUrl} alt={user.username} width="200" />
-          <h1>{user.name}</h1>
-          <h2>{user.username}</h2>
+          <h1 className="user-card__name">{user.name}</h1>
+          <h2 className="user-card__username">@{user.username}</h2>
         </StyledUserCard>
 
         <ButtonContainer>

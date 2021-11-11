@@ -37,11 +37,11 @@ const AddToBookmarks: React.FC<ComponentProps> = (props: any) => {
   return (
     <>
       {!user.saved.includes(content_id) ? (
-        <button onClick={() => addToSaved(content_id)}>
+        <button className="bookmark__before" onClick={() => addToSaved(content_id)}>
           <i className="far fa-bookmark bookmark"></i>
         </button>
       ) : (
-        <button onClick={() => removeFromSaved(content_id)}>
+        <button className="bookmark__after" onClick={() => removeFromSaved(content_id)}>
           <i className="fas fa-bookmark bookmark"></i>
         </button>
       )}

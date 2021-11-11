@@ -47,6 +47,7 @@ export const ButtonTitle = styled.p`
   font-weight: 700;
   display: flex;
   align-items: center;
+  color: var(--color-dark);
 `;
 
 export const SuggestionContainer = styled.li`
