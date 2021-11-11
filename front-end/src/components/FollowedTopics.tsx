@@ -11,7 +11,7 @@ import {
   Following,
   List,
 } from '../styling/Profile_elements';
-import { SingleContentCard, Button } from '../styling/Components.styled';
+import { SingleContentCard } from '../styling/Components.styled';
 
 const FollowedTopics: React.FC = () => {
   const { user, setUser } = useContext(UserContext);

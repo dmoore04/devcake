@@ -1,10 +1,8 @@
 import React from 'react';
-import { useEffect, useContext, useState } from 'react';
+import { useContext } from 'react';
 import UserContext from '../contexts/UserContext';
-import { Button } from '../styling/Components.styled';
-import { patchSaved, fetchSavedContent } from '../utils/api';
-import IContent from '../interfaces/contentsData.interface';
-import IBookmark from '../interfaces/bookmark.interface';
+
+import { patchSaved } from '../utils/api';
 
 type ComponentProps = {
   content_id: string;

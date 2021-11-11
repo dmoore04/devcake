@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from 'react';
 import { patchSaved, fetchSavedContent } from '../utils/api';
 import UserContext from '../contexts/UserContext';
 import IContent from '../interfaces/contentsData.interface';
-import { SingleContentCard, Button } from '../styling/Components.styled';
+import { SingleContentCard } from '../styling/Components.styled';
 import {
   Bookmarks,
   Bookmark,

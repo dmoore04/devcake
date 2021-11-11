@@ -1,22 +1,21 @@
 import React, { useEffect, useState, useContext } from 'react';
 import IPage from '../interfaces/page';
-import logging from '../config/logging';
 import { addMedia, fetchMedia } from '../utils/api';
 import { Link, Redirect } from 'react-router-dom';
 import IMediaData from '../interfaces/mediaData.interface';
 import UserContext from '../contexts/UserContext';
-import { Button, ChoiceContainer } from '../styling/TopicMediaChoice.styled';
+import { Button, ChoiceContainer, ToggledButton } from '../styling/TopicMediaChoice.styled';
 
 const MediaChoice: React.FC<IPage> = (props) => {
   const { user, setUser } = useContext(UserContext);
   const [media, setMedia] = useState<IMediaData[]>([]);
   const [isError, setIsError] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [toggledMedia, setToggledMedia] = useState<string[]>([]);
 
   useEffect(() => {
     setIsError(false);
     setSubmitted(false);
-    logging.info(`Loading ${props.name}`);
     fetchMedia().then((result) => {
       const mediaArr = result.map((media: IMediaData) => {
         const newMedia = {
@@ -29,29 +28,41 @@ const MediaChoice: React.FC<IPage> = (props) => {
       });
       setMedia(mediaArr);
     });
-  }, [props.name]);
+  }, []);
 
   const handleToggle = (e: React.SyntheticEvent) => {
     const toggledID = (e.target as Element).id;
+    const newMedia = [...toggledMedia];
     media.forEach((type) => {
       if (type._id === toggledID) {
-        type.toggled = !type.toggled;
+        if (!toggledMedia.includes(type.type)) {
+          newMedia.push(type.type);
+        } else {
+          const index = newMedia.indexOf(type.type);
+          if (index > -1) {
+            newMedia.splice(index, 1);
+          } else newMedia.pop();
+        }
       }
     });
+    setToggledMedia(newMedia);
   };
+
+  // const handleToggle = (e: React.SyntheticEvent) => {
+  //   const toggledID = (e.target as Element).id;
+  //   media.forEach((type) => {
+  //     if (type._id === toggledID) {
+  //       type.toggled = !type.toggled;
+  //     }
+  //   });
+  // };
 
   const handleSubmit = (e: React.SyntheticEvent) => {
     e.preventDefault();
     setIsError(false);
-    const mediaArr: string[] = [];
-    media.forEach((type) => {
-      if (type.toggled) {
-        mediaArr.push(type.type);
-      }
-    });
     const user_id = user._id;
-    if (mediaArr.length > 0) {
-      addMedia(user_id, mediaArr)
+    if (toggledMedia.length > 0) {
+      addMedia(user_id, toggledMedia)
         .then((patchedUser) => {
           console.log(patchedUser);
           setUser(patchedUser);
@@ -83,7 +94,7 @@ const MediaChoice: React.FC<IPage> = (props) => {
         {isError ? <p>At least one topic must be selected</p> : null}
         <div>
           {media.map((type) => {
-            return (
+            return !toggledMedia.includes(type.type) ? (
               <Button
                 id={type._id}
                 key={type.type}
@@ -93,6 +104,16 @@ const MediaChoice: React.FC<IPage> = (props) => {
               >
                 {type.type}
               </Button>
+            ) : (
+              <ToggledButton
+                id={type._id}
+                key={type.type}
+                name={`${type.type}-button`}
+                className={`${type.type}__button`}
+                onClick={handleToggle}
+              >
+                {type.type}
+              </ToggledButton>
             );
           })}
         </div>
