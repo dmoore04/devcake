@@ -27,6 +27,7 @@ const MediaChoice: React.FC<IPage> = (props) => {
         return newMedia;
       });
       setMedia(mediaArr);
+      setToggledMedia(user.media);
     });
   }, []);
 

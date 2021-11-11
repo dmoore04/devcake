@@ -31,6 +31,7 @@ const TopicChoice: React.FC<IPage> = (props) => {
         return newTopic;
       });
       setTopics(topicsArr);
+      setToggledTopics(user.topics);
     });
   }, []);
 

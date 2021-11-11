@@ -1,17 +1,14 @@
 import React, { useEffect, useState, useRef, useCallback, useContext } from 'react';
-import IPage from '../interfaces/page';
+
 import NavBar from '../components/nav-bar';
 import useContentSearch from '../hooks/useContentSearch';
 import UserContext from '../contexts/UserContext';
 import { Button, SingleContentCard } from '../styling/Components.styled';
 import AddToBookmarks from '../components/AddToBookmarks';
 import TopicSuggestion from '../components/TopicSuggestion';
-import { patchSaved, fetchSavedContent } from '../utils/api';
-import IContent from '../interfaces/contentsData.interface';
-import IBookmark from '../interfaces/bookmark.interface';
 
 const HomePage: React.FC = () => {
-  const { user, setUser } = useContext(UserContext);
+  const { user } = useContext(UserContext);
   const id = user._id;
   const [pageNumber, setPageNumber] = useState<number>(1);
   const { loading, error, hasMore, content } = useContentSearch({ id, pageNumber });
@@ -35,25 +32,6 @@ const HomePage: React.FC = () => {
     },
     [loading, hasMore]
   );
-
-  const [readingList, setReadingList] = useState<IContent[]>([]);
-
-  async function addToSaved(contentID: string) {
-    if (!user.saved.includes(contentID)) {
-      user.saved.push(contentID);
-      const newUser = await patchSaved(user._id, user.saved);
-      setUser(newUser);
-      localStorage.setItem('devCakeUser', JSON.stringify(newUser));
-    }
-  }
-
-  async function removeFromSaved(contentID: string) {
-    const index = user.saved.indexOf(contentID);
-    if (index > -1) user.saved.splice(index, 1);
-    const newUser = await patchSaved(user._id, user.saved);
-    setUser(newUser);
-    localStorage.setItem('devCakeUser', JSON.stringify(newUser));
-  }
 
   return (
     // <Main>
