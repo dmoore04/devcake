@@ -65,8 +65,10 @@ const ReadingList: React.FC = () => {
                   )}
                 </ButtonTitle>
                 <h3> {content.title}</h3>
-                <h4>{content.type}</h4>
-                <p> {content.desc}</p>
+                <p className="content-metadata">
+                  {content.provider} ◼︎ {content.type}
+                </p>
+                <p className="content-desc"> {content.desc}</p>
               </BookmarkContainer>
             </Bookmarks>
           </SingleContentCard>

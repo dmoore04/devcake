@@ -42,6 +42,8 @@ export const Followed = styled.button`
 
 export const Avatar = styled.img`
   margin-right: 0.5em;
+  border-radius: 0;
+  background: none;
 `;
 
 export const ButtonTitle = styled.p`

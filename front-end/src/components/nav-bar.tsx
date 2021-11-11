@@ -28,11 +28,11 @@ const NavBar: React.FC = () => {
     <>
       <Container className="sidebar">
         <NavLogo className="nav-logo" to="/">
-          DevCake
+          <span className="light">dev</span>Cake
         </NavLogo>
         <div className="profile">
           {/* <h3 className= "handle text-muted">{user.name}</h3> */}
-          <h4>{user.username}</h4>
+          <h4 className="navbar__username">@{user.username}</h4>
           <div>
             <Link key="user-profile" to="/user-profile">
               <img className="profile-photo" src={user.avatarUrl} alt="profile pic" />

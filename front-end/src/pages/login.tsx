@@ -50,7 +50,9 @@ const LoginPage: React.FC<IPage> = (props) => {
   return (
     <LoginContainer>
       <StyledLogin>
-        <h1 className="login__logo">DevCake</h1>
+        <h1 className="login__logo">
+          <span className="light">Dev</span>Cake
+        </h1>
         <h2 className="login__slogan">Cooking by the book.</h2>
         <br /> <br />
         <form onSubmit={handleSubmit}>
@@ -77,7 +79,7 @@ const LoginPage: React.FC<IPage> = (props) => {
           />
           <br /> <br />
           <Login type="submit">Sign In</Login>
-          {isError ? <p>Incorrect Username or Password</p> : null}
+          {isError ? <p className="error">Incorrect Username or Password</p> : null}
         </form>
         <p>
           Don't have an account?{' '}

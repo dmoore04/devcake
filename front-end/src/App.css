@@ -40,9 +40,9 @@
 
 body {
   margin: 0;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Barlow', sans-serif;
   color: var(--color-dark);
-  background: var(--color-light);
+  background: #f2f5f3;
   overflow-x: hidden;
 }
 
@@ -68,7 +68,8 @@ img {
 .btn {
   /* background: var(--color-primary); */
   color: white;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+  box-shadow: rgb(50 50 93 / 25%) 0px 6px 12px -2px, rgb(0 0 0 / 30%) 0px 0px 1px 0px;
+  font-family: 'Barlow', sans-serif;
 }
 
 #signOut__btn {
@@ -253,7 +254,7 @@ img {
 .btn-primary {
   display: inline-block;
   padding: var(--btn-padding);
-  font-weight: 500;
+  font-weight: 700;
   border-radius: var(--border-radius);
   cursor: pointer;
   transition: all 300ms ease;
@@ -261,6 +262,7 @@ img {
   align-self: center;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
   border: none;
+  font-family: 'Barlow', sans-serif;
 }
 
 .bookmark {
@@ -269,17 +271,22 @@ img {
   font-size: 1.5em;
   color: #007922;
   border: none;
+  cursor: pointer;
 }
 
 .nav-logo {
   color: #007922;
   font-weight: 700;
+  font-size: 2em;
+  text-align: center;
+  position: relative;
+  left: 25%;
 }
 
 .content-metadata {
   text-transform: capitalize;
   font-weight: 500;
-  margin-top: 0;
+  margin: 0;
   opacity: 0.5;
 }
 
@@ -289,6 +296,7 @@ img {
 
 .bookmark__before,
 .bookmark__after {
+  cursor: pointer;
   border: 0;
   background: none;
 }
@@ -340,4 +348,36 @@ img {
 
 .signup__link {
   padding: 0;
+}
+
+.singleContent h4 {
+  text-transform: capitalize;
+  margin: 0;
+}
+
+.singleContent h3 {
+  text-transform: capitalize;
+}
+
+.content-desc {
+  margin: 0;
+}
+
+.navbar__username {
+  font-weight: 500;
+  position: relative;
+  left: 1em;
+  opacity: 0.75;
+}
+
+#userInfo {
+  font-family: 'Barlow', sans-serif;
+}
+
+.light {
+  font-weight: 300;
+}
+
+.error {
+  color: red;
 }

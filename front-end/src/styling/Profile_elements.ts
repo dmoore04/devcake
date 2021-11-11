@@ -52,8 +52,7 @@ export const FollowedContainer = styled.li`
 export const Bookmarks = styled.section`
   display: block;
   width: 60vw;
-  background-color: #f9f2f2;
-  padding-top: 2em;
+  background-color: white;
   height: 100%;
 `;
 

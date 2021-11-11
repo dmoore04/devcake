@@ -47,7 +47,6 @@ export const Login = styled.button`
   font-weight: 400;
   font-size: 18px;
   border: none;
-  box-shadow: -1px -1px 2px 0px black;
   cursor: pointer;
 `;
 export const SignUp = styled.button`
@@ -59,6 +58,5 @@ export const SignUp = styled.button`
   font-weight: 400;
   font-size: 18px;
   border: none;
-  box-shadow: -1px -1px 2px 0px black;
   cursor: pointer;
 `;
