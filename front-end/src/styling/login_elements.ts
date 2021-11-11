@@ -7,7 +7,8 @@ export const LoginContainer = styled.div`
   background-color: lightblue;
   grid-template-columns: 70% 30%;
   grid-template-areas: 'img login';
-  background-image: url('https://cdn.pixabay.com/photo/2016/11/23/14/45/coding-1853305_960_720.jpg');
+  background: url('https://images.unsplash.com/photo-1580927752452-89d86da3fa0a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1470&q=80')
+    0 0;
   background-size: cover;
 `;
 
@@ -25,6 +26,7 @@ export const StyledTextInput = styled.input`
   width: 14em;
   text-align: center;
   font-size: 18px;
+  border: 2px solid #e5e5e5;
 `;
 
 export const StyledPassword = styled.input`
@@ -33,6 +35,7 @@ export const StyledPassword = styled.input`
   width: 14em;
   text-align: center;
   font-size: 18px;
+  border: 2px solid #e5e5e5;
 `;
 
 export const Login = styled.button`

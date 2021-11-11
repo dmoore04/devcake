@@ -32,6 +32,8 @@ export const SingleContentCard = styled.li`
   box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
   margin: 5px;
   display: grid;
+  background-color: white;
+  border-radius: 1em;
   grid-template-columns: 18% 55%;
   grid-template-rows: 10% 55%;
   grid-template-areas:
@@ -39,7 +41,7 @@ export const SingleContentCard = styled.li`
     'image content content'
     'blank blank learn';
   img {
-    margin: 30px 30px 30px 30px;
+    margin: 30px;
     float: left;
     width: 70%;
   }

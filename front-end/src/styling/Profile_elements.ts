@@ -2,8 +2,6 @@ import styled from 'styled-components';
 export const Following = styled.section`
   display: block;
   width: 60vw;
-  background-color: #f9f2f2;
-  padding-top: 2em;
   height: 100%;
 `;
 
@@ -35,6 +33,7 @@ export const Followed = styled.button`
 
 export const Avatar = styled.img`
   margin-right: 0.5em;
+  border-radius: 0;
 `;
 
 export const ButtonTitle = styled.p`
@@ -86,6 +85,7 @@ export const StyledPageContainer = styled.div`
 export const StyledUserProfile = styled.div`
   grid-area: main;
   padding: 0px;
+  margin-top: 2em;
 `;
 
 export const StyledUserCard = styled.div`
@@ -103,6 +103,9 @@ export const StyledUserCard = styled.div`
 export const ButtonContainer = styled.p`
   display: flex;
   margin: 10 0;
+  margin-bottom: 0;
+  position: relative;
+  top: 1em;
 `;
 export const HeaderButton = styled.button`
   height: 2em;
@@ -114,7 +117,6 @@ export const HeaderButton = styled.button`
   cursor: pointer;
   /* margin-right: 10px;
   margin-left: 10px; */
-  padding: 0;
 `;
 export const UnselectedHeaderButton = styled.button`
   height: 2em;
@@ -126,7 +128,6 @@ export const UnselectedHeaderButton = styled.button`
   cursor: pointer;
   /* margin-right: 10px;
   margin-left: 10px; */
-  padding: 0;
 `;
 export const Bookmark = styled.button`
   display: inline-block;

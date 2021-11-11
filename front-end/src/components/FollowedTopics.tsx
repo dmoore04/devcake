@@ -50,7 +50,7 @@ const FollowedTopics: React.FC = () => {
               <FollowedContainer>
                 <ButtonTitle>
                   <span>
-                    <Avatar src={topic.imgUrl} height="50px" />
+                    <Avatar className="followed__avatar" src={topic.imgUrl} height="50px" />
                   </span>
                   {!user.topics.includes(topic.slug) ? (
                     <Follow className="btn btn-primary" onClick={() => followTopic(topic.slug)}>

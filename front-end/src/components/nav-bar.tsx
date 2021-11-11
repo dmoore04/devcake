@@ -27,7 +27,9 @@ const NavBar: React.FC = () => {
   return (
     <>
       <Container className="sidebar">
-        <NavLogo to="/">DevCake</NavLogo>
+        <NavLogo className="nav-logo" to="/">
+          DevCake
+        </NavLogo>
         <div className="profile">
           {/* <h3 className= "handle text-muted">{user.name}</h3> */}
           <h4>{user.username}</h4>
@@ -45,26 +47,26 @@ const NavBar: React.FC = () => {
           </span>
           <h3>Home</h3>
         </Link>
+        <Link className="menu-item" key="user-profile" to="/user-profile">
+          <span>
+            <i className="fas fa-user-circle"></i>
+          </span>
+          <h3>Profile</h3>
+        </Link>
         <Link className="menu-item" key="topic-choice" to="/topic-choice">
           <span>
             <i className="fas fa-clipboard-list"></i>
           </span>
-          <h3>Topic Choice</h3>
+          <h3>Topics</h3>
         </Link>
         <Link className="menu-item" key="media-choice" to="/media-choice">
           <span>
             <i className="fas fa-photo-video"></i>
           </span>
-          <h3>Media Choice</h3>
-        </Link>
-        <Link className="menu-item" key="user-profile" to="/user-profile">
-          <span>
-            <i className="fas fa-user-circle"></i>
-          </span>
-          <h3>User Profile</h3>
+          <h3>Media</h3>
         </Link>
         <Button className="btn" id="signOut__btn" onClick={handleSignOut}>
-          log out
+          Log Out
         </Button>
       </Container>
     </>

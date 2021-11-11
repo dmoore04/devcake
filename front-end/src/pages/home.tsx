@@ -112,18 +112,21 @@ const HomePage: React.FC = () => {
                   <div className="card-content">
                     <h2 className="singleContentTitle">{singleContent.title}</h2>
 
-                    <h4 className="singleContentTopic-type">Topic: {singleContent.topic}</h4>
-                    <h4 className="singleContentTopic-type">Type: {singleContent.type}</h4>
+                    <p className="content-metadata">
+                      {singleContent.provider} <span className="divider">▼</span>{' '}
+                      {singleContent.type}
+                    </p>
 
                     <p>{singleContent.desc}</p>
 
-                    <h4>Provider: {singleContent.provider}</h4>
                     {console.log(singleContent)}
                     <AddToBookmarks content_id={singleContent._id} />
                   </div>
                   <div className="item-3">
                     <a href={singleContent.url} target="_blank" rel="noreferrer">
-                      <Button className="btn btn-primary">Learn More</Button>
+                      <Button className="btn btn-primary" id="nav-icon">
+                        Learn More
+                      </Button>
                     </a>
                   </div>
                 </SingleContentCard>
