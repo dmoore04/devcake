@@ -95,7 +95,9 @@ const HomePage: React.FC = () => {
                       {singleContent.type}
                     </p>
 
-                    <p>{singleContent.desc}</p>
+                    <p className="content-desc">{singleContent.desc}</p>
+
+                    {console.log(singleContent)}
                     <AddToBookmarks content_id={singleContent._id} />
                   </div>
                   <div className="item-3">
