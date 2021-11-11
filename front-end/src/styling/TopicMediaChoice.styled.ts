@@ -24,7 +24,10 @@ export const ToggledButton = styled.button`
   transition: all 300ms ease;
   font-size: 0.9rem;
   margin: 10px 20px;
-  color: yellow;
+  background: white;
+  color: #007922;
+  border: none;
+  box-shadow: -1px -1px 2px 0px black;
 `;
 
 export const ChoiceContainer = styled.div`
