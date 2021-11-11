@@ -2,7 +2,6 @@ import styled from 'styled-components';
 export const Suggestions = styled.section`
   width: 270px;
   float: right;
-  right: 0;
   background-color: #f9f2f2;
   padding-top: 2em;
   height: 100%;
