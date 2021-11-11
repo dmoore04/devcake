@@ -48,7 +48,7 @@ const TopicSuggestion: React.FC = () => {
         <SuggestionTitle>You might like...</SuggestionTitle>
         <ul>
           {topics.map((topic) => (
-            <span className="menu-item">
+            <span className="menu-item" key={topic.slug}>
               <SuggestionContainer key={topic.slug}>
                 <ButtonTitle>
                   <Avatar src={topic.imgUrl} height="30px" />

@@ -44,7 +44,7 @@ const FollowedTopics: React.FC = () => {
   return (
     <List>
       {topics.map((topic) => (
-        <SingleContentCard className="singleContent">
+        <SingleContentCard className="singleContent" key={topic.slug}>
           <li key={topic.slug}>
             <Following>
               <FollowedContainer>
