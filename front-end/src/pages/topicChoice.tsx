@@ -1,6 +1,5 @@
 import React, { useEffect, useState, useContext } from 'react';
 import IPage from '../interfaces/page';
-import logging from '../config/logging';
 import { fetchTopics, addTopics } from '../utils/api';
 import { Link, Redirect } from 'react-router-dom';
 import ITopicData from '../interfaces/topic.interface';

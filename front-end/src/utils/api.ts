@@ -57,11 +57,8 @@ export const addMedia = async (user_id: string, mediaToAdd: string[]) => {
 };
 
 export const fetchContent = async (id: string, page?: number) => {
-  const userId = id;
-  console.log(userId, '<--- id in api');
   let path = `/content?user_id=${id}`;
   if (page) path += `&&page=${page}`;
-  console.log(path, '<--- PATH');
   const res = await api.get(path);
   return res.data.content.docs;
 };

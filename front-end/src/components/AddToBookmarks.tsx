@@ -12,7 +12,6 @@ const AddToBookmarks: React.FC<ComponentProps> = (props: any) => {
   const { user, setUser } = useContext(UserContext);
 
   const { content_id } = props;
-  console.log(props);
 
   async function addToSaved(content_id: string) {
     console.log(content_id);

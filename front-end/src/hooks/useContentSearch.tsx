@@ -16,8 +16,6 @@ const useContentSearch: Hook = ({ id, pageNumber }) => {
   const [hasMore, setHasMore] = useState<boolean>(false);
   const [content, setContent] = useState<IContent[]>([]);
 
-  console.log(id, '<- id in content search hook');
-
   useEffect(() => {
     setLoading(true);
     setError(false);
